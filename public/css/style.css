@@ -1,0 +1,282 @@
+/*** style design local **/
+:root {
+    --bg-primary: #e6e6e6;
+    --primary: #319de2;
+    --secondary: #171717;
+}
+* {
+}
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--bg-primary);
+    color: #fff;
+}
+p {
+  font-size: .8em;
+}
+.text-gradient-light {
+    background: -webkit-linear-gradient(
+    0deg,
+    #ffffff,
+    #e68888
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-gradient-dark {
+  
+}
+/*** navbar bottom, search Start ***/
+.nav-top {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  /* background: salmon; */
+  background: transparent;
+  padding-inline: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 99999;
+}
+.logo-nav {
+  background: rgb(56,56,56);
+  border-radius: 10px;
+  width: 40px;
+}
+.form{
+    position: relative;
+}
+
+.form .bi-search{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: var(--secondary);
+}
+
+
+.form-input{
+    height: 40px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+    box-shadow: none;
+    border:none;
+}
+
+#navBottom {
+  border-top: 1px solid rgba(36,36,36,.2);
+  background: var(--bg-primary);
+  color: var(--secondary);
+  padding-block: 20px;
+  position: fixed;
+  height: auto;
+  z-index: 999;
+}
+.i-nav:hover {
+  background: rgba(118,176,236,0.25);
+}
+.i-nav {
+  display: flex;
+  flex-direction: column;
+  color: #319de2;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0;
+  transition: all .35s ease;
+}
+.nav-item {
+}
+.label-nav {
+  color: #319de2;
+  transition: all .35s ease;
+}
+.nav-active {
+  background: rgba(118,176,236,0.25);
+  border-radius: 10px;
+  transition: all .35s ease;
+}
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/*** navbar bottom, search Stop ***/
+
+/*** main Start ***/
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 13%;
+    margin-bottom: 13%;
+    z-index: 999;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 368px) {
+  .mt-main {
+    margin-top: 40%;
+  }
+}
+@media screen and (min-width: 368px) {
+  .mt-main {
+    margin-top: 35%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mt-main {
+    margin-top: 5%;
+  }
+}
+.container-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding-inline: 15px;
+    overflow-x: hidden;
+}
+
+/*** main End ***/
+
+/*** Home page Start **/
+.carousel-item {
+  padding-inline: 10px;
+}
+.car-indi {
+  transform: translateY(40px);
+}
+.car-indi-item .active {
+}
+.car-indi-item {
+}
+.btn-game-product {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+}
+@media screen and (max-width: 368px) {
+.btn-game-product {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+}
+.con-fs-home {
+  width: 100%;
+  height: 40vh;
+  margin-top: 20px;
+  padding-block: 20px;
+  position: relative;
+  background: var(--primary);
+  border-radius: 35px;
+}
+.fs-home {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  overflow-x: scroll;
+  position: absolute;
+  bottom: 2%;
+  width: 90%;
+  height: 80%;
+  background: var(--bg-primary);
+  border-radius: 35px;
+  padding-left: 10%;
+}
+.con-product-home {
+  width: 100%;
+  height: 100vh;
+  margin-top: 20px;
+  padding-block: 20px;
+  position: relative;
+  background: var(--primary);
+  border-radius: 35px;
+}
+.product-home {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  height: 85vh;
+  background: var(--bg-primary);
+  border-radius: 35px;
+}
+/*** Home page End **/
+
+/** box product shop Start ***/
+.box-product {
+  width: 200px;
+  height: 200px;
+  color: #000;
+  background: #fff;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+/** box product shop End ***/
+
+
+/*** animation in shape home Start ***/
+.con-animation-shape {
+  width: 100%;
+  height: 300px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+}
+.shape1, .shape2 {
+  width: 100%;
+  height: 300px;
+  border-radius: 10% 10% 47% 10%;
+}
+.shape1 {
+  /* background: linear-gradient(
+  #e6e6e6,
+  rgba(230,230,230,.5),
+  #31e287
+  );  */
+  background: #319de2;
+  position: relative;
+  top: -7%;
+  z-index: 50;
+}
+.shape2 {
+  /* background: linear-gradient(
+  #e6e6e6,
+  rgba(230,230,230,.2),
+  rgba(118,236,175,.5)
+  ); */
+  background: rgba(118,176,236,0.5);
+  position: relative;
+  top: -45%;
+  z-index: 10;
+}
+
+/*** animation in shape home End ***/
+
+/*** Footer start ***/
+footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-block: 50px;
+  padding-inline: 15px;
+  position: absolute;
+  bottom: 0;
+}
+/*** Footer end ***/

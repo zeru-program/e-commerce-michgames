@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Michgames</title>
+  <style type="text/css" media="all">
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: white;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 500px;
+      background: #5b8ee5;
+      color: black;
+      border-radius: 5px;
+      position: relative;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+    }
+
+    .con-all {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 95%;
+      background: #5b8ee5;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      border-radius: 30px 0 30px 0;
+    }
+
+    .con-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      font-family: "Poppins", Sans-Serif;
+      font-size: .8em;
+      bottom: 5%;
+    }
+
+    .con-input {
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+      text-align: left;
+      color: White;
+    }
+    
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+    }
+
+    .con-accept {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      float: left;
+      margin-right: 30%;
+      font-size: .8em;
+      position: absolute;
+      left: 0;
+      bottom: -40px;
+      color: White;
+    }
+
+    .header-title {
+      text-align: center;
+      color: White;
+      font-weight: 1000;
+      font-family: "Poppins", sans-serif;
+      font-size: 2em;
+      position: absolute;
+      top: 0;
+    }
+
+    .inputOption {
+      border: none;
+      width: 230px;
+      height: 30px;
+      font-family: "Poppins", Sans-Serif;
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: 2px solid white;
+      position: relative;
+    }
+
+    .con-hidden-pw {
+      display: flex;
+      align-items: center;
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      gap: 0;
+      padding: 0;
+    }
+
+    .vis-pass {
+      width: 25px;
+      position: absolute;
+      right: 5%;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .wrong-popup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+      width: 300px;
+      height: 300px;
+      background: white;
+      font-weight: 800;
+      border-radius: 3px;
+      position: fixed;
+      transform: scale(1);
+      animation: scalePopup .7s ease;
+    }
+
+    @keyframes scalePopup {
+      from {
+        transform: scale(.7);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .cek-wrong {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      backdrop-filter: blur(2px);
+    }
+
+    .close-popup {
+      background: #e81a1a;
+      color: white;
+      font-weight: 800;
+      padding: 10px 30px;
+      border: 0;
+      border-radius: 5px;
+    }
+
+    .btn-login:active,
+    .btn-login:hover {
+      transform: scale(.95);
+      background: #526fe0;
+    }
+
+    .btn-login {
+      background: white;
+      border: 0;
+      padding: 10px 50px;
+      border-radius: 10px;
+      font-weight: 800;
+      transition: all .4s ease;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="con-all">
+      <label class="header-title">Sign-in</label>
+      <div class="con-input">
+        <form id="signin-form">
+        <label class="input-label">Username or Email</label>
+        <input type="text" id="emailOrName" class="inputOption" placeholder="type in here.." name="Email" />
+        <br>
+        <label class="input-label">Password</label>
+        <div class="con-hidden-pw">
+          <input type="password" id="password" class="inputOption" placeholder="type in here.." name="Password" />
+          <img src="voff.png" class="vis-pass" alt="show" onclick="switchOn()" />
+          <div class="con-accept">
+            <input type="checkbox" name="" id="cookies" /> <label>I agree the cookies</label>
+          </div>
+        </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="btn-login">Sign-in</button>
+      </form>
+      </div>
+      <br />
+      <br />
+
+      <div class="con-footer">
+        <label class="footer-title">Forgot your password? <a href="/pages/auth/fogot-pass">Reset password</a></label>
+        <label class="footer-title">Don't have a acount?
+          <a href="/pages/auth/sign-up">Sign-up</a></label>
+      </div>
+    </div>
+  </div>
+  <div class="cek-wrong">
+    <div class="wrong-popup">
+      <label>Incorrect <br>username, email, password!<br>Or cookies not checked</label>
+      <button class="close-popup" onclick="closePopupWrong()">OK</button>
+    </div>
+  </div>   
+  <script src="https://sheetdb.io/handlebars.js"></script>
+  <script type="text/javascript" charset="utf-8">
+  document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('hasLogin');
+    if (isLoggedIn === 'true') {
+        // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
+        window.location.href = "/pages/home/";
+    }
+  });
+  // checked data
+  document.getElementById("signin-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const emailOrName = document.getElementById("emailOrName").value;
+            const password = document.getElementById("password").value;
+            const url = 'https://sheetdb.io/api/v1/kjdw24g8k5a2c';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                  const user = data.find(item => (item.Email === emailOrName || item.Username === emailOrName) && item.Password === password);
+              if (user) {
+                localStorage.setItem('hasLogin', true);
+                localStorage.setItem('name', user.Name);
+                localStorage.setItem('username', user.Username);
+                localStorage.setItem('email', user.Email);
+                localStorage.setItem('password', user.Password);
+               
+                window.location.href = "/pages/home/"; // Redirect to home page
+              } else {
+                  alert("Invalid email or password. Please try again.");
+              }
+            })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Sign in failed. Please try again later.");
+                });
+        });
+  
+  
+    function closePopupWrong() {
+      const popupWrong = document.querySelector('.cek-wrong');
+      popupWrong.style.display = "none";
+    }
+
+    const usn = document.querySelectorAll('.inputOption');
+    usn.forEach(us => {
+      us.onclick = function () {
+        us.style.border = "2px solid white";
+      }
+    });
+    const imgPw = document.querySelector('.vis-pass');
+    const password = document.getElementById('password');
+    var cekVis = false;
+    function switchOn() {
+      if (cekVis) {
+        imgPw.src = "von.png";
+        imgPw.style.width = "23px";
+        password.type = "text";
+      } else {
+        imgPw.src = "voff.png";
+        imgPw.style.width = "25px";
+        password.type = "password";
+      }
+      cekVis = !cekVis;
+
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        loginCek();
+      }
+      if (e.altKey) {
+        const password = document.getElementById('password');
+        const username = document.getElementById('username');
+        password.value = "";
+        username.value = "";
+      }
+    });
+
+  </script>
+</body>
+
+</html>

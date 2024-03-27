@@ -1,0 +1,472 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E-commerce Michgames</title>
+        <style type="text/css" media="all">
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: white;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 350px;
+                height: 600px;
+                background: #5b8ee5;
+                color: black;
+                border-radius: 5px;
+                position: relative;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .con-all {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 95%;
+                background: #5b8ee5;
+                color: white;
+                position: absolute;
+                bottom: 0;
+                border-radius: 30px 0 30px 0;
+            }
+
+            .con-footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                position: absolute;
+                font-family: "Poppins", Sans-Serif;
+                font-size: 0.8em;
+                bottom: 5%;
+            }
+
+            .con-input {
+                display: flex;
+                justify-content: center;
+                align-items: left;
+                flex-direction: column;
+                text-align: left;
+                color: White;
+            }
+
+            .con-input form {
+                display: flex;
+                justify-content: center;
+                align-items: left;
+                flex-direction: column;
+                text-align: left;
+                color: White;
+            }
+
+            .con-accept {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                float: left;
+                margin-right: 30%;
+                font-size: 0.8em;
+                position: absolute;
+                left: 0;
+                bottom: -40px;
+                color: White;
+            }
+
+            .header-title {
+                text-align: center;
+                color: White;
+                font-weight: 800;
+                font-size: 2em;
+                font-family: "Poppins", sans-serif;
+                position: absolute;
+                top: 0;
+            }
+
+            .inputOption {
+                border: none;
+                width: 230px;
+                height: 30px;
+                font-family: "Poppins", Sans-Serif;
+                border-radius: 5px;
+                padding: 5px 10px;
+                border: 2px solid white;
+                position: relative;
+            }
+
+            .con-hidden-pw {
+                display: flex;
+                align-items: center;
+                max-width: 400px;
+                width: 100%;
+                position: relative;
+                gap: 0;
+                padding: 0;
+            }
+
+            .vis-pass {
+                cursor: pointer;
+                width: 25px;
+                position: absolute;
+                right: 5%;
+                margin: 0;
+            }
+
+            @keyframes scalePopup {
+                from {
+                    transform: scale(0.7);
+                }
+
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            .wrong-popup {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                width: 300px;
+                height: 300px;
+                background: white;
+                font-weight: 800;
+                border-radius: 3px;
+                position: fixed;
+                transform: scale(1);
+                animation: scalePopup 0.7s ease;
+            }
+
+            .cek-wrong {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                backdrop-filter: blur(2px);
+            }
+
+            .wait-popup {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                width: 300px;
+                height: 300px;
+                background: white;
+                font-weight: 800;
+                border-radius: 3px;
+                position: fixed;
+                transform: scale(1);
+                animation: scalePopup 0.7s ease;
+            }
+
+            .popupWait {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                backdrop-filter: blur(2px);
+            }
+
+            .close-popup {
+                background: #e81a1a;
+                color: white;
+                font-weight: 800;
+                padding: 10px 30px;
+                border: 0;
+                border-radius: 5px;
+            }
+
+            .btn-login:hover {
+                transform: scale(0.95);
+                background: #526fe0;
+            }
+
+            .btn-login {
+                background: white;
+                border: 0;
+                padding: 10px 50px;
+                border-radius: 10px;
+                font-weight: 800;
+                transition: all 0.4s ease;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+            }
+            .not-value-pw {
+                font-size: 0.8em;
+                color: white;
+                font-weight: 600;
+                -webkit-text-stroke: 0.3px red;
+            }
+            .load-sign {
+                width: 100px;
+                animation: pudarLoad 1.7s ease alternate infinite;
+            }
+            @keyframes pudarLoad {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0.8;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="con-all">
+                <label class="header-title">Sign-Up</label>
+                <div class="con-input">
+                    <form id="signup-form">
+                        <label class="input-label">Name</label>
+                        <input
+                            type="text"
+                            class="inputOption name"
+                            placeholder="type in here.."
+                            name="Name"
+                            id="Name"
+                            required
+                        />
+                        <br />
+                        <label class="input-label">Username</label>
+                        <input
+                            type="text"
+                            class="inputOption username"
+                            placeholder="type in here.."
+                            name="Username"
+                            id="Username"
+                            required
+                        />
+                        <br />
+                        <label class="input-label">Email</label>
+                        <input
+                            type="email"
+                            class="inputOption email"
+                            placeholder="type in here.."
+                            name="Email"
+                            id="Email"
+                            required
+                        />
+                        <br />
+                        <label class="input-label">Password</label>
+                        <div class="con-hidden-pw">
+                            <input
+                                type="password"
+                                id="passAsli"
+                                class="inputOption passwordAsli"
+                                placeholder="type in here.."
+                                name="Password"
+                                id="Password"
+                                required
+                            />
+                            <img
+                                src="voff.png"
+                                id="asli"
+                                class="vis-pass"
+                                alt="show"
+                                onclick="switchOnPwAsli()"
+                            />
+                        </div>
+                        <br />
+                        <label class="input-label">Confirm Password</label>
+                        <div class="con-hidden-pw">
+                            <input
+                                type="password"
+                                id="passConfirm"
+                                class="inputOption passwordConfirm"
+                                placeholder="type in here.."
+                                name="confirm"
+                                onkeyup="validatePassword()"
+                                required
+                            />
+                            <img
+                                src="voff.png"
+                                id="confirm"
+                                class="vis-pass"
+                                alt="show"
+                                onclick="switchOnPwConfirm()"
+                            />
+                            <div class="con-accept">
+                                <input type="checkbox" id="cookies" />
+                                <label>I agree the cookies</label>
+                            </div>
+                        </div>
+                        <label class="not-value-pw"></label>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <button type="submit" class="btn-login" disabled>
+                            Continue
+                        </button>
+                    </form>
+                </div>
+                <br />
+                <br />
+
+                <div class="con-footer">
+                    <label class="footer-title"
+                        >already have an account?
+                        <a href="/pages/auth/sign-in/">Sign-in</a></label
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="cek-wrong">
+            <div class="wrong-popup">
+                <label
+                    >Incorrect <br />username, password or confirm password!<br />
+                    or checkbox cookies not checked</label
+                >
+                <button class="close-popup" onclick="closePopupWrong()">
+                    OK
+                </button>
+            </div>
+        </div>
+
+        <div class="popupWait">
+            <div class="wait-popup">
+                <img src="loadSign.svg" class="load-sign" alt="loading" />
+                <div class="isi-wait">
+                    <label>Loading..</label>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://sheetdb.io/handlebars.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            document.addEventListener("DOMContentLoaded", function () {
+                const isLoggedIn = localStorage.getItem("hasLogin");
+                if (isLoggedIn === "true") {
+                    // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
+                    window.location.href = "/pages/home/";
+                }
+            });
+            document
+                .getElementById("signup-form")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    const formData = new FormData(this);
+                    const jsonData = {};
+                    formData.forEach((value, key) => {
+                        jsonData[key] = value;
+                    });
+                    const url = "https://sheetdb.io/api/v1/kjdw24g8k5a2c";
+                    fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(jsonData)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            window.location.href = "/pages/auth/sign-in/";
+
+                            // Redirect or perform any other actions as needed
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("Sign up failed. Please try again.");
+                        });
+                });
+
+            function validatePassword() {
+                var password = document.getElementById("passAsli").value;
+                var confirmPassword =
+                    document.getElementById("passConfirm").value;
+                var confirmPw = document.getElementById("passConfirm");
+                var submitButton = document.querySelector(".btn-login");
+                var wrongPw = document.querySelector(".not-value-pw");
+
+                if (password === confirmPassword) {
+                    submitButton.removeAttribute("disabled");
+                    wrongPw.textContent = "";
+                    confirmPw.style.border = "2px solid white";
+                } else {
+                    submitButton.setAttribute("disabled", "true");
+                    confirmPw.style.border = "2px solid red";
+                    wrongPw.textContent = "different passwords!";
+                }
+            }
+            function closePopupWrong() {
+                const popupWrong = document.querySelector(".cek-wrong");
+                popupWrong.style.display = "none";
+            }
+
+            const usn = document.querySelectorAll(".inputOption");
+            usn.forEach(us => {
+                us.onclick = function () {
+                    us.style.border = "2px solid white";
+                };
+            });
+            const passwordAsli = document.getElementById("passAsli");
+            const passwordConfirm = document.getElementById("passConfirm");
+            const imgPws = document.getElementById("asli");
+            const imgPwc = document.getElementById("confirm");
+            var cekVis = false;
+            function switchOnPwAsli() {
+                if (cekVis) {
+                    imgPws.src = "von.png";
+                    imgPws.style.width = "23px";
+                    passwordAsli.type = "text";
+                } else {
+                    imgPws.src = "voff.png";
+
+                    imgPws.style.width = "25px";
+                    passwordAsli.type = "password";
+                }
+                cekVis = !cekVis;
+            }
+            function switchOnPwConfirm() {
+                if (cekVis) {
+                    imgPwc.src = "von.png";
+                    imgPwc.style.width = "23px";
+                    passwordConfirm.type = "text";
+                } else {
+                    imgPwc.src = "voff.png";
+                    imgPwc.style.width = "25px";
+                    passwordConfirm.type = "password";
+                }
+                cekVis = !cekVis;
+            }
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Enter") {
+                    SignCek();
+                }
+                if (e.altKey) {
+                    const passwordA = document.getElementById("passwordAsli");
+                    const passwordC =
+                        document.getElementById("passwordConfirm");
+                    const username = document.getElementById("username");
+                    passwordA.value = "";
+                    passwordC.value = "";
+                    username.value = "";
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -9,16 +9,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+       <link rel="stylesheet" href="../../public/lib/animate.css" type="text/css" media="all" />
 
         <!--   stylesheet local path  -->
        <link rel="stylesheet" href="../../public/css/style.css" type="text/css" media="all" />
     </head>
     <body>
         <!-- start code logo nav and search box -->
-        <div
+       <div
             class="container nav-top d-flex justify-content-center align-items-center"
         >
-            <div class="d-flex w-100 justify-content-center align-items-center">
+            <div
+                class="d-flex w-100 gap-1 justify-content-center align-items-center"
+            >
                 <div>
                     <img
                         src="../../public/img/logo.png"
@@ -31,6 +34,7 @@
                         <i class="bi bi-search"></i>
                         <input
                             type="text"
+                            id="searchHome"
                             class="form-control form-input"
                             placeholder="Search anything..."
                         />
@@ -38,18 +42,124 @@
                 </div>
             </div>
         </div>
-        <!-- end code logo nav and search box -->
-
+         <!-- end code logo nav and search box -->
+     
+        <!-- Animation shape home Start -->
+        <div
+            class="d-flex justify-content-center align-items-center flex-column con-animation-shape"
+        >
+            <div class="shape1 fadeInDown de1 du1">
+                <div
+                    class="position-absolute"
+                    style="bottom: 5%; margin-left: 3%"
+                >
+                    <h1 class="fw-bold text-light fadeIn de1 du4 mt-3">
+                      Troli Belanja
+                    </h1>
+                </div>
+            </div>
+            <div class="shape2 fadeInDown de1 du2"></div>
+        </div>
+        <!-- Animation shape home End -->
         <!-- start content value -->
         <main>
-            <div class="container-main">
-                <!-- <div class="test"></div>
-          <div class="test"></div> -->
-            </div>
+            <div class="container-main mt-main" style="padding-inline: 15px;">
+              
+          <!--  style if not have a product in troli -->
+           <!--   <div class="w-100 d-flex justify-content-center align-items-center" style="transform: translateY(-10%); height: 80vh;">
+                <div class="d-flex flex-column text-center align-items-center justify-content-center mb-xl-5">
+                  <img class="mb-3" src="../../public/img/sad.png" style="width: 150px;" alt="emojies">
+                  <h4 class="text-dark px-5">Oops.. You don't have any products in your Troli.</h4>
+                </div>
+              </div>
+            </div>  -->
+          <!--  style if not have a product in troli -->
 
+          <!--  style if have a product in troli -->
+  
+       <div class="w-100 pb-4">
+            <div class="w-100" style="height: 100vh; overflow-y: auto;">
+              <div class="cart-container p-2">
+                <div class="product-box bg-transparent border-1 border-black border rounded-2 w-100 my-2">
+                  <div class="d-flex w-100 p-2 gap-2 align-items-center text-dark">
+                    <div class="">
+                      <input type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="" style="width: 100%;">
+                      <h4>200 Diamond</h4>
+                      <p>Product Top up mobile legends</p>
+                    </div>
+                    <div class="">
+                      <button class="btn btn-danger">Hapus</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-box bg-transparent border-1 border-black border rounded-2 w-100 my-2">
+                  <div class="d-flex w-100 p-2 gap-2 align-items-center text-dark">
+                    <div class="">
+                      <input type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="" style="width: 100%;">
+                      <h4>200 Diamond</h4>
+                      <p>Product Top up mobile legends</p>
+                    </div>
+                    <div class="">
+                      <button class="btn btn-danger">Hapus</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-box bg-transparent border-1 border-black border rounded-2 w-100 my-2">
+                  <div class="d-flex w-100 p-2 gap-2 align-items-center text-dark">
+                    <div class="">
+                      <input type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="" style="width: 100%;">
+                      <h4>200 Diamond</h4>
+                      <p>Product Top up mobile legends</p>
+                    </div>
+                    <div class="">
+                      <button class="btn btn-danger">Hapus</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class="container bg-success rounded-2 p-2 position-fixed" style="  width: 80px; right: 1%; bottom: 10%;">
+          <label class="fw-bold text-light">Checkout</label>
+        </div>
+        </div> 
+          <!--  style if have a product in troli -->
+        
+         
+        
+        </div>
+
+            
+            
             <!-- start footer bootom sticky -->
-            <footer class="bg-dark">hello</footer>
-            <!-- end footer bootom sticky -->
+              <footer class="bg-dark">
+                <div class="div-img-footer">
+                <img src="../../public/img/logo.png" class="logoImgFot" alt="" />
+                </div>
+                <div class="div-text-footer">
+                <p id="fotTxt" class="text-footer-1">
+                    Website e-commerce Pembelian items game seperti account game , top up diamond game , dan lainnya.
+                 </p>
+                 </div>
+                <div class="div-text-footer">
+                 <p class="fotTxt">
+                    create by
+                    <a
+                        class="zerux"
+                        href="https://zeru.netlify.app/"
+                        >Zeru</a
+                    >
+                    with laravel framework php.<br />
+                    owner is Michael store. launcing 01 April 2024.
+                </p>
+                </div>
+              </footer>
+              <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->
 

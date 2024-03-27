@@ -34,6 +34,7 @@
                         <i class="bi bi-search"></i>
                         <input
                             type="text"
+                            id="searchHome"
                             class="form-control form-input"
                             placeholder="Search anything..."
                         />
@@ -52,7 +53,7 @@
                     class="position-absolute"
                     style="bottom: 5%; margin-left: 3%"
                 >
-                    <h1 class="fw-bold text-light fadeIn de1 du4 mt-3">
+                    <h1 class="fw-bold text-light fadeIn de1 du4 mt-3" id="welcomeHomeUser">
                         Welcome!
                     </h1>
                 </div>
@@ -63,10 +64,7 @@
 
         <!-- start content value -->
         <main>
-            <div class="mt-main container-main">
-                <!-- <div class="test"></div>
-          <div class="test"></div> -->
-
+            <div class="mt-main container-main" style="padding-inline: 15px;">
                 <!--   Carousel start  -->
                 <div
                     id="carouselExampleInterval"
@@ -132,54 +130,250 @@
                 <!--   Carousel end  -->
                 
                 <div class="d-flex w-100 justify-content-center align-items-center flex-row">
-                  <button class="btn btn-secondary btn-game-product" style="border-radius: 50%;">
+                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-controller"></i>
                   </button>
-                  <button class="btn btn-secondary btn-game-product" style="border-radius: 50%;">
+                  <label class="text-dark">Mobile Legends</label>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-star" style="font-size: 1.3em;"></i>
                   </button>
-                  <button class="btn btn-secondary btn-game-product" style="border-radius: 50%;">
+                  <label class="text-dark">Free Fire</label>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-star" style="font-size: 1.3em;"></i>
                   </button>
-                  <button class="btn btn-secondary btn-game-product" style="border-radius: 50%;">
+                  <label class="text-dark">Roblox</label>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-arrow-right" style="font-size: 1.3em;"></i>
                   </button>
+                  <label class="text-dark">More</label>
+                  </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center con-fs-home text-light">
-                  <div class="text-light flex-column position-absolute d-flex" style="left: 6%; top: 2%;">
-                    <h3 class="text-gradient-light" style="font-weight: 1000;">Flash shale!</h3>
+                  <div class="text-light w-100 position-absolute d-flex" style="left: 6%; top: 2%;">
+                    <h3 class="text-light" style="font-weight: 1000;">Flash shale!</h3>
+                    <div class="bg-dark p-2 text-light text-center justify-content-center d-flex align-items-center" style="position: absolute; right: 10%; margin-right: 3%; padding-bottom: 0;">
+                      <p id="countFS" style="margin: 0;"></p>
+                    </div>
                   </div>
                   <div class="fs-home gap-3">
-                    <div class="d-flex box-product">
-                      hello world
+                    <div class="d-flex box-product" data-product="200 Diamond - ML" data-price="45.000">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .8em;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product">200 Diamond</h5>
+                      <label class="price-product">Rp. 45.000,00</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product" >estimasi : < 30mnt</label>
+                      </div>
                     </div>
-                    <div class="d-flex box-product">
-                      hello world
+                    <div class="d-flex box-product" data-product="200 Diamond - ML" data-price="45.000">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="../../public/img/product-2.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .8em;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product">200 Diamond</h5>
+                      <label class="price-product">Rp. 45.000,00</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product" >estimasi : < 30mnt</label>
+                      </div>
                     </div>
-                    <div class="d-flex box-product">
-                      hello world
+                    <div class="d-flex box-product" data-product="200 Diamond - ML" data-price="45.000">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="../../public/img/product-3.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .8em;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product">200 Diamond</h5>
+                      <label class="price-product">Rp. 45.000,00</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product" >estimasi : < 30mnt</label>
+                      </div>
                     </div>
-                    <div class="d-flex box-product">
-                      hello world
+                    <div class="d-flex box-product" data-product="200 Diamond - ML" data-price="45.000">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .8em;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product">200 Diamond</h5>
+                      <label class="price-product">Rp. 45.000,00</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product" >estimasi : < 30mnt</label>
+                      </div>
                     </div>
-                    <div class="d-flex box-product">
-                      hello world
+                    <div class="d-flex box-product" data-product="200 Diamond - ML" data-price="45.000">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="../../public/img/product-2.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .8em;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product">200 Diamond</h5>
+                      <label class="price-product">Rp. 45.000,00</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product" >estimasi : < 30mnt</label>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center con-product-home text-light">
+                <div id="productHome" class="d-flex justify-content-center align-items-center con-product-home text-light">
                   <div class="text-light flex-column position-absolute d-flex" style="left: 5%; top: 2%;">
                     <h3 class="fw-bolder">Top-up All games!</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, sint culpa. Tempore delectus iste recusandae!</p>
                   </div>
                   <div class="product-home">
-                    
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
+                    <div class="d-flex box-product box-product-sm" data-product="200 Diamond - ML" data-price="50.000">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="../../public/img/product-1.png" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">MOBILE LEGENDS</label>
+                      <h5 class="title-box-product title-product-sm">200 Diamond</h5>
+                      <label class="price-product price-product-sm">Rp. 50.000,00</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : < 30mnt</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
+            <div class="w-100 d-flex my-5 pb-3 flex-column" style="height: 410px; padding-inline: 15px; background: rgba(118,176,236,0.8);">
+              <div class="title-about mt-3 flex-column d-flex" style="text-align: left;">
+                <h2 class="fw-bolder">Lorem</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi omnis similique et, numquam voluptatem voluptas consequuntur magnam placeat minima odio ducimus! Illo molestias provident voluptates, assumenda sunt fugit tempore.</p>
+              </div>
+              <button onclick="window.location.href = 'https://wa.me/+62895411586360'" class="border text-dark cta-btn btn-chat"><i class="bi bi-phone"></i>Chat Owner</button>
+              <div class="d-flex flex-column gap-1 mt-2">
+                <p class="m-0">- Detail Alamat</p>
+                <p class="m-0">- Information</p>
+                <p class="m-0">- Social Media</p>
+                <p class="m-0">- Etc..</p>
+              </div>
+              <form action="" method="POST" class="gap-2 my-xxl-5 w-100 justify-content-center align-items-center d-flex flex-column">
+                <div class="d-flex gap-3">
+              <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
+              <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
+              <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
+              <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
+              <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
+              </div>
+              <button class="text-dark cta-btn btn-chat btn-rating-web"><i class="bi bi-award"></i>Rating Web</button>
+              </form>
+            </div>
 
             <!-- start footer bootom sticky -->
-            <!--     <footer class="bg-dark">hello</footer> -->
+              <footer class="bg-dark">
+                <div class="div-img-footer">
+                <img src="../../public/img/logo.png" class="logoImgFot" alt="" />
+                </div>
+                <div class="div-text-footer">
+                <p id="fotTxt" class="text-footer-1">
+                    Website e-commerce Pembelian items game seperti account game , top up diamond game , dan lainnya.
+                 </p>
+                 </div>
+                <div class="div-text-footer">
+                 <p class="fotTxt">
+                    create by
+                    <a
+                        class="zerux"
+                        href="https://zeru.netlify.app/"
+                        >Zeru</a
+                    >
+                    with laravel framework php.<br />
+                    owner is Michael store. launcing 01 April 2024.
+                </p>
+                </div>
+              </footer>
             <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->

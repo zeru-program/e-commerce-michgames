@@ -186,6 +186,10 @@ main {
         height: 50px;
         margin: 10px;
     }
+    .text-btn-product {
+      font-size: .8em;
+      white-space: nowrap;
+    }
 }
 .con-fs-home {
     width: 100%;

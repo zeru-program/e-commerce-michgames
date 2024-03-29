@@ -210,3 +210,63 @@ function logoutUser() {
   }, 2000); 
 }
 // local st Main End
+
+// Lakukan permintaan ke API SheetDB
+// fetch('https://sheetdb.io/api/v1/t0zcoym0xlyk9')
+//   .then(response => response.json())
+//   .then(data => {
+//     data.forEach(product => {
+//       const productName = product.produk_name;
+//       const categoryGame = product.category_game;
+//       const price = product.price;
+//       const estimasi = product.estimasi;
+
+//       console.log(`Nama Produk: ${productName}, Kategori Game: ${categoryGame}, Harga: ${price}, Estimasi ${estimasi}`);
+//     });
+//   });
+
+fetch('https://sheetdb.io/api/v1/t0zcoym0xlyk9')
+  .then(response => response.json())
+  .then(data => {
+    const productsByCategory = {};
+
+    // Kelompokkan produk berdasarkan kategori
+    data.forEach(product => {
+      const category = product.category_produk;
+      if (!productsByCategory[category]) {
+        productsByCategory[category] = [];
+      }
+      productsByCategory[category].push(product);
+    });
+
+    // Menampilkan produk pada halaman HTML
+    const allProducts = productsByCategory['all'];
+    const allProductsContainer = document.getElementById('all-products-container');
+    allProducts.forEach(product => {
+      const productName = product.produk_name;
+      const productDescription = product.description_produk;
+      const price = product.price;
+      const productDiv = document.createElement('div');
+      productDiv.innerHTML = `
+        <h3>${productName}</h3>
+        <p>${productDescription}</p>
+        <p>Harga: ${price}</p>
+      `;
+      allProductsContainer.appendChild(productDiv);
+    });
+
+    const discountProducts = productsByCategory['discount'];
+    const discountProductsContainer = document.getElementById('discount-products-container');
+    discountProducts.forEach(product => {
+      const productName = product.produk_name;
+      const productDescription = product.description_produk;
+      const price = product.price;
+      const productDiv = document.createElement('div');
+      productDiv.innerHTML = `
+        <h3>${productName}</h3>
+        <p>${productDescription}</p>
+        <p>Harga: ${price}</p>
+      `;
+      discountProductsContainer.appendChild(productDiv);
+    });
+  });

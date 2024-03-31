@@ -214,6 +214,17 @@ main {
     padding-left: 20%;
     padding-right: 2%;
 }
+.fs-home::-webkit-scrollbar {
+  scroll-behavior: smooth;
+  height: 0;
+  width: 0;
+}
+.fs-home::-webkit-scrollbar-track {
+   scroll-behavior: smooth;
+}
+.fs-home::-webkit-scrollbar-thumb {
+   scroll-behavior: smooth;
+}
 .con-product-home {
     width: 100%;
     margin-top: 50px;
@@ -641,3 +652,4 @@ footer {
     white-space: wrap;
 }
 /*** Footer end ***/
+

@@ -193,6 +193,26 @@ function accountManageLS() {
     usernameAcc.textContent = valueUsername;
     emailAcc.textContent = valueEmail;
     passwordAcc.textContent = valuePassword;
+    
+    if (valueUsername === 'admin') {
+    const dpAcc = document.querySelector('.acc-dropdown');
+    const dashDiv = document.createElement('div');
+    dashDiv.classList.add('accordion-item');
+    dashDiv.innerHTML = `
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                      Dashboard Admin
+                    </button>
+                  </h2>
+                  <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body d-flex flex-column">
+                      <label>Are you sure you want to go to the admin dashboard page?</label>
+                      <button class="btn btn-success rounded-1 p-2 m-1" onclick="window.location.href = '/pages/dashboard/dash/'">Go!</button>
+                      </div>
+                  </div>
+                  `;
+    dpAcc.appendChild(dashDiv); 
+    }
   } else {
     divNotLogin.classList.remove('d-none');
     divNotLogin.classList.add('d-flex');

@@ -360,12 +360,13 @@ function delAccount(email) {
   // Render the table when the page loads
   window.onload = renderTable;
   document.addEventListener('DOMContentLoaded', function() {
-    const isLoggedIn = localStorage.getItem('hasLogin');
-    const uss = localStorage.getItem('username');
-    if (!isLoggedIn && !uss === 'admin') {
-        // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
-        window.location.href = "/pages/home/";
-    }
+   const isLoggedIn = localStorage.getItem('hasLogin');
+   const username = localStorage.getItem('username');
+
+  if (!isLoggedIn || (username !== 'admin')) {
+    // Jika pengguna belum login atau bukan admin, alihkan ke halaman home
+    window.location.href = "/pages/home/";
+   }
   });
   
 </script>

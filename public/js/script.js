@@ -1,13 +1,3 @@
-// handle checkout product
-const buyProducts = document.querySelectorAll(".box-product");
-buyProducts.forEach(product => {
-    product.addEventListener("click", function () {
-        const productName = this.getAttribute("data-product");
-        const productPrice = this.getAttribute("data-price");
-        // Redirect to checkout page with product details
-        window.location.href = `/pages/checkout/?product=${productName}&price=${productPrice}`;
-    });
-});
 
 // search index system home page
 document.getElementById("searchHome").addEventListener("click", () => {
@@ -21,7 +11,7 @@ document.getElementById("searchHome").addEventListener("click", () => {
 // countdown flash shale
 function countdown() {
     // Tanggal target (misalnya, 31 Desember 2024)
-    var targetDate = new Date("March 30, 2024 23:59:59").getTime();
+    var targetDate = new Date("April 3, 2024 23:59:59").getTime();
     var x = setInterval(function () {
         var now = new Date().getTime();
         var distance = targetDate - now;
@@ -156,11 +146,117 @@ window.onload = function () {
     if (window.location.pathname === "/pages/home/") {
         countdown();
         welcomeHomeManage();
+        productManageHome();
     } else if (window.location.pathname === "/pages/account/") {
       accountManageLS();
     }
 };
+// handle checkout product
+addEventListener('DOMContentLoaded', () => {
+  setTimeout(function () {
+    console.log('dd')
+const buyProducts = document.querySelectorAll(".box-product");
+buyProducts.forEach(product => {
+    product.addEventListener("click", function () {
+        const productName = this.getAttribute("data-product");
+        const productPrice = this.getAttribute("data-price");
+        // Redirect to checkout page with product details
+        window.location.href = `/pages/checkout/?product=${productName}&price=${productPrice}`;
+    });
+});
+}, 1500);
+});
 
+// manage to product in home
+function productManageHome() {
+  
+  fetch('https://sheetdb.io/api/v1/t0zcoym0xlyk9')
+  .then(response => response.json())
+  .then(data => {
+    const productsByCategory = {};
+
+    // Kelompokkan produk berdasarkan kategori
+    data.forEach(product => {
+      const category = product.category_produk;
+      if (!productsByCategory[category]) {
+        productsByCategory[category] = [];
+      }
+      productsByCategory[category].push(product);
+    });
+
+   // flash shale display
+    const fsProducts = productsByCategory['flash-shale'];
+    const flashBody = document.getElementById('flash-body');
+    fsProducts.forEach(product => {
+      const productImg = product.img_src;
+      const productName = product.produk_name;
+      const productDescription = product.description_produk;
+      const productCG = product.category_game;
+      const price = product.price;
+      const estimasi = product.estimasi;
+      const productDiv = document.createElement('div');
+      productDiv.innerHTML = `
+                    <div class="d-flex box-product" data-product="${productName} - ${productCG}" data-price="${price}">
+                      <div class="discount-label red"> <span>-10%</span> </div>
+                      <div class="img-box-product">
+                        <img src="${productImg}" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="" style="color: #4f4f4f; font-size: .7em;">${productCG}</label>
+                      <h5 class="title-box-product flash-title">${productName}</h5>
+                      <label class="price-product price-flash">Rp. ${price}</label>
+                      <label class="price-product-slash">Rp. 50.000,00</label>
+                      <label class="estimasi-product est-flash" >estimasi : ${estimasi}</label>
+                      </div>
+                    </div>
+      `;
+      flashBody.appendChild(productDiv);
+    });
+    
+    
+    const recProducts = productsByCategory['recommend'];
+    const recBody = document.getElementById('recommend-body');
+    recProducts.forEach(product => {
+      const productImg = product.img_src;
+      const productName = product.produk_name;
+      const productDescription = product.description_produk;
+      const productCG = product.category_game;
+      const price = product.price;
+      const estimasi = product.estimasi;
+      const productDiv = document.createElement('div');
+      productDiv.innerHTML = `
+                    <div class="d-flex box-product box-product-sm" data-product="${productName} - ${productCG}" data-price="${price}">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="${productImg}" alt="product">
+                      </div>
+                      <div class="desc-box-product">
+                      <label class="label-product-sm" style="color: #4f4f4f;">${productCG}</label>
+                      <h5 class="title-box-product title-product-sm">${productName}</h5>
+                      <label class="price-product price-product-sm">Rp. ${price}</label>
+                      <label class="estimasi-product estimasi-product-sm" >estimasi : ${estimasi}</label>
+                      </div>
+                    </div>
+      `;
+      recBody.appendChild(productDiv);
+    });
+
+    // const discountProducts = productsByCategory['discount'];
+    // const discountProductsContainer = document.getElementById('discount-products-container');
+    // discountProducts.forEach(product => {
+    //   const productName = product.produk_name;
+    //   const productDescription = product.description_produk;
+    //   const price = product.price;
+    //   const productDiv = document.createElement('div');
+    //   productDiv.innerHTML = `
+    //     <h3>${productName}</h3>
+    //     <p>${productDescription}</p>
+    //     <p>Harga: ${price}</p>
+    //   `;
+    //   discountProductsContainer.appendChild(productDiv);
+    // });
+  });
+  
+}
 
 // local st Main Start
 const hasLogin = localStorage.getItem("hasLogin");
@@ -245,48 +341,5 @@ function logoutUser() {
 //     });
 //   });
 
-fetch('https://sheetdb.io/api/v1/t0zcoym0xlyk9')
-  .then(response => response.json())
-  .then(data => {
-    const productsByCategory = {};
-
-    // Kelompokkan produk berdasarkan kategori
-    data.forEach(product => {
-      const category = product.category_produk;
-      if (!productsByCategory[category]) {
-        productsByCategory[category] = [];
-      }
-      productsByCategory[category].push(product);
-    });
-
-    // Menampilkan produk pada halaman HTML
-    const allProducts = productsByCategory['all'];
-    const allProductsContainer = document.getElementById('all-products-container');
-    allProducts.forEach(product => {
-      const productName = product.produk_name;
-      const productDescription = product.description_produk;
-      const price = product.price;
-      const productDiv = document.createElement('div');
-      productDiv.innerHTML = `
-        <h3>${productName}</h3>
-        <p>${productDescription}</p>
-        <p>Harga: ${price}</p>
-      `;
-      allProductsContainer.appendChild(productDiv);
-    });
-
-    const discountProducts = productsByCategory['discount'];
-    const discountProductsContainer = document.getElementById('discount-products-container');
-    discountProducts.forEach(product => {
-      const productName = product.produk_name;
-      const productDescription = product.description_produk;
-      const price = product.price;
-      const productDiv = document.createElement('div');
-      productDiv.innerHTML = `
-        <h3>${productName}</h3>
-        <p>${productDescription}</p>
-        <p>Harga: ${price}</p>
-      `;
-      discountProductsContainer.appendChild(productDiv);
-    });
-  });
+console.log("User Agent:", navigator.userAgent);
+console.log("Platform:", navigator.platform);

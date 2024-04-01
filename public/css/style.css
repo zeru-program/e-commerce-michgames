@@ -187,10 +187,17 @@ main {
         margin: 10px;
     }
     .text-btn-product {
-      font-size: .8em;
+      font-size: .69em;
       white-space: nowrap;
     }
 }
+@media screen and (min-width: 368px) {
+    .text-btn-product {
+      font-size: .79em;
+      white-space: nowrap;
+    }
+}
+
 .con-fs-home {
     width: 100%;
     height: 350px;
@@ -502,6 +509,30 @@ main {
     white-space: nowrap;
     display: block;
     transform: rotate(-10deg);
+}
+@media screen and (max-width: 368px) {
+.flash-title {
+  font-size: .75em;
+}
+.price-flash {
+  font-size: .65em;
+}
+.est-flash {
+  width: 100px !important;
+  font-size: .69em !important;
+}
+}
+@media screen and (min-width: 368px) {
+.flash-title {
+  font-size: .89em;
+}
+.price-flash {
+  font-size: .65em;
+}
+.est-flash {
+  width: 100px !important;
+  font-size: .79em !important;
+}
 }
 .price-product-sm {
     font-size: 0.7em;

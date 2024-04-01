@@ -105,21 +105,22 @@
                                 data-bs-interval="5000"
                             >
                                 <img
-                                    src="../../public/img/cor1.jpg"
+                                    src="https://drive.google.com/thumbnail?id=1CA-oDY1V537xU11nJLqg8S_qNdUcjkx0"
                                     class="d-block rounded rounded-2 w-100"
                                     alt="..."
+                                    loading="lazy"
                                 />
                             </div>
                             <div class="carousel-item" data-bs-interval="5000">
                                 <img
-                                    src="../../public/img/cor2.jpg"
+                                    src="https://drive.google.com/thumbnail?id=1CAFxjbWBYbJQwg38vprzgO5QMDLNZ9y1"
                                     class="d-block rounded rounded-2 w-100"
                                     alt="..."
                                 />
                             </div>
                             <div class="carousel-item">
                                 <img
-                                    src="../../public/img/cor3.jpg"
+                                    src="https://drive.google.com/thumbnail?id=1CC-wttRvoyJqv0UVTrrnTZiTpvBFGr-E"
                                     class="d-block rounded rounded-2 w-100"
                                     alt="..."
                                 />
@@ -130,25 +131,25 @@
                 <!--   Carousel end  -->
                 
                 <div class="d-flex w-100 justify-content-center align-items-center flex-row">
-                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <div class="d-flex justify-content-center align-items-center flex-column" onclick="window.location.href = '/pages/product/'">
                   <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-controller"></i>
                   </button>
-                  <label class="text-dark text-btn-product">Mobile Legends</label>
+                  <label class="text-dark text-btn-product">Topup Games</label>
                   </div>
-                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <div class="d-flex justify-content-center align-items-center flex-column" onclick="window.location.href = '/pages/product/'">
                   <button class="btn btn-game-product" style="border-radius: 50%;">
-                    <i class="bi bi-star" style="font-size: 1.3em;"></i>
+                    <i class="bi bi-person-add" style="font-size: 1.3em;"></i>
                   </button>
-                  <label class="text-dark text-btn-product">Free Fire</label>
+                  <label class="text-dark text-btn-product">Buy Followers</label>
                   </div>
-                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <div class="d-flex justify-content-center align-items-center flex-column" onclick="window.location.href = '/pages/product/'">
                   <button class="btn btn-game-product" style="border-radius: 50%;">
-                    <i class="bi bi-star" style="font-size: 1.3em;"></i>
+                    <i class="bi bi-file-play" style="font-size: 1.3em;"></i>
                   </button>
-                  <label class="text-dark text-btn-product">Roblox</label>
+                  <label class="text-dark text-btn-product">Buy Views</label>
                   </div>
-                  <div class="d-flex justify-content-center align-items-center flex-column">
+                  <div class="d-flex justify-content-center align-items-center flex-column" onclick="window.location.href = '/pages/product/'">
                   <button class="btn btn-game-product" style="border-radius: 50%;">
                     <i class="bi bi-arrow-right" style="font-size: 1.3em;"></i>
                   </button>
@@ -186,7 +187,7 @@
                 <p class="m-0">- Social Media</p>
                 <p class="m-0">- Etc..</p>
               </div>
-              <form action="" method="POST" class="gap-2 my-xxl-5 w-100 justify-content-center align-items-center d-flex flex-column">
+              <form class="gap-2 my-xxl-5 w-100 justify-content-center align-items-center d-flex flex-column" id="formRating" action="https://formspree.io/f/mwkgrwrg" method="POST">
                 <div class="d-flex gap-3">
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
@@ -194,7 +195,9 @@
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
               </div>
-              <button class="text-dark cta-btn btn-chat btn-rating-web"><i class="bi bi-award"></i>Rating Web</button>
+              <label type="text" name="rating" id="ratingText"></label>
+              <button type="button" class="text-dark cta-btn btn-chat bg-warning" onclick="resetRating()">Reset
+              <button type="submit" class="text-dark cta-btn btn-chat btn-rating-web"><i class="bi bi-award"></i>Rating Web</button>
               </form>
             </div>
 
@@ -262,7 +265,35 @@
         </div>
 
         <!-- script js -->
+        <script src="https://sheetdb.io/handlebars.js"></script>
         <script type="text/javascript" src="../../public/js/script.js"></script>
+        <script>
+const starRating = document.querySelectorAll(".rating-star");
+var textRating = document.getElementById("ratingText").value;
+var clickedStar = true;
+var ratingLength = 0;
+starRating.forEach(s => {
+    s.onclick = () => {
+        s.classList.remove("bi-star");
+        s.classList.add("bi-star-fill");
+        ratingLength += 1;
+        textRating += 1;
+        if (ratingLength >= 5) {
+            ratingLength = 5;
+        }
+        console.log(ratingLength);
+        
+    };
+});
+function resetRating() {
+    ratingLength = 0;
+    starRating.forEach(st => {
+        st.classList.remove("bi-star-fill");
+        st.classList.add("bi-star");
+    });
+}
+
+        </script>
 
     </body>
 </html>

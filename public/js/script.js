@@ -147,14 +147,35 @@ window.onload = function () {
         countdown();
         welcomeHomeManage();
         productManageHome();
+        splashManage();
+        console.log(localStorage.length)
     } else if (window.location.pathname === "/pages/account/") {
       accountManageLS();
     }
 };
+
+function splashManage() {
+  const divSplash = document.getElementById('splashScreen');
+  const localSplash = localStorage.getItem('splashOn');
+  localStorage.removeItem("splashOn");
+  if (!localSplash) {
+    divSplash.classList.remove('d-none');
+    divSplash.classList.add('d-flex');
+ localStorage.setItem('splashOn', "splash screen done display");
+    
+    setTimeout(function() {
+    divSplash.classList.remove('d-flex');
+    divSplash.classList.add('d-none');
+    }, 4000);
+  } else {
+    divSplash.classList.remove('d-flex');
+    divSplash.classList.add('d-none');
+  }
+}
+
 // handle checkout product
 addEventListener('DOMContentLoaded', () => {
   setTimeout(function () {
-    console.log('dd')
 const buyProducts = document.querySelectorAll(".box-product");
 buyProducts.forEach(product => {
     product.addEventListener("click", function () {

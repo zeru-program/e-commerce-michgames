@@ -238,32 +238,34 @@
     }
   });
   // checked data
-  document.getElementById("signin-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const emailOrName = document.getElementById("emailOrName").value;
-            const password = document.getElementById("password").value;
-            const url = 'https://sheetdb.io/api/v1/9xqdeoagoekn3';
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                  const user = data.find(item => (item.Email === emailOrName || item.Username === emailOrName) && item.Password === password);
-              if (user) {
+document.getElementById("signin-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const emailOrName = document.getElementById("emailOrName").value;
+    const password = document.getElementById("password").value;
+    const url = 'https://sheetdb.io/api/v1/yf0879y48ha98';
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const dataArray = Object.values(data); // Ubah objek data menjadi array
+            const user = dataArray.find(item => (item.Username === emailOrName || item.Email === emailOrName) && item.Password === password);
+            if (user) {
                 localStorage.setItem('hasLogin', true);
                 localStorage.setItem('name', user.Name);
                 localStorage.setItem('username', user.Username);
                 localStorage.setItem('email', user.Email);
                 localStorage.setItem('password', user.Password);
-               
                 window.location.href = "/pages/home/"; // Redirect to home page
-              } else {
-                  alert("Invalid email or password. Please try again.");
-              }
-            })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert("Sign in failed. Please try again later.");
-                });
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Sign in failed. Please try again later.");
         });
+});
+
   
   
     function closePopupWrong() {

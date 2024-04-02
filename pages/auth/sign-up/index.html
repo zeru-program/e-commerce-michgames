@@ -232,6 +232,18 @@
                     opacity: 0.8;
                 }
             }
+            .invalid-feedback {
+                font-size: 0.8em;
+                color: white;
+                font-weight: 600;
+                -webkit-text-stroke: 0.3px red;
+            }
+            .d-none {
+              display: none;
+            }
+            .d-flex {
+              display: flex;
+            }
         </style>
     </head>
     <body>
@@ -259,6 +271,9 @@
                             id="Username"
                             required
                         />
+                        <div class="invalid-feedback d-none" id="alreadyUsn">
+                          Username already exists, choose another!
+                        </div>
                         <br />
                         <label class="input-label">Email</label>
                         <input
@@ -356,6 +371,7 @@
         </div>
 
         <script src="https://sheetdb.io/handlebars.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script type="text/javascript" charset="utf-8">
             document.addEventListener("DOMContentLoaded", function () {
                 const isLoggedIn = localStorage.getItem("hasLogin");
@@ -368,12 +384,37 @@
                 .getElementById("signup-form")
                 .addEventListener("submit", function (event) {
                     event.preventDefault();
+                   const usernameInput = document.querySelector('.username');
+                  const feedbackMessageUsn = document.getElementById('alreadyUsn');
+                  const emailInput = document.querySelector('.email');
+                 const feedbackMessageEml = document.getElementById('alreadyEml');
+                 
+                 const enteredUsername = usernameInput.value.trim().toLowerCase();
+                 const enteredEmail = emailInput.value.trim().toLowerCase();
+                 
+                 // validate username
+              fetch('https://sheetdb.io/api/v1/yf0879y48ha98?Username=' + enteredUsername)
+              .then(response => response.json())
+              .then(data => {
+                const existingUsername = data[0]?.Username; // Ambil nilai Username dari data pertama (jika ada)
+                if (existingUsername && existingUsername === enteredUsername) {
+                  // Username sudah ada, tampilkan pesan kesalahan
+                  feedbackMessageUsn.classList.remove('d-none');
+                  feedbackMessageUsn.classList.add('d-flex');
+                  return;
+                }
+                
+                  // Username belum ada, sembunyikan pesan kesalahan dan kirim ke db
+                  feedbackMessageUsn.classList.remove('d-flex');
+                  feedbackMessageUsn.classList.add('d-none');
+                
+                    
                     const formData = new FormData(this);
                     const jsonData = {};
                     formData.forEach((value, key) => {
                         jsonData[key] = value;
                     });
-                    const url = "https://sheetdb.io/api/v1/9xqdeoagoekn3";
+                    const url = "https://sheetdb.io/api/v1/yf0879y48ha98";
                     fetch(url, {
                         method: "POST",
                         headers: {
@@ -392,7 +433,13 @@
                             console.error("Error:", error);
                             alert("Sign up failed. Please try again.");
                         });
-                });
+                  
+                
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              });
+              });
 
             function validatePassword() {
                 var password = document.getElementById("passAsli").value;
@@ -416,6 +463,14 @@
                 const popupWrong = document.querySelector(".cek-wrong");
                 popupWrong.style.display = "none";
             }
+            
+            
+            // validation same characters in column sheets
+          
+
+
+            
+            
 
             const usn = document.querySelectorAll(".inputOption");
             usn.forEach(us => {

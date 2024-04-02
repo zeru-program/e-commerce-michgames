@@ -119,7 +119,7 @@ addEventListener("DOMContentLoaded", () => {
 });
 // manage to product in home
 function productManageHome() {
-    fetch("https://sheetdb.io/api/v1/t0zcoym0xlyk9")
+    fetch("https://sheetdb.io/api/v1/8fiiuqabyhl5m")
         .then(response => response.json())
         .then(data => {
             const productsByCategory = {};
@@ -208,7 +208,7 @@ function productManageHome() {
 }
 //manage product in page product
 function productManageProduct() {
-fetch('https://sheetdb.io/api/v1/t0zcoym0xlyk9')
+fetch('https://sheetdb.io/api/v1/8fiiuqabyhl5m')
   .then(response => response.json())
   .then(data => {
     const listP1 = document.getElementById("listProduct1");

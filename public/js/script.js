@@ -83,6 +83,7 @@ window.onload = function () {
     } else if (window.location.pathname === "/pages/account/") {
         accountManageLS();
     }
+   
 };
 
 function splashManage() {
@@ -103,20 +104,23 @@ function splashManage() {
     }
 }
 
-// handle checkout product
-addEventListener("DOMContentLoaded", () => {
-    setTimeout(function () {
-        const buyProducts = document.querySelectorAll(".box-product");
-        buyProducts.forEach(product => {
-            product.addEventListener("click", function () {
-                const productName = this.getAttribute("data-product");
-                const productPrice = this.getAttribute("data-price");
-                // Redirect to checkout page with product details
-                window.location.href = `/pages/checkout/?product=${productName}&price=${productPrice}`;
-            });
-        });
-    }, 1500);
-});
+// // handle checkout product
+// addEventListener("DOMContentLoaded", () => {
+//     setTimeout(function () {
+//         const buyProducts = document.querySelectorAll(".box-product");
+//         buyProducts.forEach(product => {
+//             product.addEventListener("click", function () {
+//                 const productName = this.getAttribute("data-product");
+//                 const productPrice = this.getAttribute("data-price");
+//                 const productImg = this.getAttribute("data-img");
+//                 const productEst = this.getAttribute("data-est");
+//                 const productGame = this.getAttribute("data-game");
+//                 // Redirect to checkout page with product details
+//                 window.location.href = `/pages/checkout/?product=${productName}&price=${productPrice}&cg="${productGame}"&pimg=${productImg}&est=${productEst}`;
+//             });
+//         });
+//     }, 1300);
+// });
 // manage to product in home
 function productManageHome() {
     fetch("https://sheetdb.io/api/v1/8fiiuqabyhl5m")
@@ -147,7 +151,7 @@ function productManageHome() {
                 const priceDisc = product.price_discount;
                 const productDiv = document.createElement("div");
                 productDiv.innerHTML = `
-                    <div class="d-flex box-product" data-product="${productName} - ${productCG}" data-price="${price}">
+                    <div class="d-flex box-product" data-product="${productName}" data-game="${productCG}" data-price="${price}" data-img="${productImg}" data-est="${estimasi}">
                       <div class="discount-label red"> <span>${labelDisc}</span> </div>
                       <div class="img-box-product">
                         <img src="${productImg}" alt="product">
@@ -175,7 +179,7 @@ function productManageHome() {
                 const estimasi = product.estimasi;
                 const productDiv = document.createElement("div");
                 productDiv.innerHTML = `
-                    <div class="d-flex box-product box-product-sm" data-product="${productName} - ${productCG}" data-price="${price}">
+                    <div class="d-flex box-product box-product-sm" data-product="${productName}" data-game="${productCG}" data-price="${price}" data-img="${productImg}" data-est="${estimasi}">
                       <div class="img-box-product img-box-product-sm">
                         <img src="${productImg}" alt="product">
                       </div>
@@ -231,6 +235,9 @@ fetch('https://sheetdb.io/api/v1/8fiiuqabyhl5m')
         productDiv.classList.add('d-flex', 'box-product', 'box-product-sm');
         productDiv.setAttribute('data-product', productName);
         productDiv.setAttribute('data-price', price);
+        productDiv.setAttribute('data-game', categame);
+        productDiv.setAttribute('data-img', imgSrc);
+        productDiv.setAttribute('data-est', estimasi);
         productDiv.innerHTML = `
           <div class="img-box-product img-box-product-sm">
             <img src="${imgSrc}" alt="${productName}" />
@@ -257,6 +264,9 @@ fetch('https://sheetdb.io/api/v1/8fiiuqabyhl5m')
         productDiv.classList.add('d-flex', 'box-product', 'box-product-sm');
         productDiv.setAttribute('data-product', productName);
         productDiv.setAttribute('data-price', price);
+        productDiv.setAttribute('data-game', categame);
+        productDiv.setAttribute('data-img', imgSrc);
+        productDiv.setAttribute('data-est', estimasi);
         productDiv.innerHTML = `
           <div class="img-box-product img-box-product-sm">
             <img src="${imgSrc}" alt="${productName}" />
@@ -283,6 +293,9 @@ fetch('https://sheetdb.io/api/v1/8fiiuqabyhl5m')
         productDiv.classList.add('d-flex', 'box-product', 'box-product-sm');
         productDiv.setAttribute('data-product', productName);
         productDiv.setAttribute('data-price', price);
+        productDiv.setAttribute('data-game', categame);
+        productDiv.setAttribute('data-img', imgSrc);
+        productDiv.setAttribute('data-est', estimasi);
         productDiv.innerHTML = `
           <div class="img-box-product img-box-product-sm">
             <img src="${imgSrc}" alt="${productName}" />

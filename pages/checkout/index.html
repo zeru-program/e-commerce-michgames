@@ -14,33 +14,30 @@
     </head>
     <body>
         <!-- start code logo nav and search box -->
-        <div
-            class="container nav-top d-flex justify-content-center align-items-center"
-        >
-            <div class="d-flex w-100 justify-content-center align-items-center">
-                <div>
-                    <img
-                        src="../../public/img/logo.png"
-                        class="logo-nav"
-                        alt=""
-                    />
-                </div>
-                <div class="w-100">
-                    <div class="form">
-                        <i class="bi bi-search"></i>
-                        <input
-                            type="text"
-                            class="form-control form-input"
-                            placeholder="Search anything..."
-                        />
-                    </div>
-                </div>
+        <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
+          <div class="container-fluid">
+            <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
+            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+              <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav py-2 gap-2">
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-house"></i>Home</a>
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-box-seam"></i>Product</a>
+                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex active nav-active align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-bag"></i>Troli</a>
+                <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-person"></i>Account</a>
+              </div>
             </div>
-        </div>
-        <!-- end code logo nav and search box -->
+          </div>
+        </nav>
+              <!-- end code logo nav and search box -->
 
         <!-- Animation shape home Start -->
-        <div
+     <!--   <div
             class="d-flex justify-content-center align-items-center flex-column con-animation-shape"
         >
             <div class="shape1 fadeInDown de1 du1">
@@ -55,160 +52,873 @@
             </div>
             <div class="shape2 fadeInDown de1 du2"></div>
         </div>
+        -->
         <!-- Animation shape home End -->
         <!-- start content value -->
-        <main class="mt-main">
-      <div class="container-main text-dark">
-       <div class="w-100 pb-4">
-            <div class="w-100" style="overflow-y: hidden;">
-              <div class="cart-container p-2">
-                <div class="product-box bg-transparent border-1 border-primary border rounded-2 w-100 my-2">
-                  <div class="d-flex w-100 p-2 gap-2 align-items-center text-dark">
-                    <img src="" id="img-checkout" style="width: 100px;" alt="product">
-                    <div class="gap-0 m-0 p-0" style="width: 100%;">
-                    <p class="gap-0 m-0 p-0" id="product-name"></p>
-                    <p class="gap-0 m-0 p-0" id="product-price"></p>
-                    <p class="gap-0 m-0 p-0" id="product-estimasi"></p>
+    <main class="" style="margin:0!important;">
+       <div class="container-main">
+        <img src="https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd" id="img-checkout1" style="width: 100%; object-fit:cover; height: 300px;" alt="product">
+        <div class="w-100 position-relative d-flex justify-content-center" style="height:150px; box-shadow: 0 -2px 10px white; margin-top:-20px; background:rgb(50,50,50);">
+          <div style="position:absolute; top:0;left:0;background-color: #e5e5f7;opacity: .39;z-index:9;background: repeating-linear-gradient( -45deg, #0d0f31, #0d0f31 5px, #e5e5f7 5px, #e5e5f7 25px ); backdrop-filter:blur(4px);width:100%;height:100%;"></div>
+          <div class="d-flex" style="z-index:99;width:100%; height:100%;">
+          <div class="d-flex justify-content-center align-items-center" style="width:40%; height: 100%;">
+                <div class="d-flex box-product-checkout box-product-sm" data-showlist="ff">
+                      <div class="img-box-product img-box-product-sm" style="height:100px!important;">
+                        <img src="https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd" alt="product" id="img-checkout2">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                    </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center" style="width:60%;height: 100%;">
+            <h4 id="nama-game">Free Fire</h4>
+            <h6 id="nama-perusahaan">@Garena</h6>
+            <label>Dikirim : <label id="estimasi-awal">< 30 menit</label></label>
+          </div>
+         </div>
+        </div>
+        <div class="container d-flex flex-column w-100 gap-4 py-5 mt-2" style="height:auto;">
+          <div class="w-100 px-3 d-flex flex-column py-3 gap-3 bg-dark rounded-2 text-light" style="text-align:left;">
+            <p class="d-flex gap-2 m-0"><i class="bi bi-clock" style="color:#319de2;"></i>Proses maximal 1x24 jam.</i>
+            <p class="d-flex gap-2 m-0"><i class="bi bi-box" style="color:#319de2;"></i>Jamiman Layanan.</i>
+            <p class="d-flex gap-2 m-0"><i class="bi bi-cash-coin" style="color:#319de2;"></i>Pembayaran Aman dan Terpercaya.</i>
+          </div>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item accordion-dark">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button rounded-2 border-0 accordion-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="">
+                      Cara Transaksi 
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-light">
+                <div class="text-dark d-flex text-light flex-column mt-3">
+                        <div class="d-flex flex-column text-light">
+                        <h5>Berikut langkah-langkah untuk membeli product michstore.</h5>
+                        <p>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ratione magnam ipsam consequatur nisi! Quia nemo illum eaque placeat ratione.</p>
+                        <p>2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ratione magnam ipsam consequatur nisi! Quia nemo illum eaque placeat ratione.</p>
+                        <p>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ratione magnam ipsam consequatur nisi! Quia nemo illum eaque placeat ratione.</p>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
+      </div>
+            <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
+              <div class="w-100 d-flex gap-3" style="height:50px;">
+                <label class="text-center justify-content-center align-items-center fw-bold d-flex" style="height:100%; background:#319de2;width:60px;">1</label>
+                <div class="bg-transparent d-flex justify-content-center align-items-center text-light" style="width:auto;">
+                  Isi data akun mu
+                </div>
+              </div>
+              <div class="w-100 d-flex gap-2 flex-column px-3 py-3">
+              <div class="d-none justify-content-center" id="ipt-id" style="width:100%;">
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light">
+                <label id="label-id">ID</label>
+                <input type="number" class="w-100 input-checkout border-0 py-1 rounded-2" id="id-game1" id="" value="" required />
+              </div>
+              </div>
+              <div class="w-100 d-none gap-2 flex-column justify-content-center" id="ipt-id-port">
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light">
+                <label id="label-id">ID</label>
+                <input type="number" class="w-100 input-checkout border-0 py-1 rounded-2" id="id-game2" id="" value="" required />
+              </div>
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light">
+                <label id="label-id">Port</label>
+                <input type="number" class="w-100 input-checkout border-0 py-1 rounded-2" id="port-game" id="" value="" required />
+              </div>
+              </div>
+              <div class="w-100 d-none justify-content-center" id="ipt-usn">
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light">
+                <label id="label-id">Username</label>
+                <input type="number" class="w-100 input-checkout border-0 py-1 rounded-2" id="usn-ipt" id="" value="" required />
+              </div>
+              </div>
             </div>
-          </div> 
-       <div class="mt-lg-5 w-100 text-dark d-flex flex-column position-relative" style="height: 300px;">
-         <h1 class="text-center text-uppercase fw-bold">Product</h1>
-         <div class="position-relative w-100 text-dark px-3">
-           <div class="position-absolute d-flex flex-column" style="left:2%; text-align:left;">
-             <label>Nama product</label>
-             <label>Brand</label>
-             <label>Category</label>
-             <label>QTY</label>
-             <label>Estimasi produk tiba</label>
-             <label>Harga product</label>
-             <label>Biaya admin</label>
-             <label>Total</label>
-           </div>
-           <div class="position-absolute d-flex flex-column top-0" style="right:2%; text-align:right;">
-             
-             <label id="name-product"></label>
-             <label id="brand-product"></label>
-             <label id="category-product"></label>
-             <label id="jumlah-product">x1</label>
-             <label id="estimasi-product"></label>
-             <label id="price-product"></label>
-             <label id="">1.500,00</label>
-             <label id="total-harga"></label>
-           </div>
          </div>
-       </div>
-         <div class="w-100 d-flex flex-column gap-1 align-items-center">
-           <button type="button" class="btn btn-outline-primary text-primary text-center align-items-center justify-content-center d-flex w-75 gap-1 rounded-2 py-2">Add To Troli</button>
-           <button type="button" class="btn btn-primary text-light text-center justify-content-center gap-1 align-items-center d-flex w-75 rounded-2 border-0 py-2" onclick="window.location.href='/pages/checkout/payment/'">Order<i class="bi bi-arrow-right" style="font-size: 1.3em;"></i></button>
+            <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
+              <div class="w-100 d-flex gap-3" style="height:50px;">
+                <label class="text-center justify-content-center align-items-center fw-bold d-flex" style="height:100%; background:#319de2;width:60px;">2</label>
+                <div class="bg-transparent d-flex justify-content-center align-items-center text-light" style="width:auto;">
+                  Pilih Items yang ingin kamu beli <p id="time"></p>
+                </div>
+              </div>
+              <div class="w-100 d-flex justify-content-center flex-wrap gap-3 px-3 py-3">
+                <div class="d-flex flex-column gap-3" style="width:320px;">
+                <label class="fw-bold text-light" id="label-product1">Special Items</label>
+                <div class="w-100 d-flex flex-column gap-2 justify-content-center align-items-center" >
+                  <div class="w-100 flex-wrap gap-2 d-flex" id="special-body">
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+                <div class="d-flex flex-column gap-3" style="width:320px;">
+                <label class="fw-bold text-light" id="label-product2">Diamonds</label>
+                <div class="w-100 d-flex flex-column gap-2 justify-content-center align-items-center" >
+                  <div class="w-100 flex-wrap gap-2 d-flex" id="diamond-body">
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                 <div class="p-2 d-flex product-load justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="" data-nama-item="" data-harga-item="15.000" data-estimasi-ch="" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;"></label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              </div>
          </div>
+            <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
+              <div class="w-100 d-flex gap-3" style="height:50px;">
+                <label class="text-center justify-content-center align-items-center fw-bold d-flex" style="height:100%; background:#319de2;width:60px;">3</label>
+                <div class="bg-transparent d-flex justify-content-center align-items-center text-light" style="width:auto;">
+                  Pilih pembayaran 
+                </div>
+              </div>
+              <div class="payment w-100 d-flex flex-column px-3 py-3" id="payBody">
+              <div class="d-flex method-pay product-load-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="qris">
+                <div class="d-flex flex-column"> 
+                
+                </div>
+              </div>
+              <div class="d-flex method-pay product-load-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="800" data-pay="e-wallet-gopay">
+              
+              </div>
+            </div>
+         </div>
+            <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
+              <div class="w-100 d-flex gap-3" style="height:50px;">
+                <label class="text-center justify-content-center align-items-center fw-bold d-flex" style="height:100%; background:#319de2;width:60px;">4</label>
+                <div class="bg-transparent d-flex justify-content-center align-items-center text-light" style="width:auto;">
+                  Isi detail kontak anda
+                </div>
+              </div>
+              <div class="w-100 d-flex gap-3 flex-column px-3 py-3">
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light" id="ipt-id">
+                <label id="label-id">Email</label>
+                <input type="email" placeholder="example@gamil.com" class="w-100 input-checkout border-0 py-1 rounded-2" name="" id="" value="" required />
+              </div>
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light" id="ipt-id">
+                <label id="label-id">Whatsapp</label>
+              <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-checkout fix-radius1 input-group-text" id="basic-addon1">+62</span>
+              </div>
+              <input type="number" class="form-control input-checkout fix-radius2" placeholder="81234566899.." aria-label="" aria-describedby="basic-addon1" required>
+            </div>
+              </div>
+            </div>
+         </div>
+            <div class="bg-dark d-flex rounded-2 overflow-hidden gap-3 flex-column px-2 py-2 w-100">
+              <div class="d-flex w-100 mt-3 mx-3">
+                <div style="width:100px;height:100px;object-fit:cover;" class="rounded-2 overflow-hidden d-flex justify-content-center align-items-center">
+                  <img src="https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd" id="img-checkout3" alt="">
+                </div>
+                <div class="text-light px-3 d-flex flex-column">
+                  <p class="m-0 show-id d-none" id="">-</p>
+                  <p class="m-0 show-id-port d-none" id="id-1"><p id="port-1"></p></p>
+                  <p class="m-0 show-usn d-none" id="">-</p>
+                  <p class="m-0" id="nama-product">-</p>
+                  <p class="m-0" id="brand-product">-</p>
+                  <p class="m-0" id="price-product">-</p>
+                  <p class="m-0" id="estimasi-product">Dikirm : -</p>
+                  <p class="m-0" id="total-product">Total : -</p>
+                  
+                </div>
+              </div>
+              <div class="d-flex w-100">
+                <button class="w-100 gap-2 mb-3 text-light mx-3 py-3 border-0 rounded-2" style="background:#319de2;"><i class="bi mx-3 bi-cart"></i>Beli Sekarang</button>
+              </div>
+         </div>
+        </div>
+        
        </div>
-
-            <!-- start footer bootom sticky -->
-        <!--     <footer class="bg-dark">hello</footer> -->
+           <!-- start footer bootom sticky -->
+               <footer class="bg-dark py-5">
+                <div class="div-img-footer">
+                  <h2 class="fw-bold py-2" style="font-family:'Outfit', sans-serif;">
+                    MichStore.
+                  </h2>
+                </div>
+                <div class="div-text-footer gap-3">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Media Social</h6>
+                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</i>
+              </div>
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Support</h6>
+                <p class="m-0" onclick="window.location.href = 'mailto:Michaelganteng3322@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>Michaelganteng3322@gmail.com</p>
+                <p class="m-0" onclick="window.location.href = 'mailto:zeruprogram@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>zeruprogram@gmail.com</p>
+                <p class="m-0">Proses Instant dan dijamin cepat!</p>
+              </div>
+                 </div>
+                <div class="div-text-footer py-2">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Information</h6>
+                <p class="m-0">Build in February 2024</p>
+                <p class="m-0">Release in March 2024</p>
+                <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
+              </div>
+                </div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.0.1</div>
+              </footer>
             <!-- end footer bootom sticky -->
-        </main>
+    </main>
         <!-- end content value -->
 
         <!-- start code navbar bottom -->
-        <nav class="navbar navbar-expand fixed-bottom" id="navBottom">
-            <ul class="navbar-nav nav-justified w-100">
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/home/'"
-                        class="bi i-nav bi-house"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/product/'"
-                        class="bi i-nav bi-box-seam"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/troli/'"
-                        class="bi i-nav bi-bag nav-active"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/account/'"
-                        class="bi i-nav bi-person"
-                    ></i>
-                </li>
-            </ul>
-        </nav>
-        <!-- end code navbar bottom -->
+<!-- end code navbar bottom -->
 
         <!-- script js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-        <script>
-const checkoutLS = localStorage.getItem('checkout');
-// Display product details on the checkout page
-// Fungsi untuk mendekripsi teks dengan AES
-if (checkoutLS) {
-function decryptText(ciphertext, key) {
-    var bytes  = CryptoJS.AES.decrypt(ciphertext, key);
-    return bytes.toString(CryptoJS.enc.Utf8);
-}
-      document.addEventListener("DOMContentLoaded", function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productName = urlParams.get('product');
-        const productPrice = urlParams.get('price');
-        const productCg = urlParams.get('cg');
-        const productImg = urlParams.get('pimg');
-        const productEst = urlParams.get('est');
-        
-    // Dekripsi nama produk dan harga sebelum menampilkannya
-    var decryptedProductName = decryptText(productName, 'secretKey');
-    var decryptedProductPrice = decryptText(productPrice, 'secretKey');
-    var decryptedProductCg = decryptText(productCg, 'secretKey');
-    var decryptedProductImg = decryptText(productImg, 'secretKey');
-    var decryptedProductEst = decryptText(productEst, 'secretKey');
-        //card
-        document.getElementById('product-name').innerText = `${decryptedProductName}`;
-        document.getElementById('product-price').innerText = `${decryptedProductPrice}`;
-        document.getElementById('product-estimasi').innerText = `Estimasi product: ${decryptedProductEst}`;
-        document.getElementById('img-checkout').src = decryptedProductImg;
-        
-        if (
-          decryptedProductCg === 'FREE FIRE' ||
-          decryptedProductCg === 'MOBILE LEGENDS' ||
-          decryptedProductCg === 'COC' ||
-          decryptedProductCg === 'COD' ||
-          decryptedProductCg === 'FIFA' ||
-          decryptedProductCg === 'PUBG'
-          ) {
-     document.getElementById("category-product").innerText = "GAMES";
-          }
-        if (
-          decryptedProductCg === 'TIKTOK' ||
-          decryptedProductCg === 'YOUTUBE' ||
-          decryptedProductCg === 'INSTAGRAM' ||
-          decryptedProductCg === 'FACEBOOK'
-          ) {
-     document.getElementById("category-product").innerText = "SOSMED";
-          }
-          var hargaTanpaTitik = decryptedProductPrice.replace(/\./g, "").replace(",", ".");
-          var totalHarga = parseFloat(hargaTanpaTitik) + 1500.00;
-          var totalHargaDalamFormat = totalHarga.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+        <script type="text/javascript">
+const checkoutLS = localStorage.getItem('hasLogin');
 
-       // desc
-        document.getElementById('name-product').innerText = `${decryptedProductName}`;
-        document.getElementById('brand-product').innerText = `${decryptedProductCg}`;
-        document.getElementById('price-product').innerText = `${decryptedProductPrice}`;
-        document.getElementById('estimasi-product').innerText = `${decryptedProductEst}`;
-        document.getElementById('total-harga').innerText = totalHargaDalamFormat;
-      });
-      localStorage.removeItem('checkout');
-} else {
-  window.location.href = "/pages/home/";
-}
+document.addEventListener("DOMContentLoaded", function() {
+  //  const checkoutLS = localStorage.getItem('checkout');
+    if (checkoutLS) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productShow = urlParams.get('showlist');
         
+// do get read the datas and print it
+fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+  .then(res => res.json())
+  .then(data => {
+   console.log(data)
+      const specialBody = document.getElementById('special-body');
+      const diamondBody = document.getElementById('diamond-body');
+      const payBody = document.getElementById('payBody');
+      const productLoad = document.querySelectorAll(".product-load");
+      const productLoadPay = document.querySelectorAll(".product-load-pay");
+      const labelProduct1 = document.getElementById('label-product1');
+      const labelProduct2 = document.getElementById('label-product2');
+       data.content.slice(1).forEach(row => {
+        const divProduct = document.createElement('div');
+        divProduct.innerHTML = `
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         ${row[1]}
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-bag" style="color:#319de2;"></i>
+                      </div>
+                    </div>
+        `;
+        const divProduct1 = document.createElement('div');
+        divProduct1.innerHTML = `
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         ${row[1]}
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-gem" style="color:#319de2;"></i>
+                      </div>
+                    </div>
+        `;
+        const payDiv = document.createElement('div');
+        payDiv.innerHTML = `
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="qris">
+                <div class="d-flex flex-column"> 
+                <label class="text-light">Qris (All payment + 500) (via WhatsApp)</label>
+                <div>
+                <svg width="30" height="20" viewBox="0 0 109 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0)">
+                  <path d="M19.5744 39.4434C30.3851 39.4434 39.1489 30.7129 39.1489 19.9434C39.1489 9.17381 30.3851 0.443359 19.5744 0.443359C8.76378 0.443359 0 9.17381 0 19.9434C0 30.7129 8.76378 39.4434 19.5744 39.4434Z" fill="#01AED6"/>
+                  <path d="M30.4648 18.2003C30.2313 17.3172 29.7268 16.5287 29.0218 15.945C28.3167 15.3613 27.4463 15.0115 26.5321 14.9444H13.3104C13.1814 14.9654 13.0493 14.9583 12.9234 14.9234C12.7974 14.8886 12.6806 14.8269 12.5809 14.7425C12.4813 14.6582 12.4013 14.5533 12.3464 14.4351C12.2915 14.3169 12.263 14.1883 12.263 14.058C12.263 13.9278 12.2915 13.7991 12.3464 13.6809C12.4013 13.5627 12.4813 13.4578 12.5809 13.3735C12.6806 13.2892 12.7974 13.2274 12.9234 13.1926C13.0493 13.1577 13.1814 13.1506 13.3104 13.1717H26.1525C26.1525 13.1717 26.105 9.77393 21.7927 9.77393H14.8705C11.9046 9.77393 8.75492 11.3339 8.57104 15.1571C8.37215 18.3489 8.37215 21.5499 8.57104 24.7417C8.75492 26.9635 9.37181 29.5103 14.2536 29.9357C19.1353 30.3612 24.539 30.1248 26.4372 29.6994C27.5328 29.4394 28.5156 28.8356 29.2408 27.9771C29.9659 27.1185 30.395 26.0506 30.4648 24.9307C30.6546 22.2657 30.9393 20.0912 30.4648 18.2003ZM27.0066 22.3839V23.5657C27.0066 23.7789 26.9216 23.9833 26.7703 24.134C26.619 24.2847 26.4139 24.3694 26.1999 24.3694C25.986 24.3694 25.7808 24.2847 25.6295 24.134C25.4782 23.9833 25.3932 23.7789 25.3932 23.5657V22.3839C25.1989 22.2194 25.06 21.9995 24.9952 21.7539C24.9304 21.5082 24.9428 21.2487 25.0307 21.0103C25.1187 20.7719 25.278 20.5661 25.487 20.4208C25.6961 20.2754 25.9449 20.1975 26.1999 20.1975C26.4549 20.1975 26.7037 20.2754 26.9128 20.4208C27.1218 20.5661 27.2811 20.7719 27.3691 21.0103C27.457 21.2487 27.4694 21.5082 27.4046 21.7539C27.3398 21.9995 27.2009 22.2194 27.0066 22.3839Z" fill="white"/>
+                  <path d="M63.694 12.1196C60.2121 12.1196 57.3887 14.7255 57.3887 17.946C57.3887 21.1664 60.2121 23.7724 63.694 23.7724C67.1759 23.7724 69.9934 21.1605 69.9934 17.946C69.9934 14.7314 67.1759 12.1196 63.694 12.1196ZM63.694 20.9833C62.8505 21.0136 62.0292 20.7099 61.41 20.1384C60.7908 19.5669 60.424 18.7744 60.3901 17.9342C60.4603 17.1094 60.8388 16.341 61.4507 15.7809C62.0625 15.2209 62.8631 14.9102 63.694 14.9102C64.5249 14.9102 65.3255 15.2209 65.9374 15.7809C66.5492 16.341 66.9277 17.1094 66.9979 17.9342C66.9834 18.3515 66.8863 18.7618 66.7123 19.1417C66.5383 19.5216 66.2907 19.8635 65.9838 20.1478C65.6768 20.4322 65.3166 20.6534 64.9236 20.7988C64.5307 20.9442 64.1129 21.0109 63.694 20.9951V20.9833Z" fill="#080403"/>
+                  <path d="M78.1917 12.1196C76.9062 12.1205 75.6616 12.57 74.6743 13.3901V12.421H71.5127V27.7846H74.6743V22.2596C75.6595 23.084 76.905 23.536 78.1917 23.536C79.7114 23.536 81.1689 22.9346 82.2434 21.8641C83.318 20.7936 83.9217 19.3417 83.9217 17.8278C83.9217 16.3139 83.318 14.862 82.2434 13.7915C81.1689 12.721 79.7114 12.1196 78.1917 12.1196ZM77.5986 20.9833C76.96 20.9786 76.3386 20.7773 75.8193 20.4071C75.3 20.0368 74.9084 19.5157 74.698 18.9151V16.7405C74.9086 16.1406 75.3005 15.6202 75.8199 15.251C76.3392 14.8817 76.9605 14.6817 77.5986 14.6783C78.4371 14.6783 79.2412 15.0101 79.8341 15.6007C80.427 16.1914 80.7601 16.9925 80.7601 17.8278C80.7601 18.6631 80.427 19.4642 79.8341 20.0549C79.2412 20.6455 78.4371 20.9774 77.5986 20.9774V20.9833Z" fill="#080403"/>
+                  <path d="M105.821 12.1196L102.226 19.3701L98.6314 12.1196H95.458L100.636 22.5728L98.062 27.7669H101.241L102.226 25.7755L103.816 22.5728L109 12.1196H105.821Z" fill="#080403"/>
+                  <path d="M55.882 23.8848V12.2144H53.0822V13.2898C52.226 12.6887 51.2204 12.3335 50.1752 12.2629C49.1301 12.1923 48.0856 12.409 47.1557 12.8895C46.2258 13.37 45.4463 14.0957 44.9022 14.9874C44.3581 15.8791 44.0703 16.9026 44.0703 17.9462C44.0703 18.9897 44.3581 20.0132 44.9022 20.9049C45.4463 21.7967 46.2258 22.5224 47.1557 23.0028C48.0856 23.4833 49.1301 23.7001 50.1752 23.6295C51.2204 23.5589 52.226 23.2037 53.0822 22.6025V23.4239C53.0822 24.8834 51.6468 26.0594 49.8732 26.0594C49.2479 26.0904 48.6271 25.9393 48.0867 25.6245C47.5463 25.3097 47.1097 24.8447 46.8303 24.2866L44.4873 26.1598C45.0816 27.0149 45.8817 27.708 46.8143 28.1756C47.7469 28.6432 48.7822 28.8705 49.8258 28.8366C53.0585 28.8366 55.6922 26.7389 55.8286 24.1094V23.8789L55.882 23.8848ZM50.0749 21.1666C49.4861 21.1673 48.9082 21.0081 48.4035 20.7061C47.8987 20.4041 47.4861 19.9707 47.2101 19.4526C46.9341 18.9344 46.8052 18.3511 46.8371 17.7654C46.869 17.1797 47.0606 16.6137 47.3912 16.1284C47.7219 15.6431 48.1791 15.2567 48.7137 15.0109C49.2484 14.7651 49.8401 14.6691 50.4254 14.7333C51.0107 14.7975 51.5673 15.0194 52.0354 15.3752C52.5036 15.731 52.8655 16.2072 53.0822 16.7525V19.1162C52.846 19.7196 52.4327 20.238 51.8962 20.6038C51.3597 20.9696 50.725 21.1657 50.0749 21.1666Z" fill="#080403"/>
+                  <path d="M89.888 12.1196C85.9376 12.1196 84.6682 14.6546 84.1699 15.6651L86.8214 16.2914C86.8214 16.2914 87.1061 14.3769 89.9533 14.3769C92.8005 14.3769 92.4149 16.2914 89.7635 16.6401C87.112 16.9887 84.1699 17.6269 84.1699 20.1028C84.1699 22.2478 86.0325 23.471 88.6246 23.471C91.2167 23.471 92.1302 21.9583 92.1302 21.9583V23.471H94.9062V16.1496C94.9062 14.4537 93.8385 12.1196 89.888 12.1196ZM88.7492 21.1605C86.2519 21.1605 86.5722 19.2342 87.9899 19.0805C89.7694 18.8796 91.3413 18.6019 92.1954 17.7864C92.1954 19.6774 91.2464 21.1605 88.7492 21.1605Z" fill="#080403"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0">
+                  <rect width="109" height="39" fill="white" transform="translate(0 0.443359)"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+                  <svg width="30" height="20" viewBox="0 0 79 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0)">
+                  <path d="M66.168 0.443359C59.0828 0.443359 53.3359 6.23427 53.3359 13.3646C53.3359 20.4949 59.0828 26.2858 66.168 26.2858C73.2532 26.2858 79.0001 20.4949 79.0001 13.3646C79.0001 6.23427 73.2532 0.443359 66.168 0.443359ZM66.168 22.1494C61.7595 22.1494 58.1775 18.21 58.1775 13.404C58.1775 8.59791 61.7595 4.65851 66.168 4.65851C70.5766 4.65851 74.1586 8.59791 74.1586 13.404C74.1586 18.21 70.5766 22.1494 66.168 22.1494Z" fill="#8263d3"/>
+                  <path d="M12.8321 0.443359C5.74689 0.443359 0 6.23427 0 13.3646C0 20.4949 5.74689 26.2858 12.8321 26.2858C19.9173 26.2858 25.6642 20.4949 25.6642 13.3646C25.6642 6.23427 19.9173 0.443359 12.8321 0.443359ZM12.8321 22.1494C8.42352 22.1494 4.84155 18.21 4.84155 13.404C4.84155 8.59791 8.42352 4.65851 12.8321 4.65851C17.2407 4.65851 20.8226 8.59791 20.8226 13.404C20.8226 18.21 17.2407 22.1494 12.8321 22.1494Z" fill="#8263d3"/>
+                  <path d="M43.6133 5.36765H46.1718L40.4643 19.3919L34.4812 5.36765H36.8036V1.19189H26.6875V5.36765H29.2854L37.1185 23.8828C37.7876 25.4192 39.2834 26.4434 40.976 26.4434H42.0388L50.974 5.36765L51.7219 3.59493V1.19189H43.6133V5.36765Z" fill="#8263d3"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0">
+                  <rect width="79" height="26" fill="white" transform="translate(0 0.443359)"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="40" height="30" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 422 139" xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <defs>
+                  <style type="text/css">
+                   <![CDATA[
+                    .fil0 {fill:#F0592B}
+                   ]]>
+                  </style>
+                 </defs>
+                 <g id="Layer_x0020_1">
+                  <metadata id="CorelCorpID_0Corel-Layer"/>
+                  <g id="_1972074928272">
+                   <path class="fil0" d="M189 87c-4,-4 -9,-6 -14,-8 0,0 -1,0 -2,0 0,0 -1,0 -1,0 0,-1 -1,-1 -1,-1 0,0 0,0 -1,0 0,0 0,0 0,0 -2,-1 -4,-3 -6,-4 -2,-2 -2,-3 -2,-5 0,-3 1,-6 2,-7 2,-2 5,-3 7,-3 5,-1 11,1 15,3 4,3 7,-3 4,-6 -6,-4 -14,-5 -21,-4 -4,0 -8,2 -10,5 -3,3 -5,8 -5,12 0,11 12,15 20,18 3,1 3,1 5,2 2,1 4,2 6,4 0,0 0,0 1,1 0,0 0,0 0,0 0,0 0,1 1,1 0,1 0,1 1,3 0,0 0,0 0,0 0,1 0,1 0,1 0,1 0,2 0,2 -1,2 -1,3 -2,4 -2,4 -8,5 -12,5 -7,0 -12,-3 -18,-7 -1,-1 -4,0 -4,2 -2,1 -1,3 1,5 6,4 14,8 22,7 7,0 15,-3 18,-10 4,-7 2,-15 -4,-20z"/>
+                   <path class="fil0" d="M230 79c-7,-4 -16,-3 -22,2 0,0 0,0 0,0l0 -21 0 -5c0,-5 -7,-5 -7,0l0 54 0 5c0,5 7,5 7,0l0 -19c0,0 0,0 0,0 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1l0 0c1,-1 1,-1 1,-1 0,-1 1,-2 2,-3 0,0 0,0 0,0 0,0 0,-1 0,-1 0,0 0,0 1,0 0,-1 0,-1 0,-1 1,0 1,-1 1,-1 3,-2 6,-2 9,-2 2,0 3,1 4,1 1,1 2,1 3,3 -1,-1 0,0 0,1 0,0 1,1 1,1 0,0 0,1 0,2 0,0 0,0 0,0l0 1 0 16 0 5c0,5 8,5 8,0l0 -12c0,-4 0,-8 -1,-12 0,-4 -3,-8 -7,-11z"/>
+                   <path class="fil0" d="M271 78c-9,-3 -18,1 -24,8 -5,8 -3,18 2,25 7,7 17,8 25,5 7,-3 12,-11 12,-19 0,0 0,0 0,0 -1,-9 -7,-16 -15,-19zm-6 32c-7,1 -13,-5 -14,-13 0,-7 7,-13 14,-13 7,0 13,6 14,13 -1,8 -7,13 -14,13z"/>
+                   <path class="fil0" d="M319 78c-7,-2 -14,0 -20,5l0 -2c0,-5 -7,-5 -7,0l0 52 0 2c0,5 7,5 7,0l0 -23c6,6 16,7 24,4 7,-3 11,-11 11,-19 0,0 0,0 0,0 0,-9 -6,-16 -15,-19zm-6 32c-7,1 -13,-5 -13,-13 0,-7 6,-13 13,-13 8,0 14,6 14,13 0,8 -6,13 -14,13z"/>
+                   <path class="fil0" d="M360 77c-7,0 -13,3 -16,9 -2,3 -3,6 -3,9 0,1 0,1 0,1 -1,6 1,12 5,16 6,8 20,7 29,2 4,-2 0,-8 -4,-6 -4,2 -7,3 -11,3 -1,0 -2,-1 -3,-1 -1,0 -1,0 -2,0 0,0 0,0 0,0 -1,0 -1,-1 -1,-1 -1,0 -2,-1 -3,-2 0,0 -1,-1 -1,-1 0,0 0,-1 0,-1 0,0 -1,0 -1,-1 0,0 0,0 0,0 0,-1 0,-2 -1,-2 0,-1 0,-1 0,-1 0,0 0,-1 0,-1 0,0 0,0 0,0l26 0c2,0 4,-2 4,-4 0,-3 -1,-6 -2,-9 -3,-7 -10,-10 -16,-10zm-11 14c0,0 0,0 0,0 1,-1 1,-2 2,-3 0,0 0,0 0,0 0,0 0,0 0,0 1,-1 1,-1 2,-2 0,1 1,0 1,0 0,0 0,-1 1,-1 -1,0 0,0 0,0 2,0 3,-1 4,-1 3,0 5,1 8,2 0,0 0,0 0,0 0,0 0,1 0,1 1,0 1,1 1,1 0,0 1,1 1,1 0,0 0,1 1,1 0,0 0,1 0,1 0,0 0,1 0,1 0,0 0,0 0,1l-21 0c0,-1 0,-1 0,-1 0,0 0,-1 0,-1z"/>
+                   <path class="fil0" d="M420 87c-3,-7 -9,-10 -16,-10 -7,0 -13,3 -16,9 -2,3 -3,6 -3,9 0,1 0,1 0,1 -1,6 1,12 5,16 6,8 21,7 29,2 4,-2 0,-8 -4,-6 -3,2 -7,3 -11,3 -1,0 -2,-1 -3,-1 -1,0 -1,0 -2,0 0,0 0,0 0,0 0,0 0,-1 0,-1 -2,0 -3,-1 -4,-2 0,0 0,-1 -1,-1 0,0 0,-1 0,-1 0,0 0,0 0,-1 0,0 -1,0 -1,0 0,-1 0,-2 0,-2 0,-1 0,-1 -1,-1 0,0 0,-1 0,-1 0,0 0,0 0,0l27 0c2,0 3,-2 3,-4 0,-3 0,-7 -2,-9zm-27 4c1,0 1,0 1,0 0,-1 1,-2 1,-3 0,0 0,0 0,0 0,0 1,0 1,0 0,-1 1,-1 1,-2 0,1 1,0 1,0 0,0 1,-1 1,-1 -1,0 0,0 0,0 2,0 3,-1 4,-1 3,0 6,1 8,2 0,0 0,0 0,0 0,0 0,1 1,1 0,0 0,1 1,1 0,0 0,1 0,1 0,0 1,1 1,1 0,0 0,1 0,1 0,0 0,1 1,1 0,0 0,0 0,1l-22 0c0,-1 0,-1 0,-1 0,0 0,-1 0,-1z"/>
+                   <path class="fil0" d="M112 37l-27 0c0,-12 -7,-37 -26,-37 -21,0 -26,27 -26,37l-27 0c-7,-1 -6,7 -6,7l5 72c0,0 0,16 14,16 1,0 78,0 80,0 13,-1 14,-16 14,-16l5 -72c0,0 1,-8 -6,-7zm-53 -30c17,0 19,27 19,30l-38 0c0,-3 1,-30 19,-30zm21 92c-1,15 -17,15 -20,15 -12,0 -19,-7 -19,-7 -1,0 -1,-1 -1,-2 0,-1 1,-2 2,-2 0,0 1,1 1,1l0 0c0,0 0,0 0,0l0 0c1,1 8,6 17,6 7,0 15,-4 15,-11 1,-10 -13,-14 -16,-15 -3,-1 -18,-5 -17,-17 0,-5 5,-14 17,-14 11,-1 16,4 16,4l0 0c1,1 1,1 1,2 0,1 -1,2 -2,2 0,0 -1,0 -1,0 0,0 -6,-4 -14,-4 -8,0 -12,6 -13,10 0,8 11,11 13,12 10,3 22,7 21,20z"/>
+                  </g>
+                 </g>
+                </svg>
+                </div>
+                </div>
+             <svg width="70" height="33" viewBox="0 0 84 33" fill="" style="color:#fff;" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.9663 5.75562H4.58141C4.43753 5.75561 4.29507 5.78399 4.16218 5.83912C4.02928 5.89425 3.90857 5.97505 3.80694 6.07689C3.70531 6.17873 3.62477 6.29962 3.56992 6.43263C3.51508 6.56564 3.487 6.70816 3.48731 6.85203V26.2115C3.48751 26.5016 3.60285 26.7798 3.80799 26.9849C4.01313 27.1901 4.2913 27.3054 4.58141 27.3056H17.0458V21.8614H8.9663V5.75562Z" fill="white"/>
+              <path d="M23.9361 5.75562H11.6084V11.1366H19.7088V19.2191H25.0325V6.85203C25.0329 6.70796 25.0047 6.56525 24.9497 6.43209C24.8947 6.29893 24.814 6.17794 24.7121 6.07607C24.6102 5.9742 24.4892 5.89345 24.3561 5.83846C24.2229 5.78346 24.0802 5.75531 23.9361 5.75562Z" fill="white"/>
+              <path d="M19.6855 27.3056H19.6871V32.4031H25.0325V21.8613H19.6855V27.3056Z" fill="white"/>
+              <path d="M56.2166 5.65674H51.2588V27.1396H56.2166V5.65674Z" fill="white"/>
+              <path d="M79.809 25.9242V22.0397V18.7527V16.3738V13.7949H65.7077V10.6153H79.809V5.65674H58.3262V7.50752V10.6153V13.7949V17.0579V18.7527H72.4267V22.0397H58.3262V26.9982H79.809V25.9242Z" fill="white"/>
+              <path d="M11.5947 19.0668H17.0575V13.604H11.5947V19.0668ZM13.2517 15.2618H15.3998V17.4098H13.2517V15.2618Z" fill="white"/>
+              <path d="M27.3314 10.6153H43.1167V13.7988H32.2684H28.705H27.3105V27.1812H32.2684V18.7751L41.1385 27.2121H48.8659L39.6151 18.7566H48.8968V18.1899V13.7988V10.6153V7.25195V5.65674H27.3314V10.6153Z" fill="white"/>
+              <path d="M82.0641 21.9609V30.672C82.0639 30.7901 82.0169 30.9033 81.9334 30.9868C81.8499 31.0704 81.7367 31.1174 81.6186 31.1176H72.7832V32.4433H81.6186C82.088 32.4421 82.5378 32.2551 82.8697 31.9232C83.2016 31.5912 83.3886 31.1414 83.3899 30.672V21.9609H82.0641Z" fill="white"/>
+              <path d="M10.6067 0.443359H1.77125C1.30186 0.444582 0.852048 0.631589 0.520139 0.963498C0.188229 1.29541 0.00122291 1.74522 0 2.21461L0 10.9257H1.32574V2.21461C1.32574 2.09645 1.37268 1.98314 1.45623 1.89959C1.53978 1.81603 1.65309 1.7691 1.77125 1.7691H10.6067V0.443359Z" fill="white"/>
+              </svg>
+              </div>
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="800" data-pay="e-wallet-gopay">
+                <label class="text-light">E-wallet (Hanya QR Gopay + 800) (via WhatsApp)</label>
+                <div>
+                <svg width="30" height="20" viewBox="0 0 109 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0)">
+                  <path d="M19.5744 39.4434C30.3851 39.4434 39.1489 30.7129 39.1489 19.9434C39.1489 9.17381 30.3851 0.443359 19.5744 0.443359C8.76378 0.443359 0 9.17381 0 19.9434C0 30.7129 8.76378 39.4434 19.5744 39.4434Z" fill="#01AED6"/>
+                  <path d="M30.4648 18.2003C30.2313 17.3172 29.7268 16.5287 29.0218 15.945C28.3167 15.3613 27.4463 15.0115 26.5321 14.9444H13.3104C13.1814 14.9654 13.0493 14.9583 12.9234 14.9234C12.7974 14.8886 12.6806 14.8269 12.5809 14.7425C12.4813 14.6582 12.4013 14.5533 12.3464 14.4351C12.2915 14.3169 12.263 14.1883 12.263 14.058C12.263 13.9278 12.2915 13.7991 12.3464 13.6809C12.4013 13.5627 12.4813 13.4578 12.5809 13.3735C12.6806 13.2892 12.7974 13.2274 12.9234 13.1926C13.0493 13.1577 13.1814 13.1506 13.3104 13.1717H26.1525C26.1525 13.1717 26.105 9.77393 21.7927 9.77393H14.8705C11.9046 9.77393 8.75492 11.3339 8.57104 15.1571C8.37215 18.3489 8.37215 21.5499 8.57104 24.7417C8.75492 26.9635 9.37181 29.5103 14.2536 29.9357C19.1353 30.3612 24.539 30.1248 26.4372 29.6994C27.5328 29.4394 28.5156 28.8356 29.2408 27.9771C29.9659 27.1185 30.395 26.0506 30.4648 24.9307C30.6546 22.2657 30.9393 20.0912 30.4648 18.2003ZM27.0066 22.3839V23.5657C27.0066 23.7789 26.9216 23.9833 26.7703 24.134C26.619 24.2847 26.4139 24.3694 26.1999 24.3694C25.986 24.3694 25.7808 24.2847 25.6295 24.134C25.4782 23.9833 25.3932 23.7789 25.3932 23.5657V22.3839C25.1989 22.2194 25.06 21.9995 24.9952 21.7539C24.9304 21.5082 24.9428 21.2487 25.0307 21.0103C25.1187 20.7719 25.278 20.5661 25.487 20.4208C25.6961 20.2754 25.9449 20.1975 26.1999 20.1975C26.4549 20.1975 26.7037 20.2754 26.9128 20.4208C27.1218 20.5661 27.2811 20.7719 27.3691 21.0103C27.457 21.2487 27.4694 21.5082 27.4046 21.7539C27.3398 21.9995 27.2009 22.2194 27.0066 22.3839Z" fill="white"/>
+                  <path d="M63.694 12.1196C60.2121 12.1196 57.3887 14.7255 57.3887 17.946C57.3887 21.1664 60.2121 23.7724 63.694 23.7724C67.1759 23.7724 69.9934 21.1605 69.9934 17.946C69.9934 14.7314 67.1759 12.1196 63.694 12.1196ZM63.694 20.9833C62.8505 21.0136 62.0292 20.7099 61.41 20.1384C60.7908 19.5669 60.424 18.7744 60.3901 17.9342C60.4603 17.1094 60.8388 16.341 61.4507 15.7809C62.0625 15.2209 62.8631 14.9102 63.694 14.9102C64.5249 14.9102 65.3255 15.2209 65.9374 15.7809C66.5492 16.341 66.9277 17.1094 66.9979 17.9342C66.9834 18.3515 66.8863 18.7618 66.7123 19.1417C66.5383 19.5216 66.2907 19.8635 65.9838 20.1478C65.6768 20.4322 65.3166 20.6534 64.9236 20.7988C64.5307 20.9442 64.1129 21.0109 63.694 20.9951V20.9833Z" fill="#080403"/>
+                  <path d="M78.1917 12.1196C76.9062 12.1205 75.6616 12.57 74.6743 13.3901V12.421H71.5127V27.7846H74.6743V22.2596C75.6595 23.084 76.905 23.536 78.1917 23.536C79.7114 23.536 81.1689 22.9346 82.2434 21.8641C83.318 20.7936 83.9217 19.3417 83.9217 17.8278C83.9217 16.3139 83.318 14.862 82.2434 13.7915C81.1689 12.721 79.7114 12.1196 78.1917 12.1196ZM77.5986 20.9833C76.96 20.9786 76.3386 20.7773 75.8193 20.4071C75.3 20.0368 74.9084 19.5157 74.698 18.9151V16.7405C74.9086 16.1406 75.3005 15.6202 75.8199 15.251C76.3392 14.8817 76.9605 14.6817 77.5986 14.6783C78.4371 14.6783 79.2412 15.0101 79.8341 15.6007C80.427 16.1914 80.7601 16.9925 80.7601 17.8278C80.7601 18.6631 80.427 19.4642 79.8341 20.0549C79.2412 20.6455 78.4371 20.9774 77.5986 20.9774V20.9833Z" fill="#080403"/>
+                  <path d="M105.821 12.1196L102.226 19.3701L98.6314 12.1196H95.458L100.636 22.5728L98.062 27.7669H101.241L102.226 25.7755L103.816 22.5728L109 12.1196H105.821Z" fill="#080403"/>
+                  <path d="M55.882 23.8848V12.2144H53.0822V13.2898C52.226 12.6887 51.2204 12.3335 50.1752 12.2629C49.1301 12.1923 48.0856 12.409 47.1557 12.8895C46.2258 13.37 45.4463 14.0957 44.9022 14.9874C44.3581 15.8791 44.0703 16.9026 44.0703 17.9462C44.0703 18.9897 44.3581 20.0132 44.9022 20.9049C45.4463 21.7967 46.2258 22.5224 47.1557 23.0028C48.0856 23.4833 49.1301 23.7001 50.1752 23.6295C51.2204 23.5589 52.226 23.2037 53.0822 22.6025V23.4239C53.0822 24.8834 51.6468 26.0594 49.8732 26.0594C49.2479 26.0904 48.6271 25.9393 48.0867 25.6245C47.5463 25.3097 47.1097 24.8447 46.8303 24.2866L44.4873 26.1598C45.0816 27.0149 45.8817 27.708 46.8143 28.1756C47.7469 28.6432 48.7822 28.8705 49.8258 28.8366C53.0585 28.8366 55.6922 26.7389 55.8286 24.1094V23.8789L55.882 23.8848ZM50.0749 21.1666C49.4861 21.1673 48.9082 21.0081 48.4035 20.7061C47.8987 20.4041 47.4861 19.9707 47.2101 19.4526C46.9341 18.9344 46.8052 18.3511 46.8371 17.7654C46.869 17.1797 47.0606 16.6137 47.3912 16.1284C47.7219 15.6431 48.1791 15.2567 48.7137 15.0109C49.2484 14.7651 49.8401 14.6691 50.4254 14.7333C51.0107 14.7975 51.5673 15.0194 52.0354 15.3752C52.5036 15.731 52.8655 16.2072 53.0822 16.7525V19.1162C52.846 19.7196 52.4327 20.238 51.8962 20.6038C51.3597 20.9696 50.725 21.1657 50.0749 21.1666Z" fill="#080403"/>
+                  <path d="M89.888 12.1196C85.9376 12.1196 84.6682 14.6546 84.1699 15.6651L86.8214 16.2914C86.8214 16.2914 87.1061 14.3769 89.9533 14.3769C92.8005 14.3769 92.4149 16.2914 89.7635 16.6401C87.112 16.9887 84.1699 17.6269 84.1699 20.1028C84.1699 22.2478 86.0325 23.471 88.6246 23.471C91.2167 23.471 92.1302 21.9583 92.1302 21.9583V23.471H94.9062V16.1496C94.9062 14.4537 93.8385 12.1196 89.888 12.1196ZM88.7492 21.1605C86.2519 21.1605 86.5722 19.2342 87.9899 19.0805C89.7694 18.8796 91.3413 18.6019 92.1954 17.7864C92.1954 19.6774 91.2464 21.1605 88.7492 21.1605Z" fill="#080403"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0">
+                  <rect width="109" height="39" fill="white" transform="translate(0 0.443359)"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+                </div>
+              </div>
+        `;
+        
+        if (productShow === 'ff' && row[3] === 'FREE FIRE') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductFf();
+          if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'ml' && row[3] === 'ML') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductMl();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'coc' && row[3] === 'COC') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductCoc();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'cod' && row[3] === 'COD') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductCod();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'fifa' && row[3] === 'FIFA') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductFifa();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'pubg' && row[3] === 'PUBG') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductPubg();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } else if (productShow === 'tt' && row[3] === 'TIKTOK') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductTt();
+            if (row[9] === 'folowers') {
+           diamondBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Folowers';
+          } else if (row[9] === 'liker') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+           labelProduct2.textContent = 'Likers';
+          } 
+        } else if (productShow === 'ig' && row[3] === 'INSTAGRAM') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductIg();
+            if (row[9] === 'folowers') {
+           diamondBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Folowers';
+          } else if (row[9] === 'liker') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+           labelProduct2.textContent = 'Likers';
+          } 
+        } else if (productShow === 'yt' && row[3] === 'YOUTUBE') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductYt();
+            if (row[9] === 'folowers') {
+           diamondBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Folowers';
+          } else if (row[9] === 'liker') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+           labelProduct2.textContent = 'Likers';
+          } 
+        } else if (productShow === 'fb' && row[3] === 'FACEBOOK') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          payBody.appendChild(payDiv);
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductFb();
+            if (row[9] === 'folowers') {
+           diamondBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Folowers';
+          } else if (row[9] === 'liker') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+           labelProduct2.textContent = 'Likers';
+          } 
+        } else {
+         // alert("409 product not found")
+      /*  localStorage.removeItem('checkout');
+         window.location.href = "/pages/home/";*/
+          return;
+        }
+    })
+        
+const inputShow = document.querySelector('.input-to-show');
+const inputProductToShow = inputShow.getAttribute('data-inputProduct');
+const showId = document.querySelector('.show-id');
+const showIdPort = document.querySelector('.show-id-port');
+const showUsn = document.querySelector('.show-usn');
+const inputId = document.querySelector('#id-game1');
+const inputId2 = document.querySelector('#id-game2');
+const inputIdP = document.querySelector('#port-game');
+const inputUsnSosmed = document.querySelector('#usn-ipt');
+inputShow.addEventListener('input', (e) => {
+  if (inputProductToShow === 'id') {
+    showId.classList.remove('d-none')
+    showId.classList.add('d-flex')
+    showId.textContent = 'ID User : ' + inputId.value;
+  } else if (inputProductToShow === 'id-port') {
+    showIdPort.classList.remove('d-none')
+    showIdPort.classList.add('d-flex')
+    inputId2.addEventListener('input', (e) => {
+    showIdPort.textContent = 'Data : ' + inputId2.value + '(' + inputIdP.value + ')';
+    })
+    inputIdP.addEventListener('input', (e) => {
+    showIdPort.textContent = 'Data : ' + inputId2.value + '(' + inputIdP.value + ')';
+    })
+  } else if (inputProductToShow === 'usn') {
+    showUsn.classList.remove('d-none')
+    showUsn.classList.add('d-flex')
+  } else {
+    return;
+  }
+})
+
+const pCheck = document.querySelectorAll('.product-checkout');
+pCheck.forEach(pc => {
+  pc.addEventListener('click', function(e) {
+    // Menghapus kelas 'product-active' dari semua elemen
+    pCheck.forEach(item => item.classList.remove('product-active'));
+    
+    // Menambahkan kelas 'product-active' pada elemen yang diklik
+    this.classList.add('product-active');
+
+    // Mendapatkan nilai atribut data-game dan data-harga
+    const game = this.getAttribute("data-nama-game");
+    const harga = parseInt(this.getAttribute("data-harga-item"));
+    const estimasi = this.getAttribute("data-estimasi-ch");
+    const displayGame = document.getElementById("nama-product");
+    const displayHarga = document.getElementById("price-product");
+    const displayEst = document.getElementById("estimasi-product");
+    const hargaFormatted = harga.toLocaleString();
+    
+    displayGame.textContent = game;
+    displayHarga.textContent = "Rp" + hargaFormatted;
+    displayEst.textContent = "Dikirim : " + estimasi;
+  });
+});
+const pay = document.querySelectorAll('.method-pay');
+pay.forEach(p => {
+  p.addEventListener('click', function (e) {
+    
+    console.log("dd", this)
+    pay.forEach(pays => pays.classList.remove('method-pay-active'));
+    
+    this.classList.add('method-pay-active');
+    
+    const pajak = parseInt(this.getAttribute("data-pajak"));
+    const hargaText = document.getElementById("price-product").textContent;
+    const harga = parseInt(hargaText.replace(/\D/g, '')); // Menghapus semua karakter non-angka dari string
+    const displayTotal = document.getElementById("total-product");
+    const total = harga + pajak;
+    const totalFormatted = total.toLocaleString();
+    displayTotal.textContent = "Total : " + totalFormatted;
+  })
+})
+    
+        localStorage.removeItem('checkout');
+
+  })   
+  .catch(e => console.error('fail', error.message))
+    } else {
+        window.location.href = "/pages/home/";
+    }
+});
+
+
+
+
+// deklarasi item 
+var imgFf = 'https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd';
+var imgMl = 'https://drive.google.com/thumbnail?id=1AlLfexGTXP0Dri6rFY4sSjWcGCYj4mNI';
+var imgCoc = 'https://drive.google.com/thumbnail?id=1B4HrGQxC8-wIKMx-smHf8X6hdxultTFA';
+var imgCod = 'https://drive.google.com/thumbnail?id=1AowqHlzAgjbwQpoZizu9T_rVlv7JOnf_';
+var imgFifa = 'https://drive.google.com/thumbnail?id=1B1UbIv0M73EO99zjD3fQsB7Cxysx5R8g';
+var imgPubg = 'https://drive.google.com/thumbnail?id=1B5SgK4XxvBAjh-qSEFWrcWuzDzORHPm9';
+var imgTt = 'https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H';
+var imgIg = 'https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN';
+var imgYt = 'https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-';
+var imgFb = 'https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi';
+const imgC1 = document.getElementById('img-checkout1');
+const imgC2 = document.getElementById('img-checkout2');
+const imgC3 = document.getElementById('img-checkout3');
+const namaGame = document.getElementById('nama-game');
+const namaPerusahaan = document.getElementById('nama-perusahaan');
+const namaBrand = document.getElementById('brand-product');
+const iptId = document.getElementById('ipt-id');
+const iptIP = document.getElementById('ipt-id-port');
+const iptUsn = document.getElementById('ipt-usn');
+
+
+function showProductFf() {
+  console.log('product FF')
+  imgC1.src = imgFf;
+  imgC2.src = imgFf;
+  imgC3.src = imgFf;
+  namaGame.textContent = 'Free Fire';
+  namaPerusahaan.textContent = "@Garena";
+  namaBrand.textContent = 'Free Fire';
+  iptId.classList.remove('d-none');
+  iptId.classList.add('d-flex');
+  iptId.classList.add('input-to-show');
+  iptId.setAttribute("data-inputProduct", 'id');
+}
+function showProductMl() {
+  console.log('product Ml')
+  imgC1.src = imgMl;
+  imgC2.src = imgMl;
+  imgC3.src = imgMl;
+  namaGame.textContent = 'Mobile Legends';
+  namaPerusahaan.textContent = "@Montoon";
+  namaBrand.textContent = 'Mobile Legends';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductCoc() {
+  console.log('product Coc')
+  imgC1.src = imgCoc;
+  imgC2.src = imgCoc;
+  imgC3.src = imgCoc;
+  namaGame.textContent = 'Clash Of Clans';
+  namaPerusahaan.textContent = "@Supercell";
+  namaBrand.textContent = 'Clash Of Clans';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductCod() {
+  console.log('product Cod')
+  imgC1.src = imgCod;
+  imgC2.src = imgCod;
+  imgC3.src = imgCod;
+  namaGame.textContent = 'Call of Duty';
+  namaPerusahaan.textContent = "@Timi Studio";
+  namaBrand.textContent = 'Call of Duty';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductFifa() {
+  console.log('product Fifa')
+  imgC1.src = imgFifa;
+  imgC2.src = imgFifa;
+  imgC3.src = imgFifa;
+  namaGame.textContent = 'Fifa';
+  namaPerusahaan.textContent = "@EA Sport";
+  namaBrand.textContent = 'Fifa';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductPubg() {
+  console.log('product Puhg')
+  imgC1.src = imgPubg;
+  imgC2.src = imgPubg;
+  imgC3.src = imgPubg;
+  namaGame.textContent = 'Pubg';
+  namaPerusahaan.textContent = "@Tencent";
+  namaBrand.textContent = 'Pubg';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductTt() {
+  console.log('product tiktok')
+  imgC1.src = imgTt;
+  imgC2.src = imgTt;
+  imgC3.src = imgTt;
+  namaGame.textContent = 'Tiktok';
+  namaPerusahaan.textContent = "@Sosmed";
+  namaBrand.textContent = 'Tiktok';
+  iptUsn.classList.remove('d-none');
+  iptUsn.classList.add('d-flex');
+  iptUsn.classList.add('input-to-show');
+  iptUsn.setAttribute("data-inputProduct", 'usn');
+}
+function showProductIg() {
+  console.log('product Instagram')
+  imgC1.src = imgIg;
+  imgC2.src = imgIg;
+  imgC3.src = imgIg;
+  namaGame.textContent = 'Instagram';
+  namaPerusahaan.textContent = "@Sosmed";
+  namaBrand.textContent = 'Instagram';
+  iptUsn.classList.remove('d-none');
+  iptUsn.classList.add('d-flex');
+  iptUsn.classList.add('input-to-show');
+  iptUsn.setAttribute("data-inputProduct", 'usn');
+}
+function showProductYt() {
+  console.log('product yt1')
+  imgC1.src = imgYt;
+  imgC2.src = imgYt;
+  imgC3.src = imgYt;
+  namaGame.textContent = 'Youtube';
+  namaPerusahaan.textContent = "@Sosmed";
+  namaBrand.textContent = 'Youtube';
+  iptUsn.classList.remove('d-none');
+  iptUsn.classList.add('d-flex');
+  iptUsn.classList.add('input-to-show');
+  iptUsn.setAttribute("data-inputProduct", 'usn');
+}
+function showProductFb() {
+  console.log('product Fb')
+  imgC1.src = imgFb;
+  imgC2.src = imgFb;
+  imgC3.src = imgFb;
+  namaGame.textContent = 'Facebook';
+  namaPerusahaan.textContent = "@Sosmed";
+  namaBrand.textContent = 'Facebook';
+  iptUsn.classList.remove('d-none');
+  iptUsn.classList.add('d-flex');
+  iptUsn.classList.add('input-to-show');
+  iptUsn.setAttribute("data-inputProduct", 'usn');
+}
         </script>
         <script type="text/javascript" src="../../public/js/script.js"></script>
     </body>

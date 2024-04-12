@@ -4,6 +4,16 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>E-commerce Michgames</title>
+        <script>
+            
+  document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('hasLogin');
+    if (isLoggedIn === 'true') {
+        // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
+        window.location.href = "/pages/home/";
+    }
+  });
+        </script>
         <style type="text/css" media="all">
             @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
@@ -373,16 +383,10 @@
         <script src="https://sheetdb.io/handlebars.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script type="text/javascript" charset="utf-8">
-            document.addEventListener("DOMContentLoaded", function () {
-                const isLoggedIn = localStorage.getItem("hasLogin");
-                if (isLoggedIn === "true") {
-                    // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
-                    window.location.href = "/pages/home/";
-                }
-            });
-            document
-                .getElementById("signup-form")
-                .addEventListener("submit", function (event) {
+            
+        const form = document.getElementById("signup-form");
+                    
+            form.addEventListener("submit", function (event) {
                     event.preventDefault();
                    const usernameInput = document.querySelector('.username');
                   const feedbackMessageUsn = document.getElementById('alreadyUsn');
@@ -391,54 +395,35 @@
                  
                  const enteredUsername = usernameInput.value.trim().toLowerCase();
                  const enteredEmail = emailInput.value.trim().toLowerCase();
-                 
-                 // validate username
-              fetch('https://sheetdb.io/api/v1/yf0879y48ha98?Username=' + enteredUsername)
-              .then(response => response.json())
-              .then(data => {
-                const existingUsername = data[0]?.Username; // Ambil nilai Username dari data pertama (jika ada)
-                if (existingUsername && existingUsername === enteredUsername) {
-                  // Username sudah ada, tampilkan pesan kesalahan
-                  feedbackMessageUsn.classList.remove('d-none');
-                  feedbackMessageUsn.classList.add('d-flex');
-                  return;
-                }
                 
-                  // Username belum ada, sembunyikan pesan kesalahan dan kirim ke db
-                  feedbackMessageUsn.classList.remove('d-flex');
-                  feedbackMessageUsn.classList.add('d-none');
-                
-                    
-                    const formData = new FormData(this);
-                    const jsonData = {};
-                    formData.forEach((value, key) => {
-                        jsonData[key] = value;
-                    });
-                    const url = "https://sheetdb.io/api/v1/yf0879y48ha98";
-                    fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(jsonData)
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            window.location.href = "/pages/auth/sign-in/";
+                     // post form
+        const submitURL = 'https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec';
+        fetch(submitURL)
+            .then(res => res.json())
+            .then(data => {
+                const lastID = data.content[data.content.length - 1][0];
+                const nextID = lastID + 1;
+                const formData = new FormData(form);
+                formData.append("id", nextID);
 
-                            // Redirect or perform any other actions as needed
-                        })
-                        .catch(error => {
-                            console.error("Error:", error);
-                            alert("Sign up failed. Please try again.");
-                        });
-                  
+                fetch(submitURL, {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(response => {
+                        console.log("Success!", response);
+                        localStorage.setItem('hasLogin', true);
+                        window.location.href = "/pages/auth/sign-in/"
+                    })
+                    .catch(error => {
+                        console.error("Error!", error.message);
+                    });
+            })
+            .catch(error => {
+                console.error("Error fetching last ID!", error.message);
+            });
+
                 
-              })
-              .catch(error => {
-                console.error('Error:', error);
-              });
               });
 
             function validatePassword() {

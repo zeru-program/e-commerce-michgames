@@ -16,36 +16,30 @@
     </head>
     <body>
         <!-- start code logo nav and search box -->
-        <div
-            class="container nav-top d-flex justify-content-center align-items-center"
-        >
-            <div
-                class="d-flex w-100 gap-1 justify-content-center align-items-center"
-            >
-                <div>
-                    <img
-                        src="../../public/img/logo.png"
-                        class="logo-nav"
-                        alt=""
-                    />
-                </div>
-                <div class="w-100">
-                    <div class="form">
-                        <i class="bi bi-search"></i>
-                        <input
-                            type="text"
-                            id="searchHome"
-                            class="form-control form-input"
-                            placeholder="Search anything..."
-                        />
-                    </div>
-                </div>
+        <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
+          <div class="container-fluid">
+            <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
+            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+              <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav py-2 gap-2">
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-house"></i>Home</a>
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-box-seam"></i>Product</a>
+                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-bag"></i>Troli</a>
+                <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-person"></i>Account</a>
+              </div>
             </div>
-        </div>
+          </div>
+        </nav>
         <!-- end code logo nav and search box -->
 
         <!-- Animation shape home Start -->
-        <div
+        <!-- <div
             class="d-flex justify-content-center align-items-center flex-column con-animation-shape"
         >
             <div class="shape1-product fadeInDown de1 du1">
@@ -59,16 +53,16 @@
                 </div>
             </div>
             <div class="shape2-product fadeInDown de1 du2"></div>
-        </div>
+        </div> -->
         <!-- Animation shape home End -->
         <!-- start content value -->
         <main>
-            <div class="container-main" style="margin-top: 100px; padding-inline: 15px;">
+            <div class="container-main" style="padding-top: 30px; padding-inline: 15px; height:100vh !important;">
                 <div
                     class="w-100 d-flex justify-content-center align-items-center gap-3"
                 >
                     <button
-                        class="border-0 bg-transparent btn-product-nav text-dark fw-bold nav-p-active"
+                        class="border-0 bg-transparent btn-product-nav text-light fw-bold nav-p-active"
                         style="border-bottom: 3px solid transparent"
                         id="btnProductAll"
                         onclick="listAll()"
@@ -76,7 +70,7 @@
                         All
                     </button>
                     <button
-                        class="border-0 bg-transparent btn-product-nav text-dark fw-bold"
+                        class="border-0 bg-transparent btn-product-nav text-light fw-bold"
                         style="border-bottom: 3px solid transparent"
                         id="btnProductML"
                         onclick="listGames()"
@@ -84,7 +78,7 @@
                         Games
                     </button>
                     <button
-                        class="border-0 bg-transparent btn-product-nav text-dark fw-bold"
+                        class="border-0 bg-transparent btn-product-nav text-light fw-bold"
                         style="border-bottom: 3px solid transparent"
                         id="btnProductFf"
                         onclick="listSosmed()"
@@ -93,74 +87,55 @@
                     </button>
                 </div>
                  <div class="d-flex w-100" style="flex-direction: row;">
-                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct1" style="position: fixed;" name="list-all">
+                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct1" style="position: absolute;" name="list-all">
                   
                 </div>
-                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct2" style="position: fixed;" name="list-games">
+                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct2" style="position: absolute;" name="list-games">
                     
                 </div>
-                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct3" style="position: fixed;" name="list-sosmed">
+                  <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct3" style="position: absolute;" name="list-sosmed">
                     
                 </div>
                 </div>
             </div>
 
             <!-- start footer bootom sticky -->
-            <!--      <footer class="bg-dark">
+              <footer class="bg-dark py-5">
                 <div class="div-img-footer">
-                <img src="../../public/img/logo.png" class="logoImgFot" alt="" />
+                  <h2 class="fw-bold py-2" style="font-family:'Outfit', sans-serif;">
+                    MichStore.
+                  </h2>
                 </div>
-                <div class="div-text-footer">
-                <p id="fotTxt" class="text-footer-1">
-                    Website e-commerce Pembelian items game seperti account game , top up diamond game , dan lainnya.
-                 </p>
+                <div class="div-text-footer gap-3">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Media Social</h6>
+                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</i>
+              </div>
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Support</h6>
+                <p class="m-0" onclick="window.location.href = 'mailto:Michaelganteng3322@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>Michaelganteng3322@gmail.com</p>
+                <p class="m-0" onclick="window.location.href = 'mailto:zeruprogram@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>zeruprogram@gmail.com</p>
+                <p class="m-0">Proses Instant dan dijamin cepat!</p>
+              </div>
                  </div>
-                <div class="div-text-footer">
-                 <p class="fotTxt">
-                    create by
-                    <a
-                        class="zerux"
-                        href="https://zeru.netlify.app/"
-                        >Zeru</a
-                    >
-                    with laravel framework php.<br />
-                    owner is Michael store. launcing 01 April 2024.
-                </p>
-               </div>
-            </footer> -->
+                <div class="div-text-footer py-2">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Information</h6>
+                <p class="m-0">Build in February 2024</p>
+                <p class="m-0">Release in March 2024</p>
+                <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
+              </div>
+                </div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.0.1</div>
+              </footer>
+
             <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->
 
         <!-- start code navbar bottom -->
-        <nav class="navbar navbar-expand fixed-bottom" id="navBottom">
-            <ul class="navbar-nav nav-justified w-100">
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/home/'"
-                        class="bi i-nav bi-house"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/product/'"
-                        class="bi i-nav bi-box-seam nav-active"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/troli/'"
-                        class="bi i-nav bi-bag"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/account/'"
-                        class="bi i-nav bi-person"
-                    ></i>
-                </li>
-            </ul>
-        </nav>
 
         <!-- end code navbar bottom -->
 

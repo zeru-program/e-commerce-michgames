@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,60 +16,54 @@
     </head>
     <body>
         <!-- start code logo nav and search box -->
-        <div
-            class="container nav-top d-flex justify-content-center align-items-center"
-        >
-            <div
-                class="d-flex w-100 gap-1 justify-content-center align-items-center"
-            >
-                <div>
-                    <img
-                        src="../../public/img/logo.png"
-                        class="logo-nav"
-                        alt=""
-                    />
-                </div>
-                <div class="w-100">
-                    <div class="form">
-                        <i class="bi bi-search"></i>
-                        <input
-                            type="text"
-                            id="searchHome"
-                            class="form-control form-input"
-                            placeholder="Search anything..."
-                        />
-                    </div>
-                </div>
+        <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
+          <div class="container-fluid">
+            <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
+            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+              <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav py-2 gap-2">
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-house"></i>Home</a>
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-box-seam"></i>Product</a>
+                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-bag"></i>Troli</a>
+                <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-person"></i>Account</a>
+              </div>
             </div>
-        </div>
+          </div>
+        </nav>
         <!-- end code logo nav and search box -->
 
         <!-- Animation shape home Start -->
-        <div
+       <!-- <div
             class="d-flex justify-content-center align-items-center flex-column con-animation-shape"
+            style="z-index:9999;"
         >
             <div class="shape1 fadeInDown de1 du1">
                 <div
                     class="position-absolute"
                     style="bottom: 5%; margin-left: 3%"
                 >
-                    <h1 class="fw-bold text-light fadeIn de1 du4 mt-3" id="welcomeHomeUser">
-                        Welcome!
-                    </h1>
                 </div>
             </div>
             <div class="shape2 fadeInDown de1 du2"></div>
-        </div>
+        </div> -->
         <!-- Animation shape home End -->
 
         <!-- start content value -->
-        <main>
-            <div class="mt-main container-main" style="padding-inline: 15px;">
+        <main style="margin:0!important;" class="pt-5 position-relative">
+           <!-- <div class="bg-patern-home1"></div> -->
+            <div class="pt-5 py-5 container-main" style="padding-inline: 15px; z-index:999;">
                 <!--   Carousel start  -->
                 <div
                     id="carouselExampleInterval"
                     class="carousel pb-5 slide fadeInLeft de1 du1"
                     data-bs-ride="carousel"
+                    style=" z-index:999;"
                 >
                     <div
                         id="carouselExampleDark"
@@ -156,7 +150,13 @@
                   <label class="text-dark text-btn-product">More</label>
                   </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center con-fs-home text-light">
+                <div class="d-flex flex-column container" style="margin-top:40px;">
+                    <h1 class="fw-bold text-light fadeIn de1 du4" id="welcomeHomeUser">
+                        Welcome!
+                    </h1>
+                    <p>Kami sangat siap melayani mu kapan pun dimana pun! Ayo pesan sekarang!</p>
+                </div>
+               <div class="d-flex justify-content-center align-items-center con-fs-home text-light">
                   <div class="text-light w-100 position-absolute d-flex" style="left: 6%; top: 2%;">
                     <h3 class="text-light" style="font-weight: 1000;">Flash shale!</h3>
                     <div class="bg-dark p-2 text-light text-center justify-content-center d-flex align-items-center" style="position: absolute; right: 10%; margin-right: 3%; padding-bottom: 0;">
@@ -166,27 +166,175 @@
                   <div class="fs-home gap-3" id="flash-body">
                   </div>
                 </div>
-                <div id="productHome" class="d-flex justify-content-center align-items-center con-product-home text-light">
-                  <div class="text-light flex-column position-absolute d-flex" style="left: 5%; top: 2%;">
+                
+                <div id="productHome" class="d-flex justify-content-center align-items-center align-items-lg-start con-product-home-all text-light" style="text-align:left;">
+                  <div class="text-light mx-3 text-title-all flex-column d-flex" style="text-align:left;">
                     <h3 class="fw-bolder">Top-up All games!</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, sint culpa. Tempore delectus iste recusandae!</p>
+                    <p>Dapatkan Pengalaman Bermain Game yang Lebih Menyenangkan dengan Top up All Games!</p>
                   </div>
-                  <div class="product-home" id="recommend-body">
+                  <div class="d-flex w-100 justify-content-center align-items-center">
+               <div class="product-home" id="recommend-body">
+                 <div class="d-flex box-product box-product-sm" data-showlist="ff">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Free Fire</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="ml">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1AlLfexGTXP0Dri6rFY4sSjWcGCYj4mNI" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up ML</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="coc">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1B4HrGQxC8-wIKMx-smHf8X6hdxultTFA" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up COC</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="cod">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1AowqHlzAgjbwQpoZizu9T_rVlv7JOnf_" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up COD</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="fifa">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1B1UbIv0M73EO99zjD3fQsB7Cxysx5R8g" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up FIFA</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="pubg">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1B5SgK4XxvBAjh-qSEFWrcWuzDzORHPm9" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up PUBG</label>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div id="productHome" class="d-flex justify-content-center align-items-center align-items-lg-start con-product-home-all text-light" style="text-align:left;">
+                  <div class="text-light mx-3 text-title-all flex-column d-flex" style="text-align:left;">
+                    <h3 class="fw-bolder">Product Sosmed Hits!</h3>
+                    <p>Lebih banyak Like dan Followers akan membuatmu terkenal dan meningkatkan value bisnis mu loh! Ayo dapatkan Followers dan Liker dengan harga terjangkau!</p>
+                  </div>
+                  <div class="d-flex w-100 justify-content-center align-items-center">
+               <div class="product-home product-home-lg" id="recommend-body">
+                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Followers Tiktok</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Instagram</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Subscriber YouTube</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Facebook</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Tiktok</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Instagram</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker YouTube</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Facebook</label>
+                      </div>
+                    </div>
+                  </div>
                   </div>
                 </div>
             </div>
-            <div class="w-100 d-flex my-5 pb-3 flex-column" style="height: auto; padding-inline: 15px; background: rgba(118,176,236,0.8);">
+            
+            <div class="w-100 d-flex flex-column bg-dark bg-gradient" style="height: auto; padding-inline: 15px; padding-bottom:100px;">
               <div class="title-about mt-3 flex-column d-flex" style="text-align: left;">
-                <h2 class="fw-bolder">Lorem</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quasi omnis similique et, numquam voluptatem voluptas consequuntur magnam placeat minima odio ducimus! Illo molestias provident voluptates, assumenda sunt fugit tempore.</p>
+                <h2 class="fw-bolder">MichStoree.</h2>
+                <p>"MichStore" adalah Platform Termurah di Indonesia untuk memenuhi kebutuhan gaming dan sosial media Anda. Dapatkan layanan top up game, pengisian followers, dan penyuka postingan sosial media dengan harga terjangkau. Kami menjamin keamanan dan kepercayaan 100% selama 24 jam penuh. Bergabunglah dengan komunitas gamers dan pengguna sosial media terbesar dan terpercaya dengan MichStore! Ikuti kami di media sosial untuk mendapatkan informasi terbaru, tips, trik, dan promo-promo menarik lainnya. Jadilah bagian dari kegembiraan dalam setiap game dan postingan sosial media Anda dengan MichStore, solusi one-stop untuk semua kebutuhan gaming dan sosial media Anda!</p>
               </div>
-              <button onclick="window.location.href = 'https://wa.me/+62895411586360'" class="border text-dark cta-btn btn-chat"><i class="bi bi-phone"></i>Chat Owner</button>
-              <div class="d-flex flex-column gap-1 mt-2">
-                <p class="m-0">- Detail Alamat</p>
-                <p class="m-0">- Information</p>
-                <p class="m-0">- Social Media</p>
-                <p class="m-0">- Etc..</p>
-              </div>
+              <button onclick="window.location.href = 'https://wa.me/+62895411586360'" class="text-dark cta-btn btn-chat btn-rating-web"><i class="bi bi-phone"></i>Chat Owner</button>
               <form class="gap-2 my-xxl-5 w-100 justify-content-center align-items-center d-flex flex-column" id="formRating" action="https://formspree.io/f/mwkgrwrg" method="POST">
                 <div class="d-flex gap-3">
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
@@ -196,67 +344,47 @@
               <i class="bi bi-star rating-star" style="font-size: 3.5em;"></i>
               </div>
               <label type="text" name="rating" id="ratingText"></label>
-              <button type="button" class="text-dark cta-btn btn-chat bg-warning" onclick="resetRating()">Reset
+              <button type="button" class="text-dark cta-btn btn-chat bg-light" onclick="resetRating()">Reset
               <button type="submit" class="text-dark cta-btn btn-chat btn-rating-web"><i class="bi bi-award"></i>Rating Web</button>
               </form>
             </div>
 
             <!-- start footer bootom sticky -->
-              <footer class="bg-dark">
+              <footer class="bg-dark py-5">
                 <div class="div-img-footer">
-                <img src="../../public/img/logo.png" class="logoImgFot" alt="" />
+                  <h2 class="fw-bold py-2" style="font-family:'Outfit', sans-serif;">
+                    MichStore.
+                  </h2>
                 </div>
-                <div class="div-text-footer">
-                <p id="fotTxt" class="text-footer-1">
-                    Website e-commerce Pembelian items game seperti account game , top up diamond game , dan lainnya.
-                 </p>
+                <div class="div-text-footer gap-3">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Media Social</h6>
+                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</i>
+              </div>
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Support</h6>
+                <p class="m-0" onclick="window.location.href = 'mailto:Michaelganteng3322@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>Michaelganteng3322@gmail.com</p>
+                <p class="m-0" onclick="window.location.href = 'mailto:zeruprogram@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>zeruprogram@gmail.com</p>
+                <p class="m-0">Proses Instant dan dijamin cepat!</p>
+              </div>
                  </div>
-                <div class="div-text-footer">
-                 <p class="fotTxt">
-                    create by
-                    <a
-                        class="zerux"
-                        href="https://zeru.netlify.app/"
-                        >Zeru</a
-                    >
-                    with laravel framework php.<br />
-                    owner is Michael store. launcing 01 April 2024.
-                </p>
+                <div class="div-text-footer py-2">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Information</h6>
+                <p class="m-0">Build in February 2024</p>
+                <p class="m-0">Release in March 2024</p>
+                <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
+              </div>
                 </div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.0.1</div>
               </footer>
             <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->
 
         <!-- start code navbar bottom -->
-        <nav class="navbar navbar-expand fixed-bottom" id="navBottom">
-            <ul class="navbar-nav nav-justified w-100">
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/home/'"
-                        class="bi i-nav bi-house nav-active"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/product/'"
-                        class="bi i-nav bi-box-seam"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/troli/'"
-                        class="bi i-nav bi-bag"
-                    ></i>
-                </li>
-                <li class="nav-item">
-                    <i
-                        onclick="window.location.href = '/pages/account/'"
-                        class="bi i-nav bi-person"
-                    ></i>
-                </li>
-            </ul>
-        </nav>
         <!-- end code navbar bottom -->
         
       <!--   splash screen -->
@@ -296,11 +424,9 @@ function resetRating() {
 
 
 // Fungsi untuk mengenkripsi teks dengan AES
-function encryptText(text, key) {
-    return CryptoJS.AES.encrypt(text, key).toString();
-}
 
-addEventListener("DOMContentLoaded", () => {
+//v.1.0
+/*addEventListener("DOMContentLoaded", () => {
     setTimeout(function () {
         const buyProducts = document.querySelectorAll(".box-product");
         buyProducts.forEach(product => {
@@ -328,6 +454,31 @@ addEventListener("DOMContentLoaded", () => {
         });
     }, 1300);
 });
+*/
+
+
+//v.2.0
+
+
+addEventListener("DOMContentLoaded", () => {
+    setTimeout(function () {
+        const buyProducts = document.querySelectorAll(".box-product");
+        buyProducts.forEach(product => {
+            product.addEventListener("click", function () {
+                localStorage.setItem('checkout', true);
+      const showList = this.getAttribute("data-showlist");
+
+
+                // URL dengan parameter terenkripsi
+                const encryptedURL = `/pages/checkout/?showlist=${showList}`;
+
+                // Redirect to checkout page with encrypted product details
+                window.location.href = encryptedURL;
+            });
+        });
+    }, 1300);
+});
+
 
         </script>
 

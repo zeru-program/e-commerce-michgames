@@ -1,11 +1,3 @@
-// search index system home page
-document.getElementById("searchHome").addEventListener("click", () => {
-    console.log("dd");
-    window.location.href = "#productHome";
-    setTimeout(function () {
-        document.getElementById("searchHome").focus();
-    }, 500);
-});
 
 // countdown flash shale
 function countdown() {
@@ -138,7 +130,7 @@ function productManageHome() {
             });
 
             // flash shale display
-            const fsProducts = productsByCategory["flash-shale"];
+            /*const fsProducts = productsByCategory["flash-shale"];
             const flashBody = document.getElementById("flash-body");
             fsProducts.forEach(product => {
                 const productImg = product.img_src;
@@ -166,9 +158,9 @@ function productManageHome() {
                     </div>
       `;
                 flashBody.appendChild(productDiv);
-            });
+            });*/
 
-            const recProducts = productsByCategory["recommend"];
+            /*const recProducts = productsByCategory["recommend"];
             const recBody = document.getElementById("recommend-body");
             recProducts.forEach(product => {
                 const productImg = product.img_src;
@@ -192,7 +184,7 @@ function productManageHome() {
                     </div>
       `;
                 recBody.appendChild(productDiv);
-            });
+            }); */
 
             // const discountProducts = productsByCategory['discount'];
             // const discountProductsContainer = document.getElementById('discount-products-container');

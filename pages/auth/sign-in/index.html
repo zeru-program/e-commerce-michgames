@@ -5,6 +5,16 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-commerce Michgames</title>
+  <script>
+      
+  document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('hasLogin');
+    if (isLoggedIn === 'true') {
+        // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
+        window.location.href = "/pages/home/";
+    }
+  });
+  </script>
   <style type="text/css" media="all">
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
@@ -195,14 +205,14 @@
       <div class="con-input">
         <form id="signin-form">
         <label class="input-label">Username or Email</label>
-        <input type="text" id="emailOrName" class="inputOption" placeholder="type in here.." name="Email" />
+        <input type="text" id="emailOrName" class="inputOption" placeholder="type in here.." name="username-email" />
         <br>
         <label class="input-label">Password</label>
         <div class="con-hidden-pw">
           <input type="password" id="password" class="inputOption" placeholder="type in here.." name="Password" />
           <img src="voff.png" class="vis-pass" alt="show" onclick="switchOn()" />
           <div class="con-accept">
-            <input type="checkbox" name="" id="cookies" /> <label>I agree the cookies</label>
+            <input type="checkbox" name="" required id="cookies" /> <label>I agree the cookies</label>
           </div>
         </div>
       <br>
@@ -230,39 +240,41 @@
   </div>   
   <script src="https://sheetdb.io/handlebars.js"></script>
   <script type="text/javascript" charset="utf-8">
-  document.addEventListener('DOMContentLoaded', function() {
-    const isLoggedIn = localStorage.getItem('hasLogin');
-    if (isLoggedIn === 'true') {
-        // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
-        window.location.href = "/pages/home/";
-    }
-  });
   // checked data
-document.getElementById("signin-form").addEventListener("submit", function(event) {
+const form = document.getElementById("signin-form");
+form.addEventListener("submit", function(event) {
     event.preventDefault();
-    const emailOrName = document.getElementById("emailOrName").value;
-    const password = document.getElementById("password").value;
-    const url = 'https://sheetdb.io/api/v1/yf0879y48ha98';
+    const signInURL = 'https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec';
     
-    fetch(url)
-        .then(response => response.json())
+    const usernameOrEmail = form.elements["username-email"].value;
+    const password = form.elements["password"].value;
+    fetch(
+        `${signInURL}?usernameOrEmail=${usernameOrEmail}&password=${password}`
+    )
+        .then(res => res.json()) // Mengubah respons menjadi objek JSON
         .then(data => {
-            const dataArray = Object.values(data); // Ubah objek data menjadi array
-            const user = dataArray.find(item => (item.Username === emailOrName || item.Email === emailOrName) && item.Password === password);
-            if (user) {
-                localStorage.setItem('hasLogin', true);
-                localStorage.setItem('name', user.Name);
-                localStorage.setItem('username', user.Username);
-                localStorage.setItem('email', user.Email);
-                localStorage.setItem('password', user.Password);
-                window.location.href = "/pages/home/"; // Redirect to home page
+            const users = data.content.slice(1);
+            const foundUser = users.find(
+                user =>
+                    (user[1] === usernameOrEmail ||
+                        user[3] === usernameOrEmail) &&
+                    user[4] === password
+            );
+            if (foundUser) {
+                const [id, username, password, email] = foundUser; // Mendapatkan nilai id, username, password, dan email dari pengguna yang ditemukan
+                window.location.href = "/pages/home/";
+                localStorage.setItem("hasLogin", true);
+                localStorage.setItem("username", username);
+                localStorage.setItem("email", email);
+                localStorage.setItem("password", password);
             } else {
-                alert("Invalid email or password. Please try again.");
+                alert('username or password wrong')
+                //document.querySelector(".cek-wrong").style.display = "flex";
+              //  document.querySelector(".wrong-popup").style.display = "flex";
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("Sign in failed. Please try again later.");
+        .catch(e => {
+            console.error("error", e.message);
         });
 });
 

@@ -47,3 +47,56 @@
     }
   })
 })()
+
+
+
+
+
+
+
+
+// do get read the datas and print it
+fetch('https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec')
+  .then(res => res.json())
+  .then(data => {
+      const tableBody = document.getElementById('table-body');
+
+    // Mulai dari indeks 1 untuk mengabaikan data pertama
+    data.content.slice(1).forEach(row => {
+       const rowTab = document.createElement('tr');
+        rowTab.innerHTML = `
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td>${row[2]}</td>
+          <td>${row[3]}</td>
+          <td>${row[4]}</td>
+          <td class="align-items-center justify-content-center"><button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delAccount('${row[3]}')">Del</button></td>
+        `;
+        tableBody.appendChild(rowTab);
+      
+    })
+  })
+  .catch(e => console.error('fail', error.message))
+  
+  
+
+
+
+function delAccount(email) {
+  fetch('https://sheetdb.io/api/v1/yf0879y48ha98/Email/' + email, {
+    method: 'DELETE',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+})
+  .then((response) => response.json())
+  .then((data) => location.reload())
+  
+}
+
+  // Render the table when the page loads
+  //window.onload = renderTable;
+  
+  
+

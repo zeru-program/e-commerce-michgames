@@ -544,19 +544,19 @@ background: linear-gradient(0deg, rgba(51,90,129,1) 10%, rgb(81,113,149) 100%) !
 @media screen and (max-width: 368px) {
     .product-checkout {
       width: 125px;
-      height: 50px;
+      height: 55px;
     }
     .title-product-checkout {
-      font-size: .8em;
+      font-size: .7em;
     }
 }
 @media screen and (min-width: 368px) {
     .product-checkout {
       width: 155px;
-      height: 50px;
+      height: 55px;
     }
     .title-product-checkout {
-      font-size: 1em;
+      font-size: .89em;
     }
 }
 @media screen and (min-width: 768px) {
@@ -626,6 +626,10 @@ background: linear-gradient(0deg, rgba(51,90,129,1) 10%, rgb(81,113,149) 100%) !
 .product-checkout:hover {
   transform: scale(.95);
   border: 1.5px solid #319de2;
+}
+.btn-beli:disabled {
+  color: gray !important;
+  opacity: .6!important;
 }
 /** box product shop Start ***/
 .box-product:hover {

@@ -306,19 +306,20 @@
                   <img src="https://drive.google.com/thumbnail?id=1Al4QoAGs2H2TWMuNC5j4VRerS0qGM2Vd" id="img-checkout3" alt="">
                 </div>
                 <div class="text-light px-3 d-flex flex-column">
-                  <p class="m-0 show-id d-none" id="">-</p>
+                  <p class="m-0 show-id d-none" id="id-0">-</p>
                   <p class="m-0 show-id-port d-none" id="id-1"><p id="port-1"></p></p>
-                  <p class="m-0 show-usn d-none" id="">-</p>
+                  <p class="m-0 show-usn d-none" id="usn-sm">-</p>
                   <p class="m-0" id="nama-product">-</p>
                   <p class="m-0" id="brand-product">-</p>
                   <p class="m-0" id="price-product">-</p>
                   <p class="m-0" id="estimasi-product">Dikirm : -</p>
                   <p class="m-0" id="total-product">Total : -</p>
-                  
+                  <p id="telpUser">08777212</p>
+                  <p id="emailUser">zeruprogram@gmail.co</p>
                 </div>
               </div>
               <div class="d-flex w-100">
-                <button class="w-100 gap-2 mb-3 text-light mx-3 py-3 border-0 rounded-2" style="background:#319de2;" onclick="buyNow()"><i class="bi mx-3 bi-cart"></i>Beli Sekarang</i>
+                <button class="w-100 btn-beli gap-2 mb-3 text-light mx-3 py-3 border-0 rounded-2" style="background:#319de2;" onclick="buyNow()"><i class="bi mx-3 bi-cart"></i>Beli Sekarang</i>
               </div>
          </div>
         </div>
@@ -367,7 +368,19 @@
         <script type="text/javascript">
         
         function buyNow() {
-          const 
+          const idPesanan = '#301kdjena';
+          const productCategory = document.getElementById("");
+          const productName = document.getElementById("nama-product").innerText;
+          const productBrand = document.getElementById("brand-product").innerText;
+          const productPrice = document.getElementById("price-product").textContent;
+          const productEst = document.getElementById("estimasi-product").innerText;
+          const productTotal = document.getElementById("total-product").innerText;
+          const idUser1 = document.getElementById("id-0").innerText;
+          const idUser2 = document.getElementById("id-1").innerText;
+          const portUser = document.getElementById("port-1").innerText;
+          const usnUser = document.getElementById("usn-sm").innerText;
+          const telpUser = document.getElementById("telpUser").innerText;
+          const emailUser = document.getElementById("emailUser").innerText;
           var allMessage = `
           *MICH STORE*
           =============================
@@ -378,17 +391,22 @@
           _Nama Product_ : ${productName}
           _Nama Brand_ : ${productBrand}
           _Quantitas_ : x1
+          _Product Estimasi_ : ${productEst}
           _Harga Product_: ${productPrice}
-          _Total Harga + Pajak_ : 8.500
+          _Total Harga + Pajak_ : ${productTotal}
           
-          *Data Pengguna*
-          - ID : 1234557889
-          - Port : optional
-          - Username : utk game optional
+          *Data Pembeli*
+          *Just Id
+          - ID : ${idUser1}
+          *Id And Port
+          - ID : ${idUser2}
+          - Port : ${portUser}
+          *Username if sosmed
+          - Username : ${usnUser}
           
-          *Information Pengguna Tambahan*
-          - Nomor Telepon :
-          - Email :
+          *Information Pembeli Tambahan*
+          - Nomor Telepon : ${telpUser}
+          - Email : ${emailUser}
           `
           
             var message = allMessage;

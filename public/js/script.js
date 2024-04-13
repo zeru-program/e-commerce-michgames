@@ -389,49 +389,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (checkoutLS) {
         const urlParams = new URLSearchParams(window.location.search);
         const productShow = urlParams.get('showlist');
-        
-// do get read the datas and print it
-fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
-  .then(res => res.json())
-  .then(data => {
-   console.log(data)
-      const specialBody = document.getElementById('special-body');
-      const diamondBody = document.getElementById('diamond-body');
-      const payBody = document.getElementById('payBody');
-      const productLoad = document.querySelectorAll(".product-load");
-      const productLoadPay = document.querySelectorAll(".product-load-pay");
-      const labelProduct1 = document.getElementById('label-product1');
-      const labelProduct2 = document.getElementById('label-product2');
-       data.content.slice(1).forEach(row => {
-        const divProduct = document.createElement('div');
-        divProduct.innerHTML = `
-          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
-                      <div class="d-flex flex-column w-75">
-                       <label class="fw-bold title-product-checkout text-light" style="">
-                         ${row[1]}
-                       </label>
-                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
-                      </div>
-                      <div class="w-25 d-flex justify-content-center align-items-center">
-                        <i class="bi bi-bag" style="color:#319de2;"></i>
-                      </div>
-                    </div>
-        `;
-        const divProduct1 = document.createElement('div');
-        divProduct1.innerHTML = `
-          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
-                      <div class="d-flex flex-column w-75">
-                       <label class="fw-bold title-product-checkout text-light" style="">
-                         ${row[1]}
-                       </label>
-                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
-                      </div>
-                      <div class="w-25 d-flex justify-content-center align-items-center">
-                        <i class="bi bi-gem" style="color:#319de2;"></i>
-                      </div>
-                    </div>
-        `;
-        const payDiv = document.createElement('div');
+                const payDiv = document.createElement('div');
         payDiv.innerHTML = `
               <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="qris">
                 <div class="d-flex flex-column"> 
@@ -522,13 +480,55 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
                 </div>
               </div>
         `;
+        payBody.appendChild(payDiv);
+// do get read the datas and print it
+fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+  .then(res => res.json())
+  .then(data => {
+   console.log(data)
+      const specialBody = document.getElementById('special-body');
+      const diamondBody = document.getElementById('diamond-body');
+      const payBody = document.getElementById('payBody');
+      const productLoad = document.querySelectorAll(".product-load");
+      const productLoadPay = document.querySelectorAll(".product-load-pay");
+      const labelProduct1 = document.getElementById('label-product1');
+      const labelProduct2 = document.getElementById('label-product2');
+       data.content.slice(1).forEach(row => {
+        const divProduct = document.createElement('div');
+        divProduct.innerHTML = `
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         ${row[1]}
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-bag" style="color:#319de2;"></i>
+                      </div>
+                    </div>
+        `;
+        const divProduct1 = document.createElement('div');
+        divProduct1.innerHTML = `
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+                      <div class="d-flex flex-column w-75">
+                       <label class="fw-bold title-product-checkout text-light" style="">
+                         ${row[1]}
+                       </label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
+                      </div>
+                      <div class="w-25 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-gem" style="color:#319de2;"></i>
+                      </div>
+                    </div>
+        `;
+
         
         if (productShow === 'ff' && row[3] === 'FREE FIRE') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -544,7 +544,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -560,7 +560,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -576,7 +576,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -592,7 +592,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -608,7 +608,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -624,7 +624,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -642,7 +642,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -660,7 +660,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -678,7 +678,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
           })
-          payBody.appendChild(payDiv);
+          
           productLoadPay.forEach(plp => {
           plp.classList.remove('d-flex');
           plp.classList.add('d-none');
@@ -697,6 +697,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
         // window.location.href = "/pages/home/";
         }
     })
+    
         
 const inputShow = document.querySelector('.input-to-show');
 const inputProductToShow = inputShow.getAttribute('data-inputProduct');

@@ -369,12 +369,14 @@
         const emailIpt = document.getElementById('email-ipt');
         const waIpt = document.getElementById('wa-ipt');
         emailIpt.addEventListener("input", (e) => {
-          const emailUser = document.getElementById("emailUser").innerText;
-         emailUser = emailIpt.value;
+          console.log('dd email')
+          const emailUser = document.getElementById("emailUser");
+         emailUser.innerText = emailIpt.value;
         })
         waIpt.addEventListener("input", (e) => {
-          const telpUser = document.getElementById("telpUser").innerText;
-         telpUser = waIpt.value;
+          console.log('dd wa')
+          const telpUser = document.getElementById("telpUser");
+         telpUser.innerText = waIpt.value;
         })
         function buyNow() {
           const idPesanan = '#301kdjena';

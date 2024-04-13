@@ -74,6 +74,8 @@ window.onload = function () {
        productManageProduct();
     } else if (window.location.pathname === "/pages/account/") {
         accountManageLS();
+    } else if (window.location.pathname === "/pages/checkout/") {
+      // showCheckout();
     }
    
 };
@@ -381,8 +383,9 @@ function logoutUser() {
 
 
 // checkout system
-
+ //showCheckout();
 const checkoutLS = localStorage.getItem('hasLogin');
+//const checkoutLS = localStorage.getItem('checkout');
 
 document.addEventListener("DOMContentLoaded", function() {
   //  const checkoutLS = localStorage.getItem('checkout');
@@ -496,9 +499,9 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
        data.content.slice(1).forEach(row => {
         const divProduct = document.createElement('div');
         divProduct.innerHTML = `
-          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);height:65px!important;" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
                       <div class="d-flex flex-column w-75">
-                       <label class="fw-bold title-product-checkout text-light" style="">
+                       <label class="fw-bold title-product-checkout text-light" style="font-size:.69em!important;">
                          ${row[1]}
                        </label>
                         <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${row[4]}</label>
@@ -692,9 +695,10 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            labelProduct2.textContent = 'Likers';
           } 
         } else {
-       //   alert("409 product not found")
+         // console.log('409 product not found')
+        //  alert("409 product not found")
        // localStorage.removeItem('checkout');
-        // window.location.href = "/pages/home/";
+      //   window.location.href = "/pages/home/";
         }
     })
     
@@ -772,7 +776,7 @@ pay.forEach(p => {
   })
 })
     
-        localStorage.removeItem('checkout');
+   //     localStorage.removeItem('checkout');
 
   })   
   .catch(e => console.error('fail', error.message))
@@ -781,6 +785,7 @@ pay.forEach(p => {
     }
 });
 
+//function showCheckout() {}
 
 
 

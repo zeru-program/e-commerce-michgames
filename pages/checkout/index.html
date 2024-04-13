@@ -287,7 +287,7 @@
               <div class="w-100 d-flex gap-3 flex-column px-3 py-3">
               <div class="ipt-checkout d-flex flex-column justify-content-center text-light" id="ipt-id">
                 <label id="label-id">Email</label>
-                <input type="email" placeholder="example@gamil.com" class="w-100 input-checkout border-0 py-1 rounded-2" name="" id="" value="" required />
+                <input type="email" placeholder="example@gamil.com" class="w-100 input-checkout border-0 py-1 rounded-2" id="email-ipt" value="" required />
               </div>
               <div class="ipt-checkout d-flex flex-column justify-content-center text-light" id="ipt-id">
                 <label id="label-id">Whatsapp</label>
@@ -295,7 +295,7 @@
               <div class="input-group-prepend">
                 <span class="input-checkout fix-radius1 input-group-text" id="basic-addon1">+62</span>
               </div>
-              <input type="number" class="form-control input-checkout fix-radius2" placeholder="81234566899.." aria-label="" aria-describedby="basic-addon1" required>
+              <input type="number" class="form-control input-checkout fix-radius2" placeholder="81234566899.." aria-label="" id="wa-ipt" aria-describedby="basic-addon1" required>
             </div>
               </div>
             </div>
@@ -314,8 +314,8 @@
                   <p class="m-0" id="price-product">-</p>
                   <p class="m-0" id="estimasi-product">Dikirm : -</p>
                   <p class="m-0" id="total-product">Total : -</p>
-                  <p id="telpUser">08777212</p>
-                  <p id="emailUser">zeruprogram@gmail.co</p>
+                  <p class="d-none" id="telpUser">-</p>
+                  <p class="d-none" id="emailUser">-</p>
                 </div>
               </div>
               <div class="d-flex w-100">
@@ -366,7 +366,16 @@
         <!-- script js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script type="text/javascript">
-        
+        const emailIpt = document.getElementById('email-ipt');
+        const waIpt = document.getElementById('wa-ipt');
+        emailIpt.addEventListener("input", (e) => {
+          const emailUser = document.getElementById("emailUser").innerText;
+         emailUser = emailIpt.value;
+        })
+        waIpt.addEventListener("input", (e) => {
+          const telpUser = document.getElementById("telpUser").innerText;
+         telpUser = waIpt.value;
+        })
         function buyNow() {
           const idPesanan = '#301kdjena';
           const productCategory = document.getElementById("");
@@ -399,8 +408,7 @@
           *Just Id
           - ID : ${idUser1}
           *Id And Port
-          - ID : ${idUser2}
-          - Port : ${portUser}
+          - ${idUser2}
           *Username if sosmed
           - Username : ${usnUser}
           

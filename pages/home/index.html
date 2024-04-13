@@ -466,7 +466,8 @@ addEventListener("DOMContentLoaded", () => {
             product.addEventListener("click", function () {
                 localStorage.setItem('checkout', true);
       const showList = this.getAttribute("data-showlist");
-
+   
+       localStorage.setItem('checkout', true);
 
                 // URL dengan parameter terenkripsi
                 const encryptedURL = `/pages/checkout/?showlist=${showList}`;

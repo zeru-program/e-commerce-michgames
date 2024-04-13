@@ -547,7 +547,7 @@ background: linear-gradient(0deg, rgba(51,90,129,1) 10%, rgb(81,113,149) 100%) !
       height: 55px;
     }
     .title-product-checkout {
-      font-size: .7em;
+      font-size: .6em;
     }
 }
 @media screen and (min-width: 368px) {
@@ -556,7 +556,7 @@ background: linear-gradient(0deg, rgba(51,90,129,1) 10%, rgb(81,113,149) 100%) !
       height: 55px;
     }
     .title-product-checkout {
-      font-size: .89em;
+      font-size: .79em;
     }
 }
 @media screen and (min-width: 768px) {

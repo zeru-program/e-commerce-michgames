@@ -469,6 +469,14 @@
     </main>
   </div>
 </div>
+
+<div class="d-none justify-content-center align-items-center position-fixed w-100" style="top:0;left:0;background:rgba(0,0,0,.5);height:100vh;backdrop-filter:blur(5px); z-index:99999;" id="modalCreate">
+  <div class="w-75 gap-5 justify-content-center align-items-center rounded-2 bg-light p-5" style="height:350px;">
+    <h1 class="fw-bold">Creating Product</h1>
+    <p>produk sedang dibuat.. sabar anj</p>
+  </div>
+</div>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://sheetdb.io/handlebars.js"></script>
     
@@ -562,7 +570,8 @@ function pcategoryManage() {
 const form = document.getElementById('form-create-product');
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Untuk mencegah pengiriman formulir secara default
-
+  document.getElementById('modalCreate').classList.remove('d-none');
+  document.getElementById('modalCreate').classList.add('d-flex');
   const pn = document.getElementById('proname').value;
   const pd = document.getElementById('prodesc').value;
   const pgc = document.getElementById('progamecategory').value;

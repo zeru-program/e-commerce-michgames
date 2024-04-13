@@ -461,7 +461,6 @@ function resetRating() {
 
 
 addEventListener("DOMContentLoaded", () => {
-    setTimeout(function () {
         const buyProducts = document.querySelectorAll(".box-product");
         buyProducts.forEach(product => {
             product.addEventListener("click", function () {
@@ -476,7 +475,6 @@ addEventListener("DOMContentLoaded", () => {
                 window.location.href = encryptedURL;
             });
         });
-    }, 1300);
 });
 
 

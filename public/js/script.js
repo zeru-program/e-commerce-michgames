@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (checkoutLS) {
         const urlParams = new URLSearchParams(window.location.search);
         const productShow = urlParams.get('showlist');
-                const payDiv = document.createElement('div');
+        const payDiv = document.createElement('div');
         payDiv.innerHTML = `
               <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="qris">
                 <div class="d-flex flex-column"> 
@@ -500,7 +500,6 @@ document.addEventListener("DOMContentLoaded", function() {
 fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
   .then(res => res.json())
   .then(data => {
-   console.log(data)
       const specialBody = document.getElementById('special-body');
       const diamondBody = document.getElementById('diamond-body');
       const payBody = document.getElementById('payBody');
@@ -538,7 +537,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
                     </div>
         `;
 
-        
+        const dmDiv = document.getElementById('diamond-div');
         if (productShow === 'ff' && row[3] === 'FREE FIRE') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
@@ -736,6 +735,120 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
+        else if (productShow === 'xl' && row[3] === 'XL') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductXl();
+            if (row[9] === 'pulsa') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Pulsa';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
+        else if (productShow === 'three' && row[3] === 'THREE') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductThree();
+            if (row[9] === 'pulsa') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Pulsa';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
+        else if (productShow === 'axis' && row[3] === 'AXIS') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductAxis();
+            if (row[9] === 'pulsa') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Pulsa';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
+        else if (productShow === 'dana' && row[3] === 'DANA') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductDana();
+            if (row[9] === 'wallet') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Saldo';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
+        else if (productShow === 'gopay' && row[3] === 'GOPAY') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductGopay();
+            if (row[9] === 'wallet') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Saldo';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
+        else if (productShow === 'shopeepay' && row[3] === 'SHOPEEPAY') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductSpay();
+            if (row[9] === 'pulsa') {
+           specialBody.appendChild(divProduct);
+           labelProduct1.textContent = 'Saldo';
+           labelProduct2.textContent = '';
+           dmDiv.classList.remove('d-flex')
+           dmDiv.classList.add('d-none')
+          } 
+        } 
         else if (productShow === 'tt' && row[3] === 'TIKTOK') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
@@ -754,7 +867,8 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            specialBody.appendChild(divProduct).cloneNode(true);
            labelProduct2.textContent = 'Likers';
           } 
-        } else if (productShow === 'ig' && row[3] === 'INSTAGRAM') {
+        } 
+        else if (productShow === 'ig' && row[3] === 'INSTAGRAM') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -822,9 +936,11 @@ const inputProductToShow = inputShow.getAttribute('data-inputProduct');
 const showId = document.querySelector('.show-id');
 const showIdPort = document.querySelector('.show-id-port');
 const showUsn = document.querySelector('.show-usn');
+const showNomor = document.querySelector('#nomor-show');
 const inputId = document.querySelector('#id-game1');
 const inputId2 = document.querySelector('#id-game2');
 const inputIdP = document.querySelector('#port-game');
+const inputNomor = document.querySelector('#nomor-ipt');
 const inputUsnSosmed = document.querySelector('#usn-ipt');
 inputShow.addEventListener('input', (e) => {
   if (inputProductToShow === 'id') {
@@ -843,6 +959,12 @@ inputShow.addEventListener('input', (e) => {
   } else if (inputProductToShow === 'usn') {
     showUsn.classList.remove('d-none')
     showUsn.classList.add('d-flex')
+  } else if (inputProductToShow === 'nomor') {
+    showNomor.classList.remove('d-none')
+    showNomor.classList.add('d-flex')
+    inputNomor.addEventListener('input', (e) => {
+    showNomor.textContent = 'Nomor : ' + inputNomor.value;
+    })
   } else {
     return;
   }
@@ -916,6 +1038,12 @@ var imgStumbleGuys = 'https://drive.google.com/thumbnail?id=1JtqndXnwdFflbjU-Uwq
 var imgHonkaiStarRail = 'https://drive.google.com/thumbnail?id=1JrLqGJf7Gn8eFtu8UXd6vNkvdz6czGp7';
 var imgBrawlStar = 'https://drive.google.com/thumbnail?id=1Jpgs_OA_RKNc4jkeXPSebpA6ehPEkRfn';
 var imgValorant = 'https://drive.google.com/thumbnail?id=1JoUmniyQCte3hJ97ZEMMiKxGj0BuYsdn';
+var imgXl = 'https://drive.google.com/thumbnail?id=1LhYwvnkftmvnVPpmVgACkfji23LDFo4T';
+var img3 = 'https://drive.google.com/thumbnail?id=1LVZLV8vk0q25tBSWzg-VR9U2WR9rgimR';
+var imgAxis = 'https://drive.google.com/thumbnail?id=1LTCAG1w5Hd22Wam_R-CsGbo07_5JlKON';
+var imgDana = 'https://drive.google.com/thumbnail?id=1LQrbnwNil4fuNWaHM49pi7bEH7f1F1yD';
+var imgGopay = 'https://drive.google.com/thumbnail?id=1LSx99Bz5oKCod082SRzwHJ4NysCkm7wV';
+var imgSpay = 'https://drive.google.com/thumbnail?id=1LC-Jb9IZqIV6rJ06KwZWfLABfMb_ZUoH';
 var imgTt = 'https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H';
 var imgIg = 'https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN';
 var imgYt = 'https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-';
@@ -929,6 +1057,7 @@ const namaBrand = document.getElementById('brand-product');
 const iptId = document.getElementById('ipt-id');
 const iptIP = document.getElementById('ipt-id-port');
 const iptUsn = document.getElementById('ipt-usn');
+const iptNo = document.getElementById('ipt-nomor');
 
 
 function showProductFf() {
@@ -1087,6 +1216,80 @@ function showProductValo() {
   iptIP.classList.add('input-to-show');
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
+
+function showProductXl() {
+  imgC1.src = imgXl;
+  imgC2.src = imgXl;
+  imgC3.src = imgXl;
+  namaGame.textContent = 'Pulsa XL';
+  namaPerusahaan.textContent = "@pulsa";
+  namaBrand.textContent = 'Xl';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+function showProductThree() {
+  imgC1.src = img3;
+  imgC2.src = img3;
+  imgC3.src = img3;
+  namaGame.textContent = 'Pulsa 3';
+  namaPerusahaan.textContent = "@pulsa";
+  namaBrand.textContent = '3';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+function showProductAxis() {
+  imgC1.src = imgAxis;
+  imgC2.src = imgAxis;
+  imgC3.src = imgAxis;
+  namaGame.textContent = 'Pulsa Axis';
+  namaPerusahaan.textContent = "@pulsa";
+  namaBrand.textContent = 'Axis';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+function showProductDana() {
+  imgC1.src = imgDana;
+  imgC2.src = imgDana;
+  imgC3.src = imgDana;
+  namaGame.textContent = 'Wallet Dana';
+  namaPerusahaan.textContent = "@saldo";
+  namaBrand.textContent = 'Dana';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+function showProductGopay() {
+  imgC1.src = imgGopay;
+  imgC2.src = imgGopay;
+  imgC3.src = imgGopay;
+  namaGame.textContent = 'Wallet Gopay';
+  namaPerusahaan.textContent = "@saldo";
+  namaBrand.textContent = 'Gopay';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+function showProductSpay() {
+  imgC1.src = imgSpay;
+  imgC2.src = imgSpay;
+  imgC3.src = imgSpay;
+  namaGame.textContent = 'Wallet ShopeePay';
+  namaPerusahaan.textContent = "@saldo";
+  namaBrand.textContent = 'Shopeepay';
+  iptNo.classList.remove('d-none');
+  iptNo.classList.add('d-flex');
+  iptNo.classList.add('input-to-show');
+  iptNo.setAttribute("data-inputProduct", 'nomor');
+}
+
 function showProductTt() {
   console.log('product tiktok')
   imgC1.src = imgTt;

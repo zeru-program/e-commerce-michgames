@@ -368,50 +368,63 @@
           const telpUser = document.getElementById("telpUser");
          telpUser.innerText = waIpt.value;
         })
-        function buyNow() {
-          const idPesanan = '#301kdjena';
-          const productCategory = document.getElementById("");
-          const productName = document.getElementById("nama-product").innerText;
-          const productBrand = document.getElementById("brand-product").innerText;
-          const productPrice = document.getElementById("price-product").textContent;
-          const productEst = document.getElementById("estimasi-product").innerText;
-          const productTotal = document.getElementById("total-product").innerText;
-          const idUser1 = document.getElementById("id-0").innerText;
-          const idUser2 = document.getElementById("id-1").innerText;
-          const portUser = document.getElementById("port-1").innerText;
-          const usnUser = document.getElementById("usn-sm").innerText;
-          const telpUser = document.getElementById("telpUser").innerText;
-          const emailUser = document.getElementById("emailUser").innerText;
-          var allMessage = `
-          *MICH STORE*
-          =============================
-          ORDERAN MASUK !
-          =============================
-           _Id Pesanan_ : ${idPesanan}
-          _Nama Orderan_ : ${productCategory}
-          _Nama Product_ : ${productName}
-          _Nama Brand_ : ${productBrand}
-          _Quantitas_ : x1
-          _Product Estimasi_ : ${productEst}
-          _Harga Product_: ${productPrice}
-          _Total Harga + Pajak_ : ${productTotal}
-          
-          *Data Pembeli*
-          *Just Id
-          - ID : ${idUser1}
-          *Id And Port
-          - ${idUser2}
-          *Username if sosmed
-          - Username : ${usnUser}
-          
-          *Information Pembeli Tambahan*
-          - Nomor Telepon : ${telpUser}
-          - Email : ${emailUser}
-          `
-          
-            var message = allMessage;
-            window.location.href = "https://ms-sendwa.byethost7.com/index.php?message=" + encodeURIComponent(message);
-        }
+function buyNow() {
+    const idPesanan = '#301kdjena';
+    const productCategory = document.getElementById("");
+    const productName = document.getElementById("nama-product").innerText;
+    const productBrand = document.getElementById("brand-product").innerText;
+    const productPrice = document.getElementById("price-product").textContent;
+    const productEst = document.getElementById("estimasi-product").innerText;
+    const productTotal = document.getElementById("total-product").innerText;
+    const idUser1 = document.getElementById("id-0").innerText;
+    const idUser2 = document.getElementById("id-1").innerText;
+    const portUser = document.getElementById("port-1").innerText;
+    const usnUser = document.getElementById("usn-sm").innerText;
+    const telpUser = document.getElementById("telpUser").innerText;
+    const emailUser = document.getElementById("emailUser").innerText;
+    
+    var allMessage = `
+    *MICH STORE*
+    =============================
+    ORDERAN MASUK !
+    =============================
+     _Id Pesanan_ : ${idPesanan}
+    _Nama Orderan_ : ${productCategory}
+    _Nama Product_ : ${productName}
+    _Nama Brand_ : ${productBrand}
+    _Quantitas_ : x1
+    _Product Estimasi_ : ${productEst}
+    _Harga Product_: ${productPrice}
+    _Total Harga + Pajak_ : ${productTotal}
+    
+    *Data Pembeli*
+    *Just Id
+    - ID : ${idUser1}
+    *Id And Port
+    - ${idUser2}
+    *Username if sosmed
+    - Username : ${usnUser}
+    
+    *Information Pembeli Tambahan*
+    - Nomor Telepon : ${telpUser}
+    - Email : ${emailUser}
+    `;
+
+    var message = allMessage;
+    
+    // Mendapatkan waktu sekarang dalam detik
+    var timestamp = Math.floor(Date.now() / 1000);
+    
+    // Token adalah kombinasi dari id pesanan dan timestamp
+    var token = idPesanan + timestamp;
+
+    // Mendapatkan URL halaman PHP
+    var phpPageURL = "https://ms-sendwa.byethost7.com/index.php";
+
+    // Mengarahkan ke halaman PHP dengan pesan dan token
+    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token);
+}
+
         </script>
         <script type="text/javascript" src="../../public/js/script.js"></script>
     </body>

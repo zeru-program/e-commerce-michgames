@@ -296,6 +296,7 @@
         <table class="product-all" style="padding-right: 50px;" id="product-table">
         <thead>
         <tr>
+      <th>id</th>
       <th>img</th>
       <th>product name</th>
       <th>description</th>
@@ -524,6 +525,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
     data.content.slice(1).forEach(row => {
        const rowTab = document.createElement('tr');
         rowTab.innerHTML = `
+      <td>${row[10]}</td>
       <td><img src="${row[0]}" style="width:80px;" /></td>
       <td>${row[1]}</td>
       <td>${row[2]}</td>
@@ -534,7 +536,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
       <td>${row[7]}%, Rp.${row[8]}</td>
       <td>${row[9]}</td>
      <td class="align-items-center justify-content-center">
-     <button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delProductAll('${row[2]}')">Del</button>
+     <button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delProductAll('${row[10]}')">Del</button>
      <button class="bg-warning border-0 rounded-2 py-1 px-2 text-light" onclick="">Upd</button>
      </td> 
             `;
@@ -568,8 +570,8 @@ function closeCDiv() {
   document.getElementById('divCreate').classList.add('d-none');
 }
 
-function delProductAll(description_produk) {
-  fetch('https://sheetdb.io/api/v1/8fiiuqabyhl5m/description_produk/' + description_produk, {
+function delProductAll(id) {
+  fetch('https://sheetdb.io/api/v1/6x1rh9y0pgsvs/id/' + id, {
     method: 'DELETE',
     headers: {
         'Accept': 'application/json',
@@ -612,6 +614,13 @@ form.addEventListener("submit", (event) => {
   const ppd = document.getElementById('propricedisc').value;
   const pld = document.getElementById('prolabeldisc').value;
   const disp = document.getElementById('displaying').value;
+ 
+  fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+  .then(response => response.json())
+  .then(data => {
+   const lastID = data.content[data.content.length - 1][10];
+   const nextID = lastID + 1;
+
 
   // Buat objek FormData
   const formData = new FormData();
@@ -627,6 +636,7 @@ form.addEventListener("submit", (event) => {
   formData.append('label_discount', pld + "%");
   formData.append('price_discount', ppd + ",00");
   formData.append('display', disp);
+  formData.append('id', nextID);
 
   fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec', {
     method: 'POST',
@@ -642,6 +652,10 @@ form.addEventListener("submit", (event) => {
     console.error('Error:', error);
     // Lakukan tindakan jika terjadi kesalahan
   });
+  })
+  .catch((error) => {  
+    console.error('error update id', error.message)
+  })
 });
 
   // Render the product table when the page loads

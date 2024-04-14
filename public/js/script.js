@@ -26,6 +26,18 @@ function countdown() {
         }
     }, 1000);
 }
+
+/// spinner
+const conSpiner = document.querySelector('.con-spiner');
+setTimeout(function() {
+  conSpiner.style.opacity = 0;
+  setTimeout(function() {
+    
+  conSpiner.style.display = 'none';
+  }, 500);
+}, 2100);
+
+
 //  btn product page
 // button declaration
 const btnAll = document.getElementById("btnProductAll");
@@ -622,7 +634,109 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           } else if (row[9] === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'tt' && row[3] === 'TIKTOK') {
+        } else if (productShow === 'roblox' && row[3] === 'ROBLOX') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductRoblox();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'hayday' && row[3] === 'DAYDAY') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductHayday();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'sg' && row[3] === 'STUMBLE GUYS') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductSg();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'honkai' && row[3] === 'HONKAI STAR RAIL') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductHonkai();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'brawlstar' && row[3] === 'BRAWL STAR') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductBrawlStar();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'valo' && row[3] === 'VALORANT') {
+           productLoad.forEach(pl => {
+          pl.classList.remove("d-flex");
+          pl.classList.add("d-none");
+          })
+          
+          productLoadPay.forEach(plp => {
+          plp.classList.remove('d-flex');
+          plp.classList.add('d-none');
+          })
+          showProductValo();
+            if (row[9] === 'diamond') {
+           diamondBody.appendChild(divProduct1);
+          } else if (row[9] === 'special-item') {
+           specialBody.appendChild(divProduct).cloneNode(true);
+          } 
+        } 
+        else if (productShow === 'tt' && row[3] === 'TIKTOK') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -796,6 +910,12 @@ var imgCoc = 'https://drive.google.com/thumbnail?id=1B4HrGQxC8-wIKMx-smHf8X6hdxu
 var imgCod = 'https://drive.google.com/thumbnail?id=1AowqHlzAgjbwQpoZizu9T_rVlv7JOnf_';
 var imgFifa = 'https://drive.google.com/thumbnail?id=1B1UbIv0M73EO99zjD3fQsB7Cxysx5R8g';
 var imgPubg = 'https://drive.google.com/thumbnail?id=1B5SgK4XxvBAjh-qSEFWrcWuzDzORHPm9';
+var imgRoblox = 'https://drive.google.com/thumbnail?id=1KCl4orxlJgkUN0ZDjNEB0RZy5-_83utd';
+var imgHayday = 'https://drive.google.com/thumbnail?id=1K0xUgjpnGwO0ODsXBrIuLHmqsRcA2IZc';
+var imgStumbleGuys = 'https://drive.google.com/thumbnail?id=1JtqndXnwdFflbjU-UwqsdpAj4U2NnfNX';
+var imgHonkaiStarRail = 'https://drive.google.com/thumbnail?id=1JrLqGJf7Gn8eFtu8UXd6vNkvdz6czGp7';
+var imgBrawlStar = 'https://drive.google.com/thumbnail?id=1Jpgs_OA_RKNc4jkeXPSebpA6ehPEkRfn';
+var imgValorant = 'https://drive.google.com/thumbnail?id=1JoUmniyQCte3hJ97ZEMMiKxGj0BuYsdn';
 var imgTt = 'https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H';
 var imgIg = 'https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN';
 var imgYt = 'https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-';
@@ -884,6 +1004,84 @@ function showProductPubg() {
   namaGame.textContent = 'Pubg';
   namaPerusahaan.textContent = "@Tencent";
   namaBrand.textContent = 'Pubg';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductRoblox() {
+  console.log('product Puhg')
+  imgC1.src = imgRoblox;
+  imgC2.src = imgRoblox;
+  imgC3.src = imgRoblox;
+  namaGame.textContent = 'Roblox';
+  namaPerusahaan.textContent = "@Roblox Corporation";
+  namaBrand.textContent = 'Roblox';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductHayday() {
+  console.log('product Puhg')
+  imgC1.src = imgHayday;
+  imgC2.src = imgHayday;
+  imgC3.src = imgHayday;
+  namaGame.textContent = 'Hayday';
+  namaPerusahaan.textContent = "@Supercell";
+  namaBrand.textContent = 'Hayday';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductSg() {
+  console.log('product Puhg')
+  imgC1.src = imgStumbleGuys;
+  imgC2.src = imgStumbleGuys;
+  imgC3.src = imgStumbleGuys;
+  namaGame.textContent = 'Stumble Guys';
+  namaPerusahaan.textContent = "@KitkaGames";
+  namaBrand.textContent = 'Stumble Guys';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductHonkai() {
+  console.log('product Puhg')
+  imgC1.src = imgHonkaiStarRail;
+  imgC2.src = imgHonkaiStarRail;
+  imgC3.src = imgHonkaiStarRail;
+  namaGame.textContent = 'Honkai Star Rail';
+  namaPerusahaan.textContent = "@MiHoYo";
+  namaBrand.textContent = 'Honkai Star Rail';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductBrawlStar() {
+  console.log('product Puhg')
+  imgC1.src = imgBrawlStar;
+  imgC2.src = imgBrawlStar;
+  imgC3.src = imgBrawlStar;
+  namaGame.textContent = 'Brawl Stars';
+  namaPerusahaan.textContent = "@Supercell";
+  namaBrand.textContent = 'Brawl Stara';
+  iptIP.classList.remove('d-none');
+  iptIP.classList.add('d-flex');
+  iptIP.classList.add('input-to-show');
+  iptIP.setAttribute("data-inputProduct", 'id-port');
+}
+function showProductValo() {
+  console.log('product Puhg')
+  imgC1.src = imgValorant;
+  imgC2.src = imgValorant;
+  imgC3.src = imgValorant;
+  namaGame.textContent = 'Valorant';
+  namaPerusahaan.textContent = "@Riot Games";
+  namaBrand.textContent = 'Valorant';
   iptIP.classList.remove('d-none');
   iptIP.classList.add('d-flex');
   iptIP.classList.add('input-to-show');

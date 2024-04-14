@@ -45,7 +45,74 @@ p {
 } 
 .text-gradient-dark {
 }
-/*** navbar bottom, search Start ***/
+
+/*** spinner start ***/
+
+.con-spiner {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+    background: rgb(59,72,86);
+background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);
+    z-index: 99999;
+    transition: all .6s ease;
+}
+@keyframes ldio-yzaezf3dcmj {
+  0% {
+    top: 80.84px;
+    left: 80.84px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 14.62px;
+    left: 14.62px;
+    width: 132.44px;
+    height: 132.44px;
+    opacity: 0;
+  }
+}.ldio-yzaezf3dcmj div {
+  position: absolute;
+  border-width: 5.16px;
+  border-style: solid;
+  opacity: 1;
+  border-radius: 50%;
+  animation: ldio-yzaezf3dcmj 1s cubic-bezier(0,0.2,0.8,1) infinite;
+}.ldio-yzaezf3dcmj div:nth-child(1) {
+  border-color: #319de2;
+  animation-delay: 0s;
+}
+.ldio-yzaezf3dcmj div:nth-child(2) {
+  border-color: #46dff0;
+  animation-delay: -0.5s;
+}
+.loadingio-spinner-ripple-2by998twmg8 {
+  width: 172px;
+  height: 172px;
+  display: inline-block;
+  overflow: hidden;
+  background: transparent;
+}
+.ldio-yzaezf3dcmj {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-yzaezf3dcmj div { box-sizing: content-box; }
+/*** spinner end ***/
+
+
+/*** navbar top, search Start ***/
 .nav-top {
   background: rgba(59,72,86,.9) !important;
   padding-block: 12px !important;
@@ -158,7 +225,7 @@ p {
     text-align: center;
 }
 
-/*** navbar bottom, search Stop ***/
+/*** navbar top, end ***/
 
 /*** main Start ***/
 main {
@@ -319,10 +386,15 @@ background-blend-mode: multiply;
 .product-home-lg {
     max-height: 500px !important;
 }
+@media screen and (min-width: 678px) {
+.product-home {
+  align-items: center;
+}
+}
 .product-home {
     display: flex;
-    align-items: center;
-    flex-direction: row;
+    justify-content: center;
+    flex-direction: column;
     width: 95%;
     max-height: 350px;
     height: auto !important;

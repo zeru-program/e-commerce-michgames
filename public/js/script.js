@@ -651,7 +651,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'hayday' && row[3] === 'DAYDAY') {
+        else if (productShow === 'hayday' && row[3] === 'HAYDAY') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");

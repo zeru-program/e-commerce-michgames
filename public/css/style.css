@@ -54,13 +54,13 @@ p {
     position: fixed;
     top:0;
     left:0;
-    display: none;
+    display: flex;
     opacity: 1;
     justify-content: center;
     align-items: center;
     background: rgb(59,72,86);
 background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);
-    z-index: 99999;
+    z-index: 9999;
     transition: all .6s ease;
 }
 @keyframes ldio-yzaezf3dcmj {
@@ -120,12 +120,23 @@ background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, 
     backdrop-filter: blur(5px);
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
+@media screen and (min-width: 368px) {
+  .notif-lg {
+    display: none !important;
+  }
+}
 @media screen and (min-width: 768px) {
 .navbar-nav {
   position: fixed;
   right: 0;
   margin-block: 10px;
   margin-inline: 10px;
+}
+  .notif-lg {
+    display: flex !important;
+  }
+.notif-sm {
+  display: none !important;
 }
 .nav-link {
   padding-block: 3px;

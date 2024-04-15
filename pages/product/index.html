@@ -19,17 +19,25 @@
         <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
           <div class="container-fluid">
             <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
-            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+            <div class="d-flex gap-2">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-sm" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+            <button class="navbar-toggler m-0 navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
               <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
             </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav py-2 gap-2">
-                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-lg" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-house"></i>Home</a>
-                <a onclick="window.location.href = '/pages/product/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-box-seam"></i>Product</a>
-                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
-                <i class="bi i-nav bi-bag"></i>Troli</a>
+              <!--   <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+              <i class="bi i-nav bi-bag"></i>Troli</a> -->
                 <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-person"></i>Account</a>
               </div>
@@ -48,7 +56,7 @@
         <!-- Spinner  shape home End -->
         <!-- start content value -->
         <main>
-            <div class="container-main" style="padding-top: 30px; padding-inline: 15px; height:900px !important;">
+            <div class="container-main" style="padding-top: 30px; padding-inline: 15px; height:1000px !important;">
                 <div
                     class="w-100 d-flex justify-content-center align-items-center gap-3"
                 >
@@ -74,7 +82,7 @@
                         id="btnProductFf"
                         onclick="listSosmed()"
                     >
-                        Social Media
+                        E-wallet
                     </button>
                 </div>
                  <div class="d-flex w-100" style="flex-direction: row; hieght:auto;">
@@ -139,84 +147,124 @@
                         <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up PUBG</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="roblox">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <img src="https://drive.google.com/thumbnail?id=1B5SgK4XxvBAjh-qSEFWrcWuzDzORHPm9" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Followers Tiktok</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Roblox</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                 <div class="d-flex box-product box-product-sm" data-showlist="hayday">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1K0xUgjpnGwO0ODsXBrIuLHmqsRcA2IZc" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Instagram</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Hayday</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="sg">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1JtqndXnwdFflbjU-UwqsdpAj4U2NnfNX" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Subscriber YouTube</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Stumble Guys</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
+                 <div class="d-flex box-product box-product-sm" data-showlist="honkai">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1JrLqGJf7Gn8eFtu8UXd6vNkvdz6czGp7" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Facebook</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Honkai Star Rail</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="brawlstar">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <img src="https://drive.google.com/thumbnail?id=1Jpgs_OA_RKNc4jkeXPSebpA6ehPEkRfn" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Tiktok</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Brawlstar</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                 <div class="d-flex box-product box-product-sm" data-showlist="valo">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1JoUmniyQCte3hJ97ZEMMiKxGj0BuYsdn" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Instagram</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Valorant</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="xl">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LhYwvnkftmvnVPpmVgACkfji23LDFo4T" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker YouTube</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa XL</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
+                 <div class="d-flex box-product box-product-sm" data-showlist="three">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LVZLV8vk0q25tBSWzg-VR9U2WR9rgimR" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Facebook</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa 3</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="axis">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1LTCAG1w5Hd22Wam_R-CsGbo07_5JlKON" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa Axis</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="dana">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1LQrbnwNil4fuNWaHM49pi7bEH7f1F1yD" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Dana</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="gopay">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1LSx99Bz5oKCod082SRzwHJ4NysCkm7wV" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Gopay</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="shopeepay">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1LC-Jb9IZqIV6rJ06KwZWfLABfMb_ZUoH" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Shopeepay</label>
                       </div>
                     </div>
                 </div>
@@ -281,90 +329,129 @@
                         <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up PUBG</label>
                       </div>
                     </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="roblox">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1B5SgK4XxvBAjh-qSEFWrcWuzDzORHPm9" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Roblox</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="hayday">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1K0xUgjpnGwO0ODsXBrIuLHmqsRcA2IZc" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Hayday</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="sg">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1JtqndXnwdFflbjU-UwqsdpAj4U2NnfNX" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Stumble Guys</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="honkai">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1JrLqGJf7Gn8eFtu8UXd6vNkvdz6czGp7" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Honkai Star Rail</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="brawlstar">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1Jpgs_OA_RKNc4jkeXPSebpA6ehPEkRfn" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Brawlstar</label>
+                      </div>
+                    </div>
+                 <div class="d-flex box-product box-product-sm" data-showlist="valo">
+                      <div class="img-box-product img-box-product-sm">
+                        <img src="https://drive.google.com/thumbnail?id=1JoUmniyQCte3hJ97ZEMMiKxGj0BuYsdn" alt="product">
+                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+                      </div>
+                      <div class="desc-box-product">
+                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Valorant</label>
+                      </div>
+                    </div>
                     
                 </div>
                   <div class="w-100 p-2 justify-content-center mt-3 container-product-all product-in-product d-flex flex-wrap" id="listProduct3" style="position: absolute;" name="list-sosmed">
-                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="xl">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <img src="https://drive.google.com/thumbnail?id=1LhYwvnkftmvnVPpmVgACkfji23LDFo4T" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Followers Tiktok</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa XL</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                 <div class="d-flex box-product box-product-sm" data-showlist="three">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LVZLV8vk0q25tBSWzg-VR9U2WR9rgimR" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Instagram</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa 3</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="axis">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LTCAG1w5Hd22Wam_R-CsGbo07_5JlKON" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Subscriber YouTube</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Pulsa Axis</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
+                 <div class="d-flex box-product box-product-sm" data-showlist="dana">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LQrbnwNil4fuNWaHM49pi7bEH7f1F1yD" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Folowers Facebook</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Dana</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="tt">
+                 <div class="d-flex box-product box-product-sm" data-showlist="gopay">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CMiaX13bR7VwkmC6wmonUVkUikKpE34H">
+                        <img src="https://drive.google.com/thumbnail?id=1LSx99Bz5oKCod082SRzwHJ4NysCkm7wV" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Tiktok</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Gopay</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="ig">
+                 <div class="d-flex box-product box-product-sm" data-showlist="shopeepay">
                       <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1COD2B8KZVbl-TLRqFwSfI0jFH3HOiQUN" alt="product">
+                        <img src="https://drive.google.com/thumbnail?id=1LC-Jb9IZqIV6rJ06KwZWfLABfMb_ZUoH" alt="product">
                         <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
                       </div>
                       <div class="desc-box-product">
                         <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Instagram</label>
+                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Top up Shopeepay</label>
                       </div>
                     </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="yt">
-                      <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CT6e7Tfge3OA6gG87kcqPrCJeLXqCdQ-" alt="product">
-                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-                      </div>
-                      <div class="desc-box-product">
-                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker YouTube</label>
-                      </div>
-                    </div>
-                 <div class="d-flex box-product box-product-sm" data-showlist="fb">
-                      <div class="img-box-product img-box-product-sm">
-                        <img src="https://drive.google.com/thumbnail?id=1CWFk7eGmtEpdMqCHbyaN82JE9TbXuNqi" alt="product">
-                        <svg class="waves-product" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(51,90,129,1)" fill-opacity="1" d="M0,32L48,58.7C96,85,192,139,288,138.7C384,139,480,85,576,69.3C672,53,768,75,864,112C960,149,1056,203,1152,186.7C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-                      </div>
-                      <div class="desc-box-product">
-                        <label class="w-100 text-center text-capitalize label-product-sm1" style="color:#b1b1b1;">ORDER</label>
-                        <label class="w-100 text-center text-capitalize fw-bold text-product-sm" style="color:#fff;">Liker Facebook</label>
-                      </div>
-                    </div>
-                    
                 </div>
                 </div>
             </div>
@@ -398,16 +485,17 @@
                 <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
               </div>
                 </div>
-                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.3.5</div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.5.0</div>
               </footer>
 
             <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->
 
-        <!-- start code navbar bottom -->
 
-        <!-- end code navbar bottom -->
+        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+        </div>
 
         <!-- script js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>

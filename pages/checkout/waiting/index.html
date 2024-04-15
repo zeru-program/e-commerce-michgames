@@ -19,17 +19,25 @@
         <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
           <div class="container-fluid">
             <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
-            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+            <div class="d-flex gap-2">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-sm" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+            <button class="navbar-toggler m-0 navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
               <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
             </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav py-2 gap-2">
-                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-lg" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-house"></i>Home</a>
-                <a onclick="window.location.href = '/pages/product/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-box-seam"></i>Product</a>
-                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
-                <i class="bi i-nav bi-bag"></i>Troli</a>
+              <!--   <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+              <i class="bi i-nav bi-bag"></i>Troli</a> -->
                 <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-person"></i>Account</a>
               </div>
@@ -47,11 +55,56 @@
        </div>
         <!-- Spinner  shape home End -->
         <!-- start content value -->
-        <main>
-            <div class="container-main" style="padding-top: 30px; padding-inline: 15px; height:900px !important;">
-            
+        <main class="m-0 pt-5">
+            <div class="container-main d-flex justify-content-center align-items-center" style="margin:0!important;padding-inline: 20px; height:700px !important;">
+              <div class="rounded-2 text-dark d-flex flex-column align-items-center py-4 bg-light" style="width:350px;height:550px;">
+                <div class="d-flex flex-column text-center pb-4">
+                <h1 class="fw-bold m-0 text-capitalize">Transaksi</h1>
+                <p class="m-0" id="date-pesanan"></p>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Status : <p class="m-0 mx-1 px-1" id="show-status"></p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Id pesanan : <p class="m-0 px-1" id="show-idp">#</p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Buyer : <p class="m-0 px-1" id="show-usn"></p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Product : <p class="m-0 px-1" id="show-product-buyer"></p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Total Harga : <p class="m-0 px-1" id="show-price-buyer">Rp</p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Estimasi : <p class="m-0 px-1" id="show-est-buyer"></p></p>
+                  </div>
+                  <div class="d-flex">
+                  <p class="m-0 d-flex">Payment : <p class="m-0 px-1 mx-1 px-1 text-light" id="show-pay-buyer"></p></p>
+                  </div>
+                  <div class="d-none" id="if-proses">
+                  <p class="m-0 d-flex px-5">Silakan melakukan pembayaran dengan mengscan qr / mengirim ke nomor yang tersedia dengan nominal yang benar. </p>
+                  </div>
+                  <div class="mt-4 gap-2 flex-column" id="gopay-qr" style="display:none;">
+                    <img src="../../../public/img/qr-mich.png" alt="" style="width:150px;" />
+                    <p class="m-0">0895-4115-86360</p>
+                  </div>
+                  <div class="mt-5 pb-5 fw-bold flex-column" id="pulsa-no" style="display:none;">
+                    <p class="m-0" style="font-size:2em;">0895-4115-86360</p>
+                  </div>
+                  <button id="btn-konfirm-pay" onclick="konfirmOder()" class="w-75 rounded-2 bg-warning border-0 py-2 my-2 ">Konfirmasi Pembayaran</button>
+                </div>
+              </div>
             </div>
-
+              <div class="position-fixed fixed-top w-100 justify-content-center align-items-center" style="display:flex;height:100vh;left:0; background:rgba(225,225,225,.2);backdrop-filter: blur(5px); z-index:99999;" id="searchIdPesanan">
+                <div class="w-75 d-flex justify-content-center align-items-center text-center rounded-2 flex-column text-light gap-3 px-5" style="background:#319de2; height:350px;">
+                  <p class="m-0">Masukan id pesanan yang ingin kamu cari</p>
+                  <input type="text" class="rounded-2 border-0 w-100 py-1 px-2" name="" id="inputIdPesanan" value="" placeholder="tulis id pesanan tanpa '#'.." />
+                  <button class="bg-warning py-2 text-light rounded-2 w-100 mx-3 border-0" id="btn-search-id" onclick="searchIdp()">Cari pesanan</button>
+                </div>
+              </div>
             <!-- start footer bootom sticky -->
               <footer class="bg-dark py-5">
                 <div class="div-img-footer">
@@ -81,38 +134,174 @@
                 <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
               </div>
                 </div>
-                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.3.5</div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.5.0</div>
               </footer>
 
             <!-- end footer bootom sticky -->
         </main>
         <!-- end content value -->
 
-        <!-- start code navbar bottom -->
 
-        <!-- end code navbar bottom -->
+        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+        </div>
 
         <!-- script js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script type="text/javascript" src="../../../public/js/script.js"></script>
         <script>  
-        addEventListener("DOMContentLoaded", () => {
-        const buyProducts = document.querySelectorAll(".box-product");
-        buyProducts.forEach(product => {
-            product.addEventListener("click", function () {
-                localStorage.setItem('checkout', true);
-      const showList = this.getAttribute("data-showlist");
-
-
-                // URL dengan parameter terenkripsi
-                const encryptedURL = `/pages/checkout/?showlist=${showList}`;
-
-                // Redirect to checkout page with encrypted product details
-                window.location.href = encryptedURL;
-            });
-        });
-});
-
-        </script>
+        const dataPesanan = document.getElementById('date-pesanan');
+        const dataStatus = document.getElementById('show-status');
+        const dataId = document.getElementById('show-idp');
+        const dataUsn = document.getElementById('show-usn');
+        const dataProductBuyer = document.getElementById('show-product-buyer');
+        const dataPriceBuyer = document.getElementById('show-price-buyer');
+        const dataEstimasiBuyer = document.getElementById('show-est-buyer');
+        const dataPayBuyer = document.getElementById('show-pay-buyer');
+        const payQrGp = document.getElementById("gopay-qr")
+        const payPulsa = document.getElementById("pulsa-no")
+        const dataPayPanduan = document.getElementById("if-proses")
+        const dataBtnKonfirm = document.getElementById("btn-konfirm-pay")
+        const divSP = document.getElementById("searchIdPesanan")
+   fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+    .then(res => res.json())
+    .then(data => {
+       const urlParams = new URLSearchParams(window.location.search);
+      const idFromURL = urlParams.get('id');
+      const decodedId = decodeURIComponent(idFromURL);
+      
+      const matchedRow = data.content.find(row => row[1] === decodedId);
+        if (idFromURL) {
+       data.content.slice(1).forEach(row => {      
+      if (matchedRow) {
+          divSP.style.display = 'none';
+          dataPesanan.textContent = matchedRow[7];
+          if (row[8] === 'proses') {
+          dataStatus.textContent = row[8];
+          dataStatus.classList.add('bg-warning');
+          dataPayPanduan.classList.remove('d-none')
+          dataPayPanduan.classList.add('d-flex')
+          dataBtnKonfirm.style.display = 'block';
+          } else if (row[8] === 'sukses') {
+          dataStatus.textContent = row[8];
+          dataStatus.classList.add('bg-success');
+          dataStatus.classList.add('text-light');
+          dataBtnKonfirm.style.display = 'none';
+          }
+          dataId.textContent = "#" + row[1];
+          dataUsn.textContent = row[2];
+          dataProductBuyer.textContent = row[3];
+          dataPriceBuyer.textContent = row[4];
+          dataEstimasiBuyer.textContent = row[6];
+          if (row[5] === 'gopay') {
+          dataPayBuyer.textContent = 'gopay';
+          dataPayBuyer.classList.add("bg-success");
+          dataPayBuyer.classList.add("text-light");
+          payQrGp.style.display = 'flex';
+          } else if (row[5] === 'dana') {
+          dataPayBuyer.textContent = 'dana';
+          dataPayBuyer.classList.add("bg-primary");
+          dataPayBuyer.classList.add("text-light");
+          payPulsa.style.display = 'flex';
+          } else if (row[5] === 'spay') {
+          dataPayBuyer.textContent = 'ShopeePay';
+          dataPayBuyer.classList.add("bg-warning");
+          payPulsa.style.display = 'flex';
+          } else if (row[5] === 'pulsa 3') {
+          dataPayBuyer.textContent = 'Pulsa 3';
+          dataPayBuyer.classList.add("bg-secondary");
+          payPulsa.style.display = 'flex';
+          } 
+      } else {
+        alert("data tidak ditemukan")
+      }
+      
+       })
+        }
+    });
+    
+    function searchIdp() {
+      var input = document.getElementById('inputIdPesanan').value;
+      document.getElementById('btn-search-id').textContent = "loading..";
+       fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+    .then(res => res.json())
+    .then(data => {
+      const matchedRow = data.content.find(row => row[1] === input);
+        
+       data.content.slice(1).forEach(row => {      
+      if (matchedRow) {
+          divSP.style.display = 'none';
+          dataPesanan.textContent = matchedRow[7];
+          if (row[8] === 'proses') {
+          dataStatus.textContent = row[8];
+          dataStatus.classList.add('bg-warning');
+          dataPayPanduan.classList.remove('d-none')
+          dataPayPanduan.classList.add('d-flex')
+          dataBtnKonfirm.style.display = 'block';
+          } else if (row[8] === 'sukses') {
+          dataStatus.textContent = row[8];
+          dataStatus.classList.add('bg-success');
+          dataStatus.classList.add('text-light');
+          dataBtnKonfirm.style.display = 'none';
+          }
+          dataId.textContent = "#" + row[1];
+          dataUsn.textContent = row[2];
+          dataProductBuyer.textContent = row[3];
+          dataPriceBuyer.textContent = row[4];
+          dataEstimasiBuyer.textContent = row[6];
+          if (row[5] === 'gopay') {
+          dataPayBuyer.textContent = 'gopay';
+          dataPayBuyer.classList.add("bg-success");
+          dataPayBuyer.classList.add("text-light");
+          payQrGp.style.display = 'flex';
+          } else if (row[5] === 'dana') {
+          dataPayBuyer.textContent = 'dana';
+          dataPayBuyer.classList.add("bg-primary");
+          dataPayBuyer.classList.add("text-light");
+          payPulsa.style.display = 'flex';
+          } else if (row[5] === 'spay') {
+          dataPayBuyer.textContent = 'ShopeePay';
+          dataPayBuyer.classList.add("bg-warning");
+          payPulsa.style.display = 'flex';
+          } else if (row[5] === 'pulsa 3') {
+          dataPayBuyer.textContent = 'Pulsa 3';
+          dataPayBuyer.classList.add("bg-secondary");
+          payPulsa.style.display = 'flex';
+          } 
+      } else {
+          alert('Data tidak ditemukan!');
+      }
+      
+       })
+    });
+    }
+    
+    
+    function konfirmOder() { 
+      dataBtnKonfirm.textContent = 'loading..';
+      fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+      .then(res => res.json())
+      .then(data => {
+       const urlParams = new URLSearchParams(window.location.search);
+      const idFromURL = urlParams.get('id');
+      const decodedId = decodeURIComponent(idFromURL);
+      const matchedRow = data.content.find(row => row[1] === decodedId);
+       data.content.slice(1).forEach(row => {
+     if (matchedRow) {
+      const message = `
+      *Hallo admin/owner!*
+      saya ${row[2]}, ingin mengkonfirmasi pesanan order saya dengan id ${row[1]}, telah [dibayar/dikirim] dengan metode pembayaran ${row[5]}, mohon dicek dan segera diproses. Terimakasih!
+      
+      _pastikan ${row[2]} telah benar-benar melakukan pembayaran/pengiriman ke qr/nomor yang tepat!_
+      `
+      window.location.href = 'https://wa.me/62895411586360?text=' + encodeURIComponent(message);
+     } else {
+       alert('erorr 401')
+     }
+      })
+    })
+    .catch(e => console.error(error.message))
+    }
+       </script>
     </body>
 </html>

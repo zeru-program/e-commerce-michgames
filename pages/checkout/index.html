@@ -17,24 +17,32 @@
         <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
           <div class="container-fluid">
             <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
-            <button class="navbar-toggler navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+            <div class="d-flex gap-2">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-sm" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+            <button class="navbar-toggler m-0 navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
               <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
             </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav py-2 gap-2">
-                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-lg" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-house"></i>Home</a>
                 <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-box-seam"></i>Product</a>
-                <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex active nav-active align-items-center" aria-current="page" href="#">
-                <i class="bi i-nav bi-bag"></i>Troli</a>
+              <!--   <a onclick="window.location.href = '/pages/troli/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+              <i class="bi i-nav bi-bag"></i>Troli</a> -->
                 <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
                 <i class="bi i-nav bi-person"></i>Account</a>
               </div>
             </div>
           </div>
         </nav>
-              <!-- end code logo nav and search box -->
+            <!-- end code logo nav and search box -->
 
         <!-- Spinner  shape home Start -->
        <div class="con-spiner">
@@ -431,22 +439,21 @@
                 <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
               </div>
                 </div>
-                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.3.5</div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.5.0</div>
               </footer>
             <!-- end footer bootom sticky -->
     </main>
         <!-- end content value -->
 
-        <!-- start code navbar bottom -->
-<!-- end code navbar bottom -->
-
+        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+        </div>
         <!-- script js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script type="text/javascript">
         const emailIpt = document.getElementById('email-ipt');
         const waIpt = document.getElementById('wa-ipt');
         emailIpt.addEventListener("input", (e) => {
-          console.log('dd email')
           const emailUser = document.getElementById("emailUser");
          emailUser.innerText = emailIpt.value;
         })
@@ -473,34 +480,36 @@
 function buyNow() {
   const inputEmail = document.getElementById('email-ipt');
   const inputWa = document.getElementById('wa-ipt');
-  if (!inputEmail.value || (!inputWa.value || inputWa.value.length < 7)) {
-    alert('Email dan nomor WhatsApp harus diisi.');
-    return;
-  }
-   
-    const idPesanan = '#' + generateToken(10); 
-    console.log(idPesanan);
-    const productCategory = document.getElementById("");
+    const idPesanan = generateToken(10); 
     const productName = document.getElementById("nama-product").innerText;
     const productBrand = document.getElementById("brand-product").innerText;
     const productPrice = document.getElementById("price-product").textContent;
     const productEst = document.getElementById("estimasi-product").innerText;
+    const parts = productEst.split(':');
+    const productEstFix = parts[1].trim();
     const productTotal = document.getElementById("total-product").innerText;
+    const partsTotal = productTotal.split(':');
+    const totalNumber = partsTotal[1].trim();
     const idUser1 = document.getElementById("id-0").innerText;
     const idUser2 = document.getElementById("id-1").innerText;
     const portUser = document.getElementById("port-1").innerText;
+    const showId = document.querySelector('.show-id');
     const usnUser = document.getElementById("usn-sm").innerText;
     const telpUser = document.getElementById("telpUser").innerText;
     const emailUser = document.getElementById("emailUser").innerText;
     const payMethod = document.getElementById("pay-method").innerText;
-    
+    const date = new Date();
+    const usn = localStorage.getItem('username');
+    if (!inputEmail.value || productName === '-' || productPrice === '-' || (!inputWa.value || inputWa.value.length < 7)) {
+    alert('Data product harus di isi semua!');
+    return;
+  }
     var allMessage = `
     *MICH STORE*
     =============================
     ORDERAN MASUK !
     =============================
-     _Id Pesanan_ : ${idPesanan}
-    _Nama Orderan_ : ${productCategory}
+     _Id Pesanan_ : #${idPesanan}
     _Nama Product_ : ${productName}
     _Nama Brand_ : ${productBrand}
     _Quantitas_ : x1
@@ -513,28 +522,76 @@ function buyNow() {
     - ID : ${idUser1}
     *Id And Port
     - ${idUser2}
+    *Nametag
+    - ${showId}
     *Username if sosmed
     - Username : ${usnUser}
     
     *Information Pembeli Tambahan*
+    - Username : ${usn}
     - Nomor Telepon : ${telpUser}
     - Email : ${emailUser}
     - Pembayaran via : ${payMethod}
+    - Tanggal Pembelian : ${date}
     `;
 
     var message = allMessage;
     
-    // Mendapatkan waktu sekarang dalam detik
     var timestamp = Math.floor(Date.now() / 1000);
-    
-    // Token adalah kombinasi dari id pesanan dan timestamp
     var token = idPesanan + timestamp;
-
-    // Mendapatkan URL halaman PHP
     var phpPageURL = "https://ms-sendwa.byethost7.com/index.php";
+    const dataP = {
+      idPesananNow: idPesanan,
+      user: usn,
+      product: productName,
+      priceProduct: productPrice,
+      priceTotal: totalNumber,
+      payment: payMethod
+    };
+    const dataPembelian = JSON.stringify(dataP);
+    
+    //
+    const listSheet = 'https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec';
+ fetch(listSheet)
+  .then(response => response.json())
+  .then(data => {
+   const lastID = data.content[data.content.length - 1][0];
+   const nextID = lastID + 1;
 
+
+  // Buat objek FormData
+  const formData = new FormData();
+
+  // Tambahkan data ke objek FormData dengan nama kolom yang diinginkan
+  formData.append('no', nextID);
+  formData.append('id_pesanan', idPesanan);
+  formData.append('username', usn);
+  formData.append('product', productName + ' - ' + productBrand);
+  formData.append('price_total', 'Rp. ' + totalNumber);
+  formData.append('method_payment', payMethod);
+  formData.append('estimasi', productEstFix);
+  formData.append('tgl_pesanan', date);
+  formData.append('status', 'proses');
+
+  fetch(listSheet, {
+    method: 'POST',
+    body: formData // Mengirimkan FormData yang telah dibuat
+  })
+  .then((response) => response.json())
+  .then((data) => {
     // Mengarahkan ke halaman PHP dengan pesan dan token
-    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + '&payment=' + payMethod;
+    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + '&payment=' + payMethod + '&databeli=' + encodeURIComponent(dataPembelian);
+    // Lakukan tindakan setelah data berhasil dikirim
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    // Lakukan tindakan jika terjadi kesalahan
+  });
+  })
+  .catch((error) => {  
+    console.error('error update id', error.message)
+  })
+
 }
 
         </script>

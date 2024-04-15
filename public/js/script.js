@@ -92,7 +92,7 @@ window.onload = function () {
 
     if (window.location.pathname === "/pages/home/") {
         countdown();
-        splashManage();
+        welcomeHomeManage();
         spinerPageNormal();
     } else if (window.location.pathname === "/pages/product/") {
         spinerPageNormal();
@@ -107,23 +107,6 @@ window.onload = function () {
 
 };
 
-function splashManage() {
-    const divSplash = document.getElementById("splashScreen");
-    const localSplash = localStorage.getItem("splashOn");
-    if (!localSplash) {
-        divSplash.classList.remove("d-none");
-        divSplash.classList.add("d-flex");
-        localStorage.setItem("splashOn", "splash screen done display");
-
-        setTimeout(function () {
-            divSplash.classList.remove("d-flex");
-            divSplash.classList.add("d-none");
-        }, 4000);
-    } else {
-        divSplash.classList.remove("d-flex");
-        divSplash.classList.add("d-none");
-    }
-}
 // local st Main Start
 const hasLogin = localStorage.getItem("hasLogin");
 
@@ -199,11 +182,12 @@ function logoutUser() {
 
 // checkout system
  //showCheckout();
-const checkoutLS = localStorage.getItem('hasLogin');
-//const checkoutLS = localStorage.getItem('checkout');
+const checkoutLSL = localStorage.getItem('hasLogin');
+const checkoutLS = localStorage.getItem('checkout');
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
   //  const checkoutLS = localStorage.getItem('checkout');
+ //  if (checkoutLS) {
     if (checkoutLS) {
         const urlParams = new URLSearchParams(window.location.search);
         const productShow = urlParams.get('showlist');
@@ -685,7 +669,6 @@ inputShow.addEventListener('input', (e) => {
     showNomor.textContent = 'Nomor : ' + inputNomor.value;
     })
   } else if (inputProductToShow === 'nametag') {
-    console.log("dd")
     showId.classList.remove('d-none')
     showId.classList.add('d-flex')
     inputNametag.addEventListener('input', (e) => {
@@ -743,8 +726,12 @@ pay.forEach(p => {
   })   
   .catch(e => console.error('fail', error.message))
     } else {
-        window.location.href = "/pages/home/";
+    //  alert('kamu belum login, login dulu.')
     }
+  /* } else {
+        window.location.href = "/";
+     return;
+   }*/
 });
 
 
@@ -785,7 +772,6 @@ const iptNametag = document.getElementById('ipt-nametag');
 
 
 function showProductFf() {
-  console.log('product FF')
   imgC1.src = imgFf;
   imgC2.src = imgFf;
   imgC3.src = imgFf;
@@ -798,7 +784,6 @@ function showProductFf() {
   iptId.setAttribute("data-inputProduct", 'id');
 }
 function showProductMl() {
-  console.log('product Ml')
   imgC1.src = imgMl;
   imgC2.src = imgMl;
   imgC3.src = imgMl;
@@ -811,7 +796,6 @@ function showProductMl() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductCoc() {
-  console.log('product Coc')
   imgC1.src = imgCoc;
   imgC2.src = imgCoc;
   imgC3.src = imgCoc;
@@ -824,7 +808,6 @@ function showProductCoc() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductCod() {
-  console.log('product Cod')
   imgC1.src = imgCod;
   imgC2.src = imgCod;
   imgC3.src = imgCod;
@@ -837,7 +820,6 @@ function showProductCod() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductFifa() {
-  console.log('product Fifa')
   imgC1.src = imgFifa;
   imgC2.src = imgFifa;
   imgC3.src = imgFifa;
@@ -850,7 +832,6 @@ function showProductFifa() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductPubg() {
-  console.log('product Puhg')
   imgC1.src = imgPubg;
   imgC2.src = imgPubg;
   imgC3.src = imgPubg;
@@ -863,7 +844,6 @@ function showProductPubg() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductRoblox() {
-  console.log('product Puhg')
   imgC1.src = imgRoblox;
   imgC2.src = imgRoblox;
   imgC3.src = imgRoblox;
@@ -876,7 +856,6 @@ function showProductRoblox() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductHayday() {
-  console.log('product Puhg')
   imgC1.src = imgHayday;
   imgC2.src = imgHayday;
   imgC3.src = imgHayday;
@@ -889,7 +868,6 @@ function showProductHayday() {
   iptNametag.setAttribute("data-inputProduct", 'nametag');
 }
 function showProductSg() {
-  console.log('product Puhg')
   imgC1.src = imgStumbleGuys;
   imgC2.src = imgStumbleGuys;
   imgC3.src = imgStumbleGuys;
@@ -902,7 +880,6 @@ function showProductSg() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductHonkai() {
-  console.log('product Puhg')
   imgC1.src = imgHonkaiStarRail;
   imgC2.src = imgHonkaiStarRail;
   imgC3.src = imgHonkaiStarRail;
@@ -915,7 +892,6 @@ function showProductHonkai() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductBrawlStar() {
-  console.log('product Puhg')
   imgC1.src = imgBrawlStar;
   imgC2.src = imgBrawlStar;
   imgC3.src = imgBrawlStar;
@@ -928,7 +904,6 @@ function showProductBrawlStar() {
   iptIP.setAttribute("data-inputProduct", 'id-port');
 }
 function showProductValo() {
-  console.log('product Puhg')
   imgC1.src = imgValorant;
   imgC2.src = imgValorant;
   imgC3.src = imgValorant;
@@ -1015,7 +990,6 @@ function showProductSpay() {
 }
 
 function showProductTt() {
-  console.log('product tiktok')
   imgC1.src = imgTt;
   imgC2.src = imgTt;
   imgC3.src = imgTt;
@@ -1028,7 +1002,6 @@ function showProductTt() {
   iptUsn.setAttribute("data-inputProduct", 'usn');
 }
 function showProductIg() {
-  console.log('product Instagram')
   imgC1.src = imgIg;
   imgC2.src = imgIg;
   imgC3.src = imgIg;
@@ -1041,7 +1014,6 @@ function showProductIg() {
   iptUsn.setAttribute("data-inputProduct", 'usn');
 }
 function showProductYt() {
-  console.log('product yt1')
   imgC1.src = imgYt;
   imgC2.src = imgYt;
   imgC3.src = imgYt;
@@ -1054,7 +1026,6 @@ function showProductYt() {
   iptUsn.setAttribute("data-inputProduct", 'usn');
 }
 function showProductFb() {
-  console.log('product Fb')
   imgC1.src = imgFb;
   imgC2.src = imgFb;
   imgC3.src = imgFb;
@@ -1066,4 +1037,15 @@ function showProductFb() {
   iptUsn.classList.add('input-to-show');
   iptUsn.setAttribute("data-inputProduct", 'usn');
 }
-        
+
+
+/// notif 
+const popupNotif = document.querySelector(".notif-popup");
+function showNotif() {
+  popupNotif.classList.remove("d-none")
+  popupNotif.classList.add("d-flex")
+}
+function closeNotif() {
+  popupNotif.classList.remove("d-flex")
+  popupNotif.classList.add("d-none")
+}

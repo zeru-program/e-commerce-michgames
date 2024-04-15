@@ -54,7 +54,7 @@ p {
     position: fixed;
     top:0;
     left:0;
-    display: flex;
+    display: none;
     opacity: 1;
     justify-content: center;
     align-items: center;
@@ -702,6 +702,25 @@ background: linear-gradient(0deg, rgba(51,90,129,1) 10%, rgb(81,113,149) 100%) !
     left: 200%;
   }
 }
+
+.btn-beli {
+  transition: all .3s ease;
+  overflow: hidden;
+  position: relative;
+}
+.btn-beli::before {
+  content: "";
+  width: 20px;
+  height: 150px;
+  transform: rotate(5deg);
+  background: rgba(235,235,235,.3);
+  position: absolute;
+  top: -2px;
+  left: -100%;
+  animation: slashProduct 2s linear infinite;
+  animation-delay: 2s; 
+}
+
 .product-checkout:hover {
   transform: scale(.95);
   border: 1.5px solid #319de2;

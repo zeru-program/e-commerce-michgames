@@ -129,6 +129,12 @@
                 <input type="number" class="w-100 border-0 py-1 rounded-2" id="nomor-ipt" value="" required />
               </div>
               </div>
+              <div class="w-100 d-none justify-content-center" id="ipt-nametag">
+              <div class="ipt-checkout d-flex flex-column justify-content-center text-light">
+                <label id="label-id">Name tag</label>
+                <input type="text" class="w-100 border-0 py-1 rounded-2" id="nametag-ipt" value="" required />
+              </div>
+              </div>
             </div>
          </div>
             <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
@@ -271,6 +277,78 @@
               <div class="d-flex method-pay product-load-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="800" data-pay="e-wallet-gopay">
               
               </div>
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="dana">
+                <div class="d-flex flex-column"> 
+                <label class="text-light">Qr Dana / Nomor Dana (pajak 500)</label>
+                </div>
+                <div>
+                  <img src="../../public/img/dana.png" width="50" alt="">
+                </div>
+              </div>
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="800" data-pay="gopay">
+                <label class="text-light">Qr gopay / nomor gopay (pajak 800)</label>
+                <div>
+                <svg width="30" height="20" viewBox="0 0 109 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0)">
+                  <path d="M19.5744 39.4434C30.3851 39.4434 39.1489 30.7129 39.1489 19.9434C39.1489 9.17381 30.3851 0.443359 19.5744 0.443359C8.76378 0.443359 0 9.17381 0 19.9434C0 30.7129 8.76378 39.4434 19.5744 39.4434Z" fill="#01AED6"/>
+                  <path d="M30.4648 18.2003C30.2313 17.3172 29.7268 16.5287 29.0218 15.945C28.3167 15.3613 27.4463 15.0115 26.5321 14.9444H13.3104C13.1814 14.9654 13.0493 14.9583 12.9234 14.9234C12.7974 14.8886 12.6806 14.8269 12.5809 14.7425C12.4813 14.6582 12.4013 14.5533 12.3464 14.4351C12.2915 14.3169 12.263 14.1883 12.263 14.058C12.263 13.9278 12.2915 13.7991 12.3464 13.6809C12.4013 13.5627 12.4813 13.4578 12.5809 13.3735C12.6806 13.2892 12.7974 13.2274 12.9234 13.1926C13.0493 13.1577 13.1814 13.1506 13.3104 13.1717H26.1525C26.1525 13.1717 26.105 9.77393 21.7927 9.77393H14.8705C11.9046 9.77393 8.75492 11.3339 8.57104 15.1571C8.37215 18.3489 8.37215 21.5499 8.57104 24.7417C8.75492 26.9635 9.37181 29.5103 14.2536 29.9357C19.1353 30.3612 24.539 30.1248 26.4372 29.6994C27.5328 29.4394 28.5156 28.8356 29.2408 27.9771C29.9659 27.1185 30.395 26.0506 30.4648 24.9307C30.6546 22.2657 30.9393 20.0912 30.4648 18.2003ZM27.0066 22.3839V23.5657C27.0066 23.7789 26.9216 23.9833 26.7703 24.134C26.619 24.2847 26.4139 24.3694 26.1999 24.3694C25.986 24.3694 25.7808 24.2847 25.6295 24.134C25.4782 23.9833 25.3932 23.7789 25.3932 23.5657V22.3839C25.1989 22.2194 25.06 21.9995 24.9952 21.7539C24.9304 21.5082 24.9428 21.2487 25.0307 21.0103C25.1187 20.7719 25.278 20.5661 25.487 20.4208C25.6961 20.2754 25.9449 20.1975 26.1999 20.1975C26.4549 20.1975 26.7037 20.2754 26.9128 20.4208C27.1218 20.5661 27.2811 20.7719 27.3691 21.0103C27.457 21.2487 27.4694 21.5082 27.4046 21.7539C27.3398 21.9995 27.2009 22.2194 27.0066 22.3839Z" fill="white"/>
+                  <path d="M63.694 12.1196C60.2121 12.1196 57.3887 14.7255 57.3887 17.946C57.3887 21.1664 60.2121 23.7724 63.694 23.7724C67.1759 23.7724 69.9934 21.1605 69.9934 17.946C69.9934 14.7314 67.1759 12.1196 63.694 12.1196ZM63.694 20.9833C62.8505 21.0136 62.0292 20.7099 61.41 20.1384C60.7908 19.5669 60.424 18.7744 60.3901 17.9342C60.4603 17.1094 60.8388 16.341 61.4507 15.7809C62.0625 15.2209 62.8631 14.9102 63.694 14.9102C64.5249 14.9102 65.3255 15.2209 65.9374 15.7809C66.5492 16.341 66.9277 17.1094 66.9979 17.9342C66.9834 18.3515 66.8863 18.7618 66.7123 19.1417C66.5383 19.5216 66.2907 19.8635 65.9838 20.1478C65.6768 20.4322 65.3166 20.6534 64.9236 20.7988C64.5307 20.9442 64.1129 21.0109 63.694 20.9951V20.9833Z" fill="#080403"/>
+                  <path d="M78.1917 12.1196C76.9062 12.1205 75.6616 12.57 74.6743 13.3901V12.421H71.5127V27.7846H74.6743V22.2596C75.6595 23.084 76.905 23.536 78.1917 23.536C79.7114 23.536 81.1689 22.9346 82.2434 21.8641C83.318 20.7936 83.9217 19.3417 83.9217 17.8278C83.9217 16.3139 83.318 14.862 82.2434 13.7915C81.1689 12.721 79.7114 12.1196 78.1917 12.1196ZM77.5986 20.9833C76.96 20.9786 76.3386 20.7773 75.8193 20.4071C75.3 20.0368 74.9084 19.5157 74.698 18.9151V16.7405C74.9086 16.1406 75.3005 15.6202 75.8199 15.251C76.3392 14.8817 76.9605 14.6817 77.5986 14.6783C78.4371 14.6783 79.2412 15.0101 79.8341 15.6007C80.427 16.1914 80.7601 16.9925 80.7601 17.8278C80.7601 18.6631 80.427 19.4642 79.8341 20.0549C79.2412 20.6455 78.4371 20.9774 77.5986 20.9774V20.9833Z" fill="#080403"/>
+                  <path d="M105.821 12.1196L102.226 19.3701L98.6314 12.1196H95.458L100.636 22.5728L98.062 27.7669H101.241L102.226 25.7755L103.816 22.5728L109 12.1196H105.821Z" fill="#080403"/>
+                  <path d="M55.882 23.8848V12.2144H53.0822V13.2898C52.226 12.6887 51.2204 12.3335 50.1752 12.2629C49.1301 12.1923 48.0856 12.409 47.1557 12.8895C46.2258 13.37 45.4463 14.0957 44.9022 14.9874C44.3581 15.8791 44.0703 16.9026 44.0703 17.9462C44.0703 18.9897 44.3581 20.0132 44.9022 20.9049C45.4463 21.7967 46.2258 22.5224 47.1557 23.0028C48.0856 23.4833 49.1301 23.7001 50.1752 23.6295C51.2204 23.5589 52.226 23.2037 53.0822 22.6025V23.4239C53.0822 24.8834 51.6468 26.0594 49.8732 26.0594C49.2479 26.0904 48.6271 25.9393 48.0867 25.6245C47.5463 25.3097 47.1097 24.8447 46.8303 24.2866L44.4873 26.1598C45.0816 27.0149 45.8817 27.708 46.8143 28.1756C47.7469 28.6432 48.7822 28.8705 49.8258 28.8366C53.0585 28.8366 55.6922 26.7389 55.8286 24.1094V23.8789L55.882 23.8848ZM50.0749 21.1666C49.4861 21.1673 48.9082 21.0081 48.4035 20.7061C47.8987 20.4041 47.4861 19.9707 47.2101 19.4526C46.9341 18.9344 46.8052 18.3511 46.8371 17.7654C46.869 17.1797 47.0606 16.6137 47.3912 16.1284C47.7219 15.6431 48.1791 15.2567 48.7137 15.0109C49.2484 14.7651 49.8401 14.6691 50.4254 14.7333C51.0107 14.7975 51.5673 15.0194 52.0354 15.3752C52.5036 15.731 52.8655 16.2072 53.0822 16.7525V19.1162C52.846 19.7196 52.4327 20.238 51.8962 20.6038C51.3597 20.9696 50.725 21.1657 50.0749 21.1666Z" fill="#080403"/>
+                  <path d="M89.888 12.1196C85.9376 12.1196 84.6682 14.6546 84.1699 15.6651L86.8214 16.2914C86.8214 16.2914 87.1061 14.3769 89.9533 14.3769C92.8005 14.3769 92.4149 16.2914 89.7635 16.6401C87.112 16.9887 84.1699 17.6269 84.1699 20.1028C84.1699 22.2478 86.0325 23.471 88.6246 23.471C91.2167 23.471 92.1302 21.9583 92.1302 21.9583V23.471H94.9062V16.1496C94.9062 14.4537 93.8385 12.1196 89.888 12.1196ZM88.7492 21.1605C86.2519 21.1605 86.5722 19.2342 87.9899 19.0805C89.7694 18.8796 91.3413 18.6019 92.1954 17.7864C92.1954 19.6774 91.2464 21.1605 88.7492 21.1605Z" fill="#080403"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0">
+                  <rect width="109" height="39" fill="white" transform="translate(0 0.443359)"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="spay">
+                <div class="d-flex flex-column"> 
+                <label class="text-light">Nomor shopeepay (pajak 500)</label>
+                </div>
+                <div>
+                  <?xml version="1.0" encoding="UTF-8"?>
+                
+                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                
+                <!-- Creator: CorelDRAW X7 -->
+                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="23.6888mm" height="7.7892mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                viewBox="0 0 422 139"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <defs>
+                  <style type="text/css">
+                   <![CDATA[
+                    .fil0 {fill:#F0592B}
+                   ]]>
+                  </style>
+                 </defs>
+                 <g id="Layer_x0020_1">
+                  <metadata id="CorelCorpID_0Corel-Layer"/>
+                  <g id="_1972074928272">
+                   <path class="fil0" d="M189 87c-4,-4 -9,-6 -14,-8 0,0 -1,0 -2,0 0,0 -1,0 -1,0 0,-1 -1,-1 -1,-1 0,0 0,0 -1,0 0,0 0,0 0,0 -2,-1 -4,-3 -6,-4 -2,-2 -2,-3 -2,-5 0,-3 1,-6 2,-7 2,-2 5,-3 7,-3 5,-1 11,1 15,3 4,3 7,-3 4,-6 -6,-4 -14,-5 -21,-4 -4,0 -8,2 -10,5 -3,3 -5,8 -5,12 0,11 12,15 20,18 3,1 3,1 5,2 2,1 4,2 6,4 0,0 0,0 1,1 0,0 0,0 0,0 0,0 0,1 1,1 0,1 0,1 1,3 0,0 0,0 0,0 0,1 0,1 0,1 0,1 0,2 0,2 -1,2 -1,3 -2,4 -2,4 -8,5 -12,5 -7,0 -12,-3 -18,-7 -1,-1 -4,0 -4,2 -2,1 -1,3 1,5 6,4 14,8 22,7 7,0 15,-3 18,-10 4,-7 2,-15 -4,-20z"/>
+                   <path class="fil0" d="M230 79c-7,-4 -16,-3 -22,2 0,0 0,0 0,0l0 -21 0 -5c0,-5 -7,-5 -7,0l0 54 0 5c0,5 7,5 7,0l0 -19c0,0 0,0 0,0 0,-1 0,-1 0,-1 0,-1 0,-1 0,-1l0 0c1,-1 1,-1 1,-1 0,-1 1,-2 2,-3 0,0 0,0 0,0 0,0 0,-1 0,-1 0,0 0,0 1,0 0,-1 0,-1 0,-1 1,0 1,-1 1,-1 3,-2 6,-2 9,-2 2,0 3,1 4,1 1,1 2,1 3,3 -1,-1 0,0 0,1 0,0 1,1 1,1 0,0 0,1 0,2 0,0 0,0 0,0l0 1 0 16 0 5c0,5 8,5 8,0l0 -12c0,-4 0,-8 -1,-12 0,-4 -3,-8 -7,-11z"/>
+                   <path class="fil0" d="M271 78c-9,-3 -18,1 -24,8 -5,8 -3,18 2,25 7,7 17,8 25,5 7,-3 12,-11 12,-19 0,0 0,0 0,0 -1,-9 -7,-16 -15,-19zm-6 32c-7,1 -13,-5 -14,-13 0,-7 7,-13 14,-13 7,0 13,6 14,13 -1,8 -7,13 -14,13z"/>
+                   <path class="fil0" d="M319 78c-7,-2 -14,0 -20,5l0 -2c0,-5 -7,-5 -7,0l0 52 0 2c0,5 7,5 7,0l0 -23c6,6 16,7 24,4 7,-3 11,-11 11,-19 0,0 0,0 0,0 0,-9 -6,-16 -15,-19zm-6 32c-7,1 -13,-5 -13,-13 0,-7 6,-13 13,-13 8,0 14,6 14,13 0,8 -6,13 -14,13z"/>
+                   <path class="fil0" d="M360 77c-7,0 -13,3 -16,9 -2,3 -3,6 -3,9 0,1 0,1 0,1 -1,6 1,12 5,16 6,8 20,7 29,2 4,-2 0,-8 -4,-6 -4,2 -7,3 -11,3 -1,0 -2,-1 -3,-1 -1,0 -1,0 -2,0 0,0 0,0 0,0 -1,0 -1,-1 -1,-1 -1,0 -2,-1 -3,-2 0,0 -1,-1 -1,-1 0,0 0,-1 0,-1 0,0 -1,0 -1,-1 0,0 0,0 0,0 0,-1 0,-2 -1,-2 0,-1 0,-1 0,-1 0,0 0,-1 0,-1 0,0 0,0 0,0l26 0c2,0 4,-2 4,-4 0,-3 -1,-6 -2,-9 -3,-7 -10,-10 -16,-10zm-11 14c0,0 0,0 0,0 1,-1 1,-2 2,-3 0,0 0,0 0,0 0,0 0,0 0,0 1,-1 1,-1 2,-2 0,1 1,0 1,0 0,0 0,-1 1,-1 -1,0 0,0 0,0 2,0 3,-1 4,-1 3,0 5,1 8,2 0,0 0,0 0,0 0,0 0,1 0,1 1,0 1,1 1,1 0,0 1,1 1,1 0,0 0,1 1,1 0,0 0,1 0,1 0,0 0,1 0,1 0,0 0,0 0,1l-21 0c0,-1 0,-1 0,-1 0,0 0,-1 0,-1z"/>
+                   <path class="fil0" d="M420 87c-3,-7 -9,-10 -16,-10 -7,0 -13,3 -16,9 -2,3 -3,6 -3,9 0,1 0,1 0,1 -1,6 1,12 5,16 6,8 21,7 29,2 4,-2 0,-8 -4,-6 -3,2 -7,3 -11,3 -1,0 -2,-1 -3,-1 -1,0 -1,0 -2,0 0,0 0,0 0,0 0,0 0,-1 0,-1 -2,0 -3,-1 -4,-2 0,0 0,-1 -1,-1 0,0 0,-1 0,-1 0,0 0,0 0,-1 0,0 -1,0 -1,0 0,-1 0,-2 0,-2 0,-1 0,-1 -1,-1 0,0 0,-1 0,-1 0,0 0,0 0,0l27 0c2,0 3,-2 3,-4 0,-3 0,-7 -2,-9zm-27 4c1,0 1,0 1,0 0,-1 1,-2 1,-3 0,0 0,0 0,0 0,0 1,0 1,0 0,-1 1,-1 1,-2 0,1 1,0 1,0 0,0 1,-1 1,-1 -1,0 0,0 0,0 2,0 3,-1 4,-1 3,0 6,1 8,2 0,0 0,0 0,0 0,0 0,1 1,1 0,0 0,1 1,1 0,0 0,1 0,1 0,0 1,1 1,1 0,0 0,1 0,1 0,0 0,1 1,1 0,0 0,0 0,1l-22 0c0,-1 0,-1 0,-1 0,0 0,-1 0,-1z"/>
+                   <path class="fil0" d="M112 37l-27 0c0,-12 -7,-37 -26,-37 -21,0 -26,27 -26,37l-27 0c-7,-1 -6,7 -6,7l5 72c0,0 0,16 14,16 1,0 78,0 80,0 13,-1 14,-16 14,-16l5 -72c0,0 1,-8 -6,-7zm-53 -30c17,0 19,27 19,30l-38 0c0,-3 1,-30 19,-30zm21 92c-1,15 -17,15 -20,15 -12,0 -19,-7 -19,-7 -1,0 -1,-1 -1,-2 0,-1 1,-2 2,-2 0,0 1,1 1,1l0 0c0,0 0,0 0,0l0 0c1,1 8,6 17,6 7,0 15,-4 15,-11 1,-10 -13,-14 -16,-15 -3,-1 -18,-5 -17,-17 0,-5 5,-14 17,-14 11,-1 16,4 16,4l0 0c1,1 1,1 1,2 0,1 -1,2 -2,2 0,0 -1,0 -1,0 0,0 -6,-4 -14,-4 -8,0 -12,6 -13,10 0,8 11,11 13,12 10,3 22,7 21,20z"/>
+                  </g>
+                 </g>
+                </svg>
+                </div>
+              </div>
+              <div class="d-flex method-pay align-items-center gap-3 rounded-2 py-3 px-2 w-100 text-light" style="background:rgba(118, 176, 236, 0.25);" id="payment" data-pajak="500" data-pay="pulsa">
+                <div class="d-flex flex-column"> 
+                <label class="text-light">Pulsa XL (pajak 500)</label>
+                </div>
+                <div>
+                  <i class="bi bi-phone"></i>
+                </div>
+              </div>
             </div>
          </div>
             <div class="bg-dark d-flex rounded-2 overflow-hidden gap-2 flex-column w-100">
@@ -293,6 +371,7 @@
               </div>
               <input type="number" class="form-control input-checkout fix-radius2" placeholder="81234566899.." aria-label="" id="wa-ipt" aria-describedby="basic-addon1" required>
             </div>
+              <label class="alert-wa d-none py-2">nomor harus lebih dari 7 dan valid!</label>
               </div>
             </div>
          </div>
@@ -313,6 +392,7 @@
                   <p class="m-0" id="total-product">Total : -</p>
                   <p class="d-none" id="telpUser">-</p>
                   <p class="d-none" id="emailUser">-</p>
+                  <p class="d-none" id="pay-method">-</p>
                 </div>
               </div>
               <div class="d-flex w-100">
@@ -371,12 +451,35 @@
          emailUser.innerText = emailIpt.value;
         })
         waIpt.addEventListener("input", (e) => {
-          console.log('dd wa')
+          if (waIpt.value.length < 7) {
+            document.querySelector('.alert-wa').classList.remove("d-none");
+            document.querySelector('.alert-wa').classList.add("d-flex");
+          } else {
+            document.querySelector('.alert-wa').classList.remove("d-flex");
+            document.querySelector('.alert-wa').classList.add("d-none");
+            
+          }
           const telpUser = document.getElementById("telpUser");
          telpUser.innerText = waIpt.value;
         })
+        function generateToken(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let token = '';
+        for (let i = 0; i < length; i++) {
+          token += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return token;
+      }
 function buyNow() {
-    const idPesanan = '#301kdjena';
+  const inputEmail = document.getElementById('email-ipt');
+  const inputWa = document.getElementById('wa-ipt');
+  if (!inputEmail.value || (!inputWa.value || inputWa.value.length < 7)) {
+    alert('Email dan nomor WhatsApp harus diisi.');
+    return;
+  }
+   
+    const idPesanan = '#' + generateToken(10); 
+    console.log(idPesanan);
     const productCategory = document.getElementById("");
     const productName = document.getElementById("nama-product").innerText;
     const productBrand = document.getElementById("brand-product").innerText;
@@ -389,6 +492,7 @@ function buyNow() {
     const usnUser = document.getElementById("usn-sm").innerText;
     const telpUser = document.getElementById("telpUser").innerText;
     const emailUser = document.getElementById("emailUser").innerText;
+    const payMethod = document.getElementById("pay-method").innerText;
     
     var allMessage = `
     *MICH STORE*
@@ -415,6 +519,7 @@ function buyNow() {
     *Information Pembeli Tambahan*
     - Nomor Telepon : ${telpUser}
     - Email : ${emailUser}
+    - Pembayaran via : ${payMethod}
     `;
 
     var message = allMessage;
@@ -429,7 +534,7 @@ function buyNow() {
     var phpPageURL = "https://ms-sendwa.byethost7.com/index.php";
 
     // Mengarahkan ke halaman PHP dengan pesan dan token
-    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token);
+    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + '&payment=' + payMethod;
 }
 
         </script>

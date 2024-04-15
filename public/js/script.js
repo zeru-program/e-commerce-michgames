@@ -161,6 +161,7 @@ function accountManageLS() {
     } else {
         divNotLogin.classList.remove("d-none");
         divNotLogin.classList.add("d-flex");
+        divHasLogin.classList.remove("d-flex");
         divHasLogin.classList.add("d-none");
     }
 }

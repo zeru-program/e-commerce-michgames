@@ -580,7 +580,7 @@ function buyNow() {
   .then((response) => response.json())
   .then((data) => {
     // Mengarahkan ke halaman PHP dengan pesan dan token
-    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + '&payment=' + payMethod + '&databeli=' + encodeURIComponent(dataPembelian);
+    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + "&id=" + idPesanan + '&payment=' + payMethod;
     // Lakukan tindakan setelah data berhasil dikirim
   })
   .catch((error) => {

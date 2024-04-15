@@ -30,7 +30,7 @@
                 justify-content: center;
                 align-items: center;
                 width: 350px;
-                height: 600px;
+                height: 700px;
                 background: #5b8ee5;
                 color: black;
                 border-radius: 5px;
@@ -412,7 +412,6 @@
                 })
                     .then(response => {
                         console.log("Success!", response);
-                        localStorage.setItem('hasLogin', true);
                         window.location.href = "/pages/auth/sign-in/"
                     })
                     .catch(error => {

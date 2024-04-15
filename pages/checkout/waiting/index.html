@@ -198,19 +198,23 @@
           dataPayBuyer.classList.add("bg-success");
           dataPayBuyer.classList.add("text-light");
           payQrGp.style.display = 'flex';
+          payPulsa.style.display = 'none';
           } else if (row[5] === 'dana') {
           dataPayBuyer.textContent = 'dana';
           dataPayBuyer.classList.add("bg-primary");
           dataPayBuyer.classList.add("text-light");
           payPulsa.style.display = 'flex';
+          payQrGp.style.display = 'none';
           } else if (row[5] === 'spay') {
           dataPayBuyer.textContent = 'ShopeePay';
           dataPayBuyer.classList.add("bg-warning");
           payPulsa.style.display = 'flex';
+          payQrGp.style.display = 'none';
           } else if (row[5] === 'pulsa 3') {
           dataPayBuyer.textContent = 'Pulsa 3';
           dataPayBuyer.classList.add("bg-secondary");
           payPulsa.style.display = 'flex';
+          payQrGp.style.display = 'none';
           } 
       } else {
         alert("data tidak ditemukan")

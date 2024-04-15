@@ -501,6 +501,11 @@ function buyNow() {
     const payMethod = document.getElementById("pay-method").innerText;
     const date = new Date();
     const usn = localStorage.getItem('username');
+    if (!usn) {
+        alert("oh no.. kamu belum login, silakan login dulu");
+        window.location.href = "/pages/auth/sign-in/";
+        return;
+    }
     if (!inputEmail.value || productName === '-' || productPrice === '-' || (!inputWa.value || inputWa.value.length < 7)) {
     alert('Data product harus di isi semua!');
     return;

@@ -503,11 +503,13 @@ function buyNow() {
     const usn = localStorage.getItem('username');
     if (!usn) {
         alert("oh no.. kamu belum login, silakan login dulu");
+    document.querySelector('.btn-beli').innerHTML = '<i class="bi mx-3 bi-cart"></i>Beli Sekarang</i>';
         window.location.href = "/pages/auth/sign-in/";
         return;
     }
     if (!inputEmail.value || productName === '-' || productPrice === '-' || (!inputWa.value || inputWa.value.length < 7)) {
     alert('Data product harus di isi semua!');
+    document.querySelector('.btn-beli').innerHTML = '<i class="bi mx-3 bi-cart"></i>Beli Sekarang</i>';
     return;
   }
     var allMessage = `

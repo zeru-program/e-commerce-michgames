@@ -205,11 +205,11 @@
       <div class="con-input">
         <form id="signin-form">
         <label class="input-label">Username or Email</label>
-        <input type="text" id="emailOrName" class="inputOption" placeholder="type in here.." name="username-email" />
+        <input type="text" id="emailOrName" class="inputOption" placeholder="type in here.." required name="username-email" />
         <br>
         <label class="input-label">Password</label>
         <div class="con-hidden-pw">
-          <input type="password" id="password" class="inputOption" placeholder="type in here.." name="Password" />
+          <input type="password" id="password" class="inputOption" placeholder="type in here.." name="password" required />
           <img src="voff.png" class="vis-pass" alt="show" onclick="switchOn()" />
           <div class="con-accept">
             <input type="checkbox" name="" required id="cookies" /> <label>I agree the cookies</label>
@@ -251,11 +251,14 @@ form.addEventListener("submit", function(event) {
     fetch(signInURL)
         .then(res => res.json()) // Mengubah respons menjadi objek JSON
         .then(data => {
+          const passwordSet = document.getElementById('password').value;
             const users = data.content.slice(1);
             const foundUser = users.find(user => (user[1] === usernameOrEmail || user[3] === usernameOrEmail) && user[4] === password);
             if (foundUser) {
-                const [id, username, password, email] = foundUser; // Mendapatkan nilai id, username, password, dan email dari pengguna yang ditemukan
-               localStorage.setItem("hasLogin", true);
+                //const [id, username, password, email] = foundUser;
+                const username = foundUser[1];
+                const email = foundUser[3];
+                localStorage.setItem("hasLogin", true);
                 localStorage.setItem("username", username);
                 localStorage.setItem("email", email);
                 localStorage.setItem("password", password);

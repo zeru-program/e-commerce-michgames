@@ -679,6 +679,16 @@ function resetRating() {
 
 
 addEventListener("DOMContentLoaded", () => {
+  const logoutFixed = localStorage.getItem("ls-logout-fixed")
+      if (!logoutFixed) {
+                alert('mohon maaf sistem authentication kami mengalami pembaruan, jadi silakan anda logout lalu login kembali, terimakasih.');
+                localStorage.removeItem("hasLogin");
+                localStorage.removeItem("username");
+                localStorage.removeItem("email");
+                localStorage.removeItem("password");
+                localStorage.setItem('ls-logout-fixed', true)
+                window.location.href = '/pages/account/';
+      }
         const buyProducts = document.querySelectorAll(".box-product");
         buyProducts.forEach(product => {
             product.addEventListener("click", function () {

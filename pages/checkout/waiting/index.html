@@ -188,7 +188,11 @@
           dataStatus.classList.remove('bg-warning');
           dataStatus.classList.add('bg-success');
           dataStatus.classList.add('text-light');
+          dataPayPanduan.classList.remove('d-flex')
+          dataPayPanduan.classList.add('d-none')
           dataBtnKonfirm.style.display = 'none';
+          payQrGp.style.display = 'none !important';
+          payPulsa.style.display = 'none !important';
           }
           dataId.textContent = "#" + row[1];
        //   dataUsn.textContent = row[2];

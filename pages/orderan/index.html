@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <title>E-commerce Michael</title>
+        <!--  stylesheet public (bootstrap icons typography)  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+       <link rel="stylesheet" href="../../public/lib/animate.css" type="text/css" media="all" />
+
+        <!--   stylesheet local path  -->
+       <link rel="stylesheet" href="../../public/css/style.css" type="text/css" media="all" />
+    </head>
+    <body>
+        <!-- start code logo nav and search box -->
+        <nav class="navbar fixed-top navbar-dark navbar-expand-lg nav-top">
+          <div class="container-fluid">
+            <a class="navbar-brand nav-logo-text" href="#">Michstoree.</a>
+            <div class="d-flex gap-2">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-sm" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+            <button class="navbar-toggler m-0 navbar-top-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="border:0 !important;">
+              <i class="bi bi-list display-4" style="border:0 !important; color:#319de2 !important;"></i>
+            </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav py-2 gap-2">
+            <div class="rounded justify-content-center align-items-center bg-transparent px-3 notif-lg" onclick="showNotif()" style="display:flex;">
+              <i class="bi bi-bell animate__animated animate__swing animate__infinite" style="color:#319de2;font-size:1.5em;"></i>
+            </div>
+                <a onclick="window.location.href = '/pages/home/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-house"></i>Home</a>
+                <a onclick="window.location.href = '/pages/product/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-box-seam"></i>Product</a>
+                 <a onclick="window.location.href = '/pages/orderan/'" class="nav-link active nav-active d-flex align-items-center" aria-current="page" href="#">
+              <i class="bi i-nav bi-bag"></i>Orderan</a>
+                <a onclick="window.location.href = '/pages/account/'" class="nav-link d-flex align-items-center" aria-current="page" href="#">
+                <i class="bi i-nav bi-person"></i>Account</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- end code logo nav and search box -->
+     
+        <!-- Spinner  shape home Start -->
+       <div class="con-spiner">
+        <div class="loadingio-spinner-ripple-2by998twmg8"><div class="ldio-yzaezf3dcmj">
+        <div></div>
+        <div></div>
+        </div></div>
+       </div>
+        <!-- Spinner  shape home End -->
+        <!-- start content value -->
+        <main class="m-0" style="padding-top:50px;">
+            <div class="container-main" style="height:900px !important;padding-inline: 15px;">
+              <!-- fauzi ini aku zeru , kamu isi page orderan untuk check nya disini ya di dalam div tag ini, aku maunya ntar ada table dlu ntr columnya aku kabarin di Whatsapp, trus ada button untuk ke page check id orderan tadi -->
+              
+            </div>
+            <!-- start footer bootom sticky -->
+              <footer class="bg-dark py-5">
+                <div class="div-img-footer">
+                  <h2 class="fw-bold py-2" style="font-family:'Outfit', sans-serif;">
+                    MichStore.
+                  </h2>
+                </div>
+                <div class="div-text-footer gap-3">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Media Social</h6>
+                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</i>
+                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</i>
+              </div>
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Support</h6>
+                <p class="m-0" onclick="window.location.href = 'mailto:Michaelganteng3322@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>Michaelganteng3322@gmail.com</p>
+                <p class="m-0" onclick="window.location.href = 'mailto:zeruprogram@gmail.com?subject=feedback'"><i class="bi bi-envelope px-2"></i>zeruprogram@gmail.com</p>
+                <p class="m-0">Proses Instant dan dijamin cepat!</p>
+              </div>
+                 </div>
+                <div class="div-text-footer py-2">
+              <div class="d-flex flex-column gap-1 mt-2">
+                <h6 style="border-bottom:1px solid gray;">Information</h6>
+                <p class="m-0">Build in February 2024</p>
+                <p class="m-0">Release in March 2024</p>
+                <p class="m-0" onclick="window.location.href='https://zeru.netlify.app/'">Created By Zeru PGM</p>
+              </div>
+                </div>
+                <div class="cpryt mt-3">© 2024 MICHSTORE. All right reversed.<br>version app 1.3.5</div>
+              </footer>
+              <!-- end footer bootom sticky -->
+        </main>
+        <!-- end content value -->
+
+
+        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+        </div>
+        <!-- script js -->
+        <script type="text/javascript" src="../../public/js/script.js"></script>
+    </body>
+</html>

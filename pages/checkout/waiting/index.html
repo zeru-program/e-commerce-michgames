@@ -179,11 +179,13 @@
           if (row[8] === 'proses') {
           dataStatus.textContent = row[8];
           dataStatus.classList.add('bg-warning');
+          dataStatus.classList.remove('bg-success');
           dataPayPanduan.classList.remove('d-none')
           dataPayPanduan.classList.add('d-flex')
           dataBtnKonfirm.style.display = 'block';
           } else if (row[8] === 'sukses') {
           dataStatus.textContent = row[8];
+          dataStatus.classList.remove('bg-warning');
           dataStatus.classList.add('bg-success');
           dataStatus.classList.add('text-light');
           dataBtnKonfirm.style.display = 'none';

@@ -11,7 +11,7 @@
     const isLoggedIn = localStorage.getItem('hasLogin');
     if (isLoggedIn === 'true') {
         // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
-        window.location.href = "/pages/home/";
+       window.location.href = "/pages/home/";
     }
   });
   </script>
@@ -248,21 +248,14 @@ form.addEventListener("submit", function(event) {
     
     const usernameOrEmail = form.elements["username-email"].value;
     const password = form.elements["password"].value;
-    fetch(
-        `${signInURL}?usernameOrEmail=${usernameOrEmail}&password=${password}`
-    )
+    fetch(signInURL)
         .then(res => res.json()) // Mengubah respons menjadi objek JSON
         .then(data => {
             const users = data.content.slice(1);
-            const foundUser = users.find(
-                user =>
-                    (user[1] === usernameOrEmail ||
-                        user[3] === usernameOrEmail) &&
-                    user[4] === password
-            );
+            const foundUser = users.find(user => (user[1] === usernameOrEmail || user[3] === usernameOrEmail) && user[4] === password);
             if (foundUser) {
                 const [id, username, password, email] = foundUser; // Mendapatkan nilai id, username, password, dan email dari pengguna yang ditemukan
-                localStorage.setItem("hasLogin", true);
+               localStorage.setItem("hasLogin", true);
                 localStorage.setItem("username", username);
                 localStorage.setItem("email", email);
                 localStorage.setItem("password", password);
@@ -278,7 +271,12 @@ form.addEventListener("submit", function(event) {
         });
 });
 
-  
+ /*  fetch('https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec')
+   .then(res => res.json())
+   .then(data => {
+       console.log(data)
+   })
+   .catch(e => console.error(error.message))*/
   
     function closePopupWrong() {
       const popupWrong = document.querySelector('.cek-wrong');

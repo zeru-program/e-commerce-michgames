@@ -560,6 +560,33 @@ background-blend-mode: multiply;
 }
 /*** Product page end ***/
 
+/*** orderan page start **/
+table {
+  overflow-x: scroll !important;
+  width: 100%;
+}
+thead tr th {
+  text-wrap: nowrap;
+  border: 1px solid #319de2;
+  padding: 10px;
+}
+tbody tr td {
+  text-wrap: nowrap;
+  border: 1px solid #319de2;
+  padding: 10px;
+}
+table thead {
+  gap: 20px;
+}
+.text-proses-s {
+  color: #f2ec6c;
+}
+.text-sukses-s {
+  color: #6cf278;
+}
+/*** orderan page end **/
+
+
 /*** Account page start ***/
 
 /* CSS */

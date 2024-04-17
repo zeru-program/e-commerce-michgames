@@ -144,8 +144,11 @@
         <!-- end content value -->
 
 
-        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
-          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+        
+        <div class="d-none px-3 w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+         <div class="w-100 py-2 d-flex flex-column align-items-center" style="margin-top:60px" id="notif-body">
+         </div>
+          <button class="position-fixed top-0 m-2 rounded-2 border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px; background:rgba(225,225,225,0.5);">X</button>
         </div>
 
         <!-- script js -->

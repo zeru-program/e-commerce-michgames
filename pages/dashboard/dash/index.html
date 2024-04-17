@@ -276,10 +276,13 @@
       </div>
     </div>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="">
+    <main class="col-md-9 ms-sm-auto col-lg-10 pb-5 px-md-4" style="">
       <h2 class="mt-3">Welcome Admin!</h2>
       <p class="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, nobis.</p>
-      <p class="pb-lg-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus excepturi vero veritatis, eius obcaecati aspernatur ab voluptatibus repellendus deleniti, eveniet voluptates soluta neque reiciendis incidunt illum corporis itaque corrupti necessitatibus.</p>
+      <p class="pb-lg-5">
+        Jika column tidak tampil antara internet anda lemot atau tidak ada data pengguna. Dan jika semua option "Delete" ataupun "√" untuk mengupdate status orderan tidak berfungsi silakan update manual di spreadsheets nya, ini link nya.
+        <a href="https://docs.google.com/spreadsheets/d/1oax4hPgz6Dzha4cgK6yQB8gFGJRNJy5HeXul1lcMFu4/edit#gid=0">Link to spreadsheets list order</a>
+      </p>
       <hr class="my-4">
       
       <div>
@@ -287,7 +290,6 @@
              <svg class="bi"><use xlink:href="#people"/></svg>
             <label>Account</label>
         </div>
-        
         <div style="overflow: auto;">
       <table class="custom-table">
         <thead>
@@ -297,7 +299,6 @@
             <th class="text-center">Name</th>
             <th class="text-center">Email</th>
             <th class="text-center">Password</th>
-            <th class="text-center">Delete</th>
           </tr>
         </thead>
         <tbody id="table-body">
@@ -306,26 +307,73 @@
       </table>
         </div>
       </div>
-      
       <hr class="my-4">
-      
-      
-      di dash harus ada info 
-      <ul>
-          <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#cart"/></svg>
-                Order
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#people"/></svg>
-                Account
-              </a>
-            </li>
-      </ul>
+        <div class="d-flex gap-2 w-100" style="overflow: hidden;">
+             <svg class="bi"><use xlink:href="#people"/></svg>
+            <label>Orderan</label>
+        </div>
+      <div style="overflow: auto;">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th class="text-center">No</th>
+            <th class="text-center">ID Pesanan</th>
+            <th class="text-center">Product</th>
+            <th class="text-center">Buyer</th>
+            <th class="text-center">Price total</th>
+            <th class="text-center">Payment</th>
+            <th class="text-center">Estimasi</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Option</th>
+          </tr>
+        </thead>
+        <tbody id="orderan-tba">
+          <!-- You can add more rows here with different data -->
+        </tbody>
+      </table>
+        </div>
+        
+      <hr class="my-4">
+        <div class="d-flex gap-2 w-100" style="overflow: hidden;">
+             <svg class="bi"><use xlink:href="#people"/></svg>
+            <label>Notification</label>
+        </div>
+        <button class="border-0 rounded-2 bg-primary m-2 px-2 py-1 text-light" onclick='openNotifC()'>Create Notif</button>
+      <div style="overflow: auto;">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th class="text-center">No</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Message</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Display</th>
+          </tr>
+        </thead>
+        <tbody id="notif-tba">
+          <!-- You can add more rows here with different data -->
+        </tbody>
+      </table>
+        </div>
+      </div>
+  
     </main>
+    
+      <div class="d-none w-100 py-1 px-3 bg-light m-0 flex-column text-dark position-fixed" style="top: 0; left: 0; z-index: 9999; height: 100vh; " id="divCreateNotif">
+    <div class="w-100 d-flex flex-column overflow-y-scroll" style="height:100%;">
+      
+    <h1>Lorem</h1>
+  
+    <form class="pb-5 d-flex gap-2 flex-column" id="form-create-notif">
+      <label for="">Title notification</label>
+      <input type="text" name="title" id="title-notif" required value="" />
+      <label for="">Description/message notification</label>
+      <input type="text" name="message" id="m-notif" required value="" />
+      <button type="button" onclick="closeDivNotif()" class="btn btn-danger">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+   </div>
+  </div>
   </div>
 </div>
 
@@ -339,5 +387,124 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+    <script>
+     const formNotif = document.getElementById('form-create-notif');
+     formNotif.addEventListener('submit', (e) => {
+      event.preventDefault(); 
+      const title = document.getElementById("title-notif").value;
+      const mess = document.getElementById("m-notif").value;
+      
+        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+        .then(res => res.json())
+        .then(data => {
+  
+  var sekarang = new Date();
+  
+  var tanggal = sekarang.getDate();
+  var bulan = sekarang.getMonth() + 1;
+  var tahun = sekarang.getFullYear();
+  const dates = tanggal + '-' + bulan + '-' + '-' + tahun;
+   const lastID = data.content[data.content.length - 1][0];
+   const nextID = lastID + 1;
+  // Buat objek FormData
+  const formData = new FormData();
+  
+  formData.append('id', nextID);
+  formData.append('title', title);
+  formData.append('message', mess);
+  formData.append('date', dates);
+  formData.append('display', "y");
+  
+        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec', {
+          method: "POST",
+          body: formData 
+        })
+        .then(res => res.json())
+        .then(data => {
+          alert("berhasil menambah notif")
+          location.reload();
+        })
+        .catch(e => console.error(err.message))
+        })
+        .catch(e => console.error(err.message))
+     })
+      
+        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+        .then(res => res.json())
+        .then(data => {
+          const tables = data.content.slice(1);
+          const tableOrderan = document.getElementById('orderan-tba');
+          const poText = document.getElementById('proses-orderan');
+          tables.forEach(tab => {
+          const appenTd = document.createElement("tr");
+          appenTd.innerHTML = `
+                  <td>${tab[0]}</td>
+                  <td>#${tab[1]}</td>
+                  <td>${tab[3]}</td>
+                  <td>${tab[2]}</td>
+                  <td>${tab[4]}</td>
+                  <td>${tab[5]}</td>
+                  <td>${tab[6]}</td>
+                  <td id="proses-orderan">${tab[8]}</td>
+                  <td id=""><button class="bg-success text-light border-0 rounded-2 px-4 py-1" onclick="orderanDone('${tab[1]}')">√</button></td>
+                `;
+            tableOrderan.appendChild(appenTd);
+          })
+        })
+        .catch(e => console.error(error.message))
+        
+      function orderanDone(idPesanan) {
+    const updateData = { status: "sukses" }; // Data yang ingin Anda perbarui
+    fetch(`https://sheetdb.io/api/v1/pnufdp38gitzu/id_pesanan/${idPesanan}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updateData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Data berhasil diperbarui:", data);
+        // Lakukan tindakan lanjutan jika diperlukan setelah pembaruan berhasil
+    })
+    .catch(error => console.error("Gagal memperbarui data:", error));
+}
+
+
+
+// notif
+fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
+.then(res => res.json())
+.then(data => {
+     const notifs = data.content.slice(1);
+     const getBodyNotif = document.getElementById("notif-tba");
+     
+     notifs.forEach(notif => {
+       
+       const appenNotif = document.createElement('tr');
+       appenNotif.innerHTML = `
+             <td>${notif[0]}</td>
+             <td>${notif[1]}</td>
+             <td>${notif[2]}</td>
+             <td>${notif[3]}</td>
+             <td>${notif[4]}</td>
+           `;
+          getBodyNotif.appendChild(appenNotif)
+     })
+})
+.catch(e => console.error(error.message))
+
+function openNotifC() {
+  const div = document.getElementById('divCreateNotif');
+  div.classList.remove("d-none")
+  div.classList.add("d-flex")
+}
+function closeDivNotif() {
+  const div = document.getElementById('divCreateNotif');
+  div.classList.remove("d-flex")
+  div.classList.add("d-none")
+}
+
+    </script>
     </body>
 </html>

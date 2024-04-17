@@ -625,7 +625,7 @@ function pcategoryManage() {
 // create new product
 const form = document.getElementById('form-create-product');
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); // Untuk mencegah pengiriman formulir secara default
+  event.preventDefault(); 
   document.getElementById('modalCreate').classList.remove('d-none');
   document.getElementById('modalCreate').classList.add('d-flex');
   const pn = document.getElementById('proname').value;

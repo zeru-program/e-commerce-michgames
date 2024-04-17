@@ -55,10 +55,27 @@
        </div>
         <!-- Spinner  shape home End -->
         <!-- start content value -->
-        <main class="m-0" style="padding-top:50px;">
-            <div class="container-main" style="height:900px !important;padding-inline: 15px;">
-              <!-- fauzi ini aku zeru , kamu isi page orderan untuk check nya disini ya di dalam div tag ini, aku maunya ntar ada table dlu ntr columnya aku kabarin di Whatsapp, trus ada button untuk ke page check id orderan tadi -->
-              
+        <main class="m-0" style="padding-top:60px;">
+            <div class="container-main gap-2 overflow-x-auto" style="height:auto !important;padding-inline: 15px; padding-bottom: 50%;">
+              <div class="d-flex mt-3 w-100">
+                <button onclick="window.location.href = '/pages/checkout/waiting/'" class="border-0 px-5 py-2 rounded-2 fw-bold text-light" style="background:#319de2;">Invoice <i class="bi bi-arrow-right"></i></button>
+              </div>
+                <p class="m-0">Jika ingin membayar atau melihat invoice, silakan copy id pesanan lalu paste ke input di popup page invoice nya (tanpa "#"). Semua orderan yang masuk akan diproses maximal 1x24 jam. Jika ada pertanyaan atau keluhan silakan chat <a style="color:white;" href="https://wa.me/+62895411586360">owner.</a></p>
+              <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>ID Pesanan</th>
+                  <th>Product</th>
+                  <th>Price Total</th>
+                  <th>Payment</th>
+                  <th>Estimasi</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="orderan-tb">
+              </tbody>
+            </table>
             </div>
             <!-- start footer bootom sticky -->
               <footer class="bg-dark py-5">
@@ -70,9 +87,9 @@
                 <div class="div-text-footer gap-3">
               <div class="d-flex flex-column gap-1 mt-2">
                 <h6 style="border-bottom:1px solid gray;">Media Social</h6>
-                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</i>
-                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</i>
-                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</i>
+                <p class="m-0" onclick="window.location.href = 'https://www.instagram.com/michaeltopup.id?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='"><i class="bi bi-instagram px-2"></i>@michaeltopup.id</button>
+                <p class="m-0" onclick="window.location.href = 'https://www.tiktok.com/@michaeltopup.id'"><i class="bi bi-tiktok px-2"></i>@michaeltopup.id</button>
+                <p class="m-0" onclick="window.location.href = 'https://wa.me/+62895411586360'"><i class="bi bi-whatsapp px-2"></i>+62-895-4115-86360</button>
               </div>
               <div class="d-flex flex-column gap-1 mt-2">
                 <h6 style="border-bottom:1px solid gray;">Support</h6>
@@ -96,10 +113,38 @@
         <!-- end content value -->
 
 
-        <div class="d-none w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
-          <button class="position-fixed top-0 m-2 rounded-2 bg-light border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px;">X</button>
+
+        
+        <div class="d-none px-3 w-100 position-fixed notif-popup" style="top: 0; left: 0; z-index: 9999999; height: 100vh;background: rgb(59,72,86);background: linear-gradient(90deg, rgba(59,72,86,1) 0%, rgba(79,116,154,1) 50%, rgba(70,123,180,1) 100%);">
+         <div class="w-100 py-2 d-flex flex-column align-items-center" style="margin-top:60px" id="notif-body">
+         </div>
+          <button class="position-fixed top-0 m-2 rounded-2 border-0" onclick="closeNotif()" style="right:0; width:50px;height:50px; background:rgba(225,225,225,0.5);">X</button>
         </div>
+
         <!-- script js -->
         <script type="text/javascript" src="../../public/js/script.js"></script>
+        <script>
+        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+        .then(res => res.json())
+        .then(data => {
+          const tables = data.content.slice(1);
+          const tableOrderan = document.getElementById('orderan-tb');
+          const poText = document.getElementById('proses-orderan');
+          tables.forEach(tab => {
+          const appenTd = document.createElement("tr");
+          appenTd.innerHTML = `
+                  <td>${tab[0]}</td>
+                  <td>#${tab[1]}</td>
+                  <td>${tab[3]}</td>
+                  <td>${tab[4]}</td>
+                  <td>${tab[5]}</td>
+                  <td>${tab[6]}</td>
+                  <td class="" id="proses-orderan">${tab[8]}</td>
+                `;
+            tableOrderan.appendChild(appenTd);
+          })
+        })
+        .catch(e => console.error(error.message))
+        </script>
     </body>
 </html>

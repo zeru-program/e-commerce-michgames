@@ -70,7 +70,6 @@ fetch('https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAx
           <td>${row[2]}</td>
           <td>${row[3]}</td>
           <td>${row[4]}</td>
-          <td class="align-items-center justify-content-center"><button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delAccount('${row[3]}')">Del</button></td>
         `;
         tableBody.appendChild(rowTab);
       
@@ -82,7 +81,7 @@ fetch('https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAx
 
 
 
-function delAccount(email) {
+/*function delAccount(email) {
   fetch('https://sheetdb.io/api/v1/yf0879y48ha98/Email/' + email, {
     method: 'DELETE',
     headers: {
@@ -94,7 +93,7 @@ function delAccount(email) {
   .then((data) => location.reload())
   
 }
-
+*/
   // Render the table when the page loads
   //window.onload = renderTable;
   

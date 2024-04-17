@@ -46,6 +46,32 @@ const conSpiner = document.querySelector('.con-spiner');
   }, 500);
 }
 
+
+// notif
+fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
+.then(res => res.json())
+.then(data => {
+     const notifs = data.content.slice(1);
+     const getBodyNotif = document.getElementById("notif-body");
+     
+     notifs.forEach(notif => {
+       
+       const appenNotif = document.createElement('div');
+       appenNotif.innerHTML = `
+           <div class="w-100 py-2 text-light d-flex flex-column rounded-2" style="padding-inline:10px; background:#3B4856;">
+             <h4 class="m-0">${notif[1]}</h4>
+             <p class="m-0">${notif[2]}</p>
+             <p>${notif[3]}</p>
+           </div>
+           `;
+           if (notif[4] === 'y') {
+          getBodyNotif.appendChild(appenNotif);
+           }
+          
+     })
+})
+.catch(e => console.error(error.message))
+
 //  btn product page
 // button declaration
 const btnAll = document.getElementById("btnProductAll");

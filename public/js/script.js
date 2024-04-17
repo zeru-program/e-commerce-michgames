@@ -118,7 +118,7 @@ window.onload = function () {
 
     if (window.location.pathname === "/pages/home/") {
         countdown();
-        welcomeHomeManage();
+      //  welcomeHomeManage();
         spinerPageNormal();
     } else if (window.location.pathname === "/pages/product/") {
         spinerPageNormal();

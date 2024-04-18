@@ -1,0 +1,22 @@
+{
+  "games": {
+    "free_fire": {
+      "topup": [
+        {"amount": 60000, "price": 60000},
+        {"amount": 120000, "price": 120000},
+        {"amount": 180000, "price": 180000},
+        {"amount": 240000, "price": 240000},
+        {"amount": 300000, "price": 300000}
+      ]
+    },
+    "mobile_legend": {
+      "topup": [
+        {"amount": 70000, "price": 70000},
+        {"amount": 140000, "price": 140000},
+        {"amount": 210000, "price": 210000},
+        {"amount": 280000, "price": 280000},
+        {"amount": 350000, "price": 350000}
+      ]
+    }
+  }
+}

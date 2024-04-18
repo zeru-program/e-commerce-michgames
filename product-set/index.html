@@ -281,7 +281,7 @@
       <p class="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, nobis.</p>
       <p class="pb-lg-5">
         Jika column tidak tampil antara internet anda lemot atau tidak ada data pengguna. Dan jika semua option "Delete" ataupun "√" untuk mengupdate status orderan tidak berfungsi silakan update manual di spreadsheets nya, ini link nya.
-        <a href="https://docs.google.com/spreadsheets/d/1oax4hPgz6Dzha4cgK6yQB8gFGJRNJy5HeXul1lcMFu4/edit#gid=0">Link to spreadsheets list order</a>
+        <button class="border-0 rounded-2 bg-primary m-2 px-2 py-1 text-light" onclick="showPopup()">Create Notif</button>
       </p>
       <hr class="my-4">
       
@@ -507,4 +507,16 @@ function closeDivNotif() {
 
     </script>
     </body>
+    <div id="popup" style="display:none;">
+  <select id="gameSelect" onchange="updateTopupOptions()">
+    <option value="free_fire">Free Fire</option>
+    <option value="mobile_legend">Mobile Legend</option>
+  </select>
+  <select id="topupSelect">
+    <!-- Options akan diperbarui dengan JavaScript -->
+  </select>
+  <input type="number" id="hargaInput" placeholder="Harga">
+  <button onclick="updateData()">Update Harga</button>
+</div>
 </html>
+<script src="script.js"></script>

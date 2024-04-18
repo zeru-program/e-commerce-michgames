@@ -366,7 +366,7 @@
   
     <form class="pb-5 d-flex gap-2 flex-column" id="form-create-notif">
       <label for="">Title notification</label>
-      <input type="text" name="title" id="title-notif" required value="" />
+      <input type="text" name="judul" id="judul" required value="" />
       <label for="">Description/message notification</label>
       <input type="text" name="message" id="m-notif" required value="" />
       <button type="button" onclick="closeDivNotif()" class="btn btn-danger">Cancel</button>
@@ -391,10 +391,10 @@
      const formNotif = document.getElementById('form-create-notif');
      formNotif.addEventListener('submit', (e) => {
       event.preventDefault(); 
-      const title = document.getElementById("title-notif").value;
+    const titleN = document.getElementById("judul").value;
       const mess = document.getElementById("m-notif").value;
       
-        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+        fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
         .then(res => res.json())
         .then(data => {
   
@@ -403,26 +403,26 @@
   var tanggal = sekarang.getDate();
   var bulan = sekarang.getMonth() + 1;
   var tahun = sekarang.getFullYear();
-  const dates = tanggal + '-' + bulan + '-' + '-' + tahun;
+  const dates = tanggal + '-' + bulan + '-' + tahun;
    const lastID = data.content[data.content.length - 1][0];
    const nextID = lastID + 1;
   // Buat objek FormData
   const formData = new FormData();
   
   formData.append('id', nextID);
-  formData.append('title', title);
+  formData.append('judul', titleN);
   formData.append('message', mess);
   formData.append('date', dates);
   formData.append('display', "y");
   
-        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec', {
           method: "POST",
           body: formData 
         })
         .then(res => res.json())
         .then(data => {
           alert("berhasil menambah notif")
-          location.reload();
+          //location.reload();
         })
         .catch(e => console.error(err.message))
         })

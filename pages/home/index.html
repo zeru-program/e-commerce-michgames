@@ -162,7 +162,12 @@
                     <h1 class="fw-bold text-light fadeIn de2 du4" id="welcomeHomeUser">
                        Let's Order!
                     </h1>
-                    <p class="fadeIn de2 du4">Kami sangat siap melayani mu kapan pun dimana pun! Ayo pesan sekarang!</p>
+                    <p class="fadeIn de2 du4">Kami sangat siap melayani mu kapan pun dimana pun! Ayo pesan sekarang!, Eitsss tetapi jangan lupa login atau buat akun dulu sebelum membeli yaa!</p>
+                  <div class="d-none gap-2" id="div-login-home">
+                  <button class="btn bg-transparent rounded-2 p-2 text-light fw-bold btn-sign" role="button" onclick="window.location.href = '/pages/auth/sign-in/'">Sign-in</button>
+                  <button class="btn bg-transparent rounded-2 p-2 text-light fw-bold btn-sign" role="button" onclick="window.location.href = '/pages/auth/sign-up/'">Sign-up</button>
+                  <!-- HTML !-->
+                  </div>
                 </div>
                 
               <!--   flash shale off -->
@@ -683,7 +688,12 @@ function resetRating() {
 
 
 addEventListener("DOMContentLoaded", () => {
-
+       const divLoginHome = document.getElementById('div-login-home');
+       const getHasLogin = localStorage.getItem('hasLogin');
+       if (!hasLogin) {
+         divLoginHome.classList.remove('d-none')
+         divLoginHome.classList.add('d-flex')
+       }
         const buyProducts = document.querySelectorAll(".box-product");
         buyProducts.forEach(product => {
             product.addEventListener("click", function () {

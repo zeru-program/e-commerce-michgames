@@ -1,5 +1,0 @@
-{
-  "redirects": [
-    { "source": "/(.*)", "destination": "/pages/404.html", "statusCode": 404 }
-  ]
-}

@@ -394,6 +394,18 @@
              const passInputSignUp = document.querySelector('.passwordAsli');
              const alertPwSpecial = document.querySelector('.not-special-pw');
               const submitButtonSignUp = document.querySelector(".btn-login")
+              const urlFb = 'https://michstore-all-default-rtdb.firebaseio.com/';
+              
+        /*      fetch(urlFb + 'account.json')
+              .then(res=>res.json())
+              .then(data=> {
+                for (let key in data) {
+                  var val = data[key]
+                  console.log(val)
+                }
+              })
+              .catch(e => console.error(error.message))
+             */ 
             usernameInputSignUp.addEventListener('input', function() {
             document.getElementById('alreadyUsn').classList.remove('d-flex');
                 document.getElementById('alreadyUsn').classList.add('d-none');
@@ -419,24 +431,37 @@
                    const usernameInput = document.querySelector('.username');
                   const feedbackMessageUsn = document.getElementById('alreadyUsn');
                   const emailInput = document.querySelector('.email');
+                  const nameInput = document.querySelector('.name');
                  const feedbackMessageEml = document.getElementById('alreadyEml');
                  
                  const enteredUsername = usernameInput.value.trim().toLowerCase();
                  const enteredEmail = emailInput.value.trim().toLowerCase();
             
                      // post form
-        const submitURL = 'https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec';
-        fetch(submitURL)
+        fetch(urlFb + "account.json")
             .then(res => res.json())
             .then(data => {
-                const lastID = data.content[data.content.length - 1][0];
-                const nextID = lastID + 1;
-                const formData = new FormData(form);
-                formData.append("id", nextID);
-
-                fetch(submitURL, {
+              let nextIDS = 0;
+              for (let key in data) {
+                nextIDS++;
+                console.log(data)
+              }
+              let nextId = nextIDS + 1;
+             /*   const formData = new FormData(form);
+                formData.append("id", nextID);*/
+                const dataSign = {
+                  id: nextId,
+                  Username: usernameInput.value,
+                  Name: nameInput.value,
+                  Password: passInputSignUp.value,
+                  Email: emailInput.value
+                }
+                fetch(urlFb + "account.json", {
                     method: "POST",
-                    body: formData
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dataSign)
                 })
                     .then(response => {
                         console.log("Success!", response);

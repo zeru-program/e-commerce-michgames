@@ -11,7 +11,7 @@
     const isLoggedIn = localStorage.getItem('hasLogin');
     if (isLoggedIn === 'true') {
         // Pengguna sudah login, alihkan ke halaman home atau halaman lainnya
-       window.location.href = "/pages/home/";
+      window.location.href = "/pages/home/";
     }
   });
   </script>
@@ -241,33 +241,57 @@
   <script src="https://sheetdb.io/handlebars.js"></script>
   <script type="text/javascript" charset="utf-8">
   // checked data
+/*  const has = localStorage.getItem("hasLogin");
+              const ky = localStorage.getItem("key");
+                const nm = localStorage.getItem("name");
+              const usnn = localStorage.getItem("username");
+              const eml = localStorage.getItem("email");
+              const pw = localStorage.getItem("password");
+console.log(has + ', key:' + ky + ", nama:" + nm + ', usn:' + usnn + ', email:' + eml + ", pw:" + pw)*/
+
 const form = document.getElementById("signin-form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    const signInURL = 'https://script.google.com/macros/s/AKfycbyrvfjKgc9XUzXizd7eGypoaWOvaW3VAxz1e3qnEScraBQ6a-Iy8bb_ofRPYdkTVTnp/exec';
+    const signInURL = 'https://michstore-all-default-rtdb.firebaseio.com/';
     
     const usernameOrEmail = form.elements["username-email"].value;
     const password = form.elements["password"].value;
-    fetch(signInURL)
-        .then(res => res.json()) // Mengubah respons menjadi objek JSON
+    fetch(signInURL + 'account.json')
+        .then(res => res.json())
         .then(data => {
-          const passwordSet = document.getElementById('password').value;
-            const users = data.content.slice(1);
-            const foundUser = users.find(user => (user[1] === usernameOrEmail || user[3] === usernameOrEmail) && user[4] === password);
-            if (foundUser) {
+                let keys;
+                let name;
+                let username;
+                let pass;
+                let email;
+          for (let key in data) {
+            var val = data[key];
+                 keys = key;
+                 name = val.Name;
+                 username = val.Username;
+                 pass = val.Password;
+                 email = val.Email;
+          }
+            if (pass === password && (username === usernameOrEmail || email === usernameOrEmail)) {
                 //const [id, username, password, email] = foundUser;
-                const username = foundUser[1];
-                const email = foundUser[3];
+            
                 localStorage.setItem("hasLogin", true);
+                localStorage.setItem("key", keys);
+                localStorage.setItem("name", name);
                 localStorage.setItem("username", username);
                 localStorage.setItem("email", email);
                 localStorage.setItem("password", password);
+            
                 window.location.href = "/pages/home/";
+
             } else {
+            
                 alert('username or password wrong')
                 //document.querySelector(".cek-wrong").style.display = "flex";
               //  document.querySelector(".wrong-popup").style.display = "flex";
             }
+            
+          
         })
         .catch(e => {
             console.error("error", e.message);

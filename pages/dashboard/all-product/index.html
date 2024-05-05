@@ -117,7 +117,10 @@
     color: white;
     font-weight: 800;
   }
-
+  .product-table {
+    scroll-behavior: smooth;
+    transition: all 1s ease;
+  }
   .product-all th:first-child, .product-all td:first-child {
     border-left: 1px solid black;
   }
@@ -130,7 +133,7 @@
 
   if (!isLoggedIn || (username !== 'admin')) {
     // Jika pengguna belum login atau bukan admin, alihkan ke halaman home
-    window.location.href = "/pages/home/";
+   // window.location.href = "/pages/home/";
    }
   });
   
@@ -284,11 +287,28 @@
       </div>
     </div>
 
-    <main class="col-md-9 position-relative ms-sm-auto my-3 col-lg-10 px-md-4">
+    <main class="col-md-9 position-relative ms-sm-auto my-3 col-lg-10 px-md-4" id="main">
       <div class="w-100 py-3 gap-1 d-flex flex-column">
-        <h2>Lorem Ipsum</h2>
+        <h2>Product Management</h2>
         <div id="alertSuccesCreate" class="d-none alert alert-success w-100">
           <label>Product Created!</label>
+        </div>
+        <div class="d-flex flex-column">
+          <p class="m-0">How to use?</p>
+          <ul class="m-0">
+          <li class="text-wrap">
+            <p class="m-0"><b>CREATE</b> : Kamu bisa mengklik button "CREATE" lalu mengisi data-data product yang diperlukan kemudian kirim data tersebut dan tunggu sampai halaman ter refresh. </p>
+          </li>
+          <li class="text-wrap">
+            <p class="m-0"><b>READ</b> : Kamu tinggal menunggu data tersebut tampil saja, atau kamu juga bisa mengklik button "REFRESH DATA" dan tunggu sampai data ter refresh. </p>
+          </li>
+          <li class="text-wrap">
+            <p class="m-0"><b>UPDATE/EDIT</b> : Kamu bisa scroll table sampai ke pojok kanan dan menemukan column action, dan klik saja button "UPDATE" lalu pilih/ubah data (1 baris) yang ingin di ubah, jika sudah klik kembali tombol "SAVE" di column action. </p>
+          </li>
+          <li class="text-wrap">
+            <p class="m-0"><b>DELETE</b> : Kamu bisa scroll table sampai ke pojok kanan dan menemukan column action, dan klik saja button "DELETE" dan data akan terhapus (1 baris). </p>
+          </li>
+          </ul>
         </div>
         <div class="d-flex gap-2">
         <button class="border-0 rounded-2 bg-success py-1 px-3 text-light fw-bold" onclick="openCDiv()">Create</button>
@@ -296,20 +316,22 @@
        </div>
       </div>
       <div class="w-100 m-0 p-0" style="width: 100%; overflow: auto;">
-        <table class="product-all" style="padding-right: 50px;" id="product-table">
+        <table class="product-all" style="padding-right: 50px;table-layout:fixed;width:100%;" id="product-table">
         <thead>
         <tr>
-      <th>id</th>
-      <th>img</th>
-      <th>product name</th>
-      <th>description</th>
-      <th>category game</th>
-      <th>price</th>
-      <th>estimation</th>
-      <th>category product</th>
-      <th>discount</th>
-      <th>display</th>
-      <th>Option</th>
+      <th style="width:50px !important;">id</th>
+      <th style="width:100px !important;">img</th>
+      <th class="overflow-hidden" style="width:100px !important;">url img</th>
+      <th style="width:200px !important;">product name</th>
+      <th style="width:200px !important;">description</th>
+      <th style="width:200px !important;">category game</th>
+      <th style="width:200px !important;">price</th>
+      <th style="width:200px !important;">estimation</th>
+      <th style="width:200px !important;">category product</th>
+      <th style="width:200px !important;">label discount</th>
+      <th style="width:200px !important;">harga setelah discount</th>
+      <th style="width:200px !important;">display</th>
+      <th style="width:150px !important;">Option</th>
     </tr>
         </thead>
       <tbody id="product-table-body">
@@ -330,12 +352,12 @@
     <form class="pb-5" id="form-create-product">
       <div class="mb-3">
         <label class="form-label">Product Name</label>
-        <input type="text" class="form-control border-1 border-primary" id="proname" required>
+        <input type="text" class="form-control border-1 border-primary" id="proname" value="test" required>
         <div class="form-text">Ini akan menjadi nama / title produk mu yang ditampilkan.</div>
       </div>
       <div class="mb-3">
         <label class="form-label">Product Description</label>
-        <input type="text" class="form-control border-1 border-primary" id="prodesc" required>
+        <input type="text" class="form-control border-1 border-primary" value="test" id="prodesc" required>
         <div class="form-text">Ini akan menjadi description produk mu, tidak ditampilkan di produk mu.</div>
       </div>
       <div class="input-group mb-3 border-1 border-primary">
@@ -371,6 +393,7 @@
         <label class="input-group-text">Displaying product in</label>
         <select class="form-select" value="" required id="displaying">
           <option selected hidden>Choose...</option>
+          <option value="none">None (test mode)</option>
           <option value="special-item">special item</option>
           <option value="diamond">diamond</option>
           <option value="pulsa">pulsa (ex:xl,3,axis) (if e-wallet)</option>
@@ -535,77 +558,111 @@
   </div>
 </div>
 
+<div class="w-100 d-flex text-center justify-content-center align-items-center position-fixed" style=" bottom:10px;">
+<button class="bg-info text-center justify-content-center align-items-center border-0 d-flex fw-bold text-light" style="border-radius:50%;width:45px;height:45px;font-size:20px;" onclick="scrollBottom()"> 
+<i class="bi bi-arrow-down"></i>
+</button>
+<button class="bg-info text-center justify-content-center align-items-center border-0 d-flex fw-bold text-light" style="border-radius:50%;width:45px;height:45px;font-size:20px;" onclick="scrollToTop()"> 
+<i class="bi bi-arrow-up"></i>
+</button>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-storage-compat.js"></script>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://sheetdb.io/handlebars.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   <script>
- 
+ // initialize fb via chat realtime
+const firebaseConfig = {
+    databaseURL: "https://michstore-all-default-rtdb.firebaseio.com/"
+}
+firebase.initializeApp(firebaseConfig)
+
+const database = firebase.database();
+//const storage = firebase.storage();
+
+const scrollingElement = (document.scrollingElement || document.body);
+
+const scrollBottom = () => {
+   scrollingElement.scrollTop = scrollingElement.scrollHeight;
+}
+const scrollToTop = () => {
+   document.documentElement.scrollTop -= 1000;
+   // atau
+   //document.body.scrollTop = 0;
+}
+
+/*
+// Require jQuery
+const scrollSmoothToBottom = () => {
+   $(scrollingElement).animate({
+      scrollTop: document.body.scrollHeight,
+   }, 500);
+}
+*/
+
+
+
   
 // do get read the datas and print it
-fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+function getData() {
+fetch('https://michstore-all-default-rtdb.firebaseio.com/product.json')
   .then(res => res.json())
   .then(data => {
     const tableBody = document.getElementById('product-table-body');
-
-    // Mulai dari indeks 1 untuk mengabaikan data pertama
-    data.content.slice(1).forEach(row => {
+      tableBody.innerHTML = ''
+      for (var key in data) {
+        var val = data[key]
        const rowTab = document.createElement('tr');
         rowTab.innerHTML = `
-      <td>${row[10]}</td>
-      <td><img src="${row[0]}" style="width:80px;" /></td>
-      <td>${row[1]}</td>
-      <td>${row[2]}</td>
-      <td>${row[3]}</td>
-      <td>Rp.${row[4]},00</td>
-      <td>${row[5]}</td>
-      <td>${row[6]}</td>
-      <td>${row[7]}%, Rp.${row[8]}</td>
-      <td>${row[9]}</td>
+      <td>${val.id}</td>
+      <td><img src="${val.img_src}" style="width:80px;" /></td>
+      <td class="overflow-hidden" style="width:20px;">${val.img_src}</td>
+      <td>${val.produk_name}</td>
+      <td>${val.description_produk}</td>
+      <td>${val.category_game}</td>
+      <td>Rp.${val.price}</td>
+      <td>${val.estimasi}</td>
+      <td>${val.category_produk}</td>
+      <td>${val.label_discount}</td>
+      <td>Rp.${val.price_discount}</td>
+      <td>${val.display}</td>
      <td class="align-items-center justify-content-center">
-     <button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delProductAll(${row[10]})">Del</button>
-     <button class="bg-warning border-0 rounded-2 py-1 px-2 text-light" onclick="">Upd</button>
+     <button class="bg-warning border-0 rounded-2 py-1 px-2 text-light" onclick="uptProduk('${key}', this)">UPDATE</button>
+     <button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delProductAll('${key}')">DELETE</button>
      </td> 
-            `;
+     `;
         tableBody.appendChild(rowTab);
-      
-    })
+    }
+     const rowTab = document.createElement('tr');
+        rowTab.innerHTML = `
+      <td></td>
+      <td><img src="" style="width:80px;" /></td>
+      <td class="overflow-hidden" style="width:20px;"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+     <td class="align-items-center justify-content-center">
+     </td> `;
+        tableBody.appendChild(rowTab);
   })
   .catch(e => console.error('fail', e.message));
-
+}
+getData()
 function refreshData() {
     const tableBody = document.getElementById('product-table-body');
     tableBody.innerHTML = '';
-// do get read the datas and print it
-fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
-  .then(res => res.json())
-  .then(data => {
-  console.log('dd')
-    // Mulai dari indeks 1 untuk mengabaikan data pertama
-    data.content.slice(1).forEach(row => {
-       const rowTab = document.createElement('tr');
-        rowTab.innerHTML = `
-      <td>${row[10]}</td>
-      <td><img src="${row[0]}" style="width:80px;" /></td>
-      <td>${row[1]}</td>
-      <td>${row[2]}</td>
-      <td>${row[3]}</td>
-      <td>Rp.${row[4]},00</td>
-      <td>${row[5]}</td>
-      <td>${row[6]}</td>
-      <td>${row[7]}%, Rp.${row[8]}</td>
-      <td>${row[9]}</td>
-     <td class="align-items-center justify-content-center">
-     <button class="bg-danger border-0 rounded-2 py-1 px-2 text-light" onclick="delProductAll(${row[10]})">Del</button>
-     <button class="bg-warning border-0 rounded-2 py-1 px-2 text-light" onclick="">Upd</button>
-     </td> 
-            `;
-        tableBody.appendChild(rowTab);
-      
-    })
-  })
-  .catch(e => console.error('fail', e.message));
-
+  getData();
 }
 
 
@@ -633,17 +690,66 @@ function closeCDiv() {
   document.getElementById('divCreate').classList.add('d-none');
 }
 
-function delProductAll(id) {
-  alert('tunggu sampai halaman ter refresh..')
-  fetch('https://sheetdb.io/api/v1/6x1rh9y0pgsvs/id/' + id, {
-    method: 'DELETE',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+// update function
+function uptProduk(uniqueId, elem) {
+    var siblingTd = elem.parentElement.parentElement.getElementsByTagName("td");
+    for (var i = 0; i < siblingTd.length - 1; i++) {
+        siblingTd[i].contentEditable = true;
+        siblingTd[i].classList.add("temp-update-class");
     }
+    elem.setAttribute("onclick", `updateNowProduk('${uniqueId}', this)`);
+    elem.classList.remove("bg-warning");
+    elem.classList.add("bg-info");
+    elem.innerHTML = "SAVE";
+}
+function updateNowProduk(uniqueId, elem) {
+    var contentId = document.querySelectorAll(".temp-update-class");
+    var obj = {
+        id: contentId[0].textContent,
+        img_src: contentId[2].textContent,
+        produk_name: contentId[3].textContent,
+        description_produk: contentId[4].textContent,
+        category_game: contentId[5].textContent,
+        price: contentId[6].textContent,
+        estimasi: contentId[7].textContent,
+        category_produk: contentId[8].textContent,
+        label_discount: contentId[9].textContent,
+        price_discount: contentId[10].textContent,
+        display: contentId[11].textContent
+    };
+    var listRef = database.ref("product/" + uniqueId).update(obj);
+   if (listRef) {
+     alert('data di update')
+     getData()
+    elem.classList.remove("bg-info");
+    elem.classList.add("bg-warning");
+     elem.innerHTML = 'UPDATE'
+      const r = confirm('untuk meng update/melihat kembali silakan refresh halaman (halaman ter refresh ketika anada klik ok')
+     if (r == true) {
+       location.reload();
+     } else {
+       alert('attention to reaload page!')
+       return;
+     }
+   } else {
+     alert('gagal update')
+   }
+}
+
+
+function delProductAll(id) {
+  console.log('hapus?')
+  fetch('https://michstore-all-default-rtdb.firebaseio.com/product/' + id + '.json', {
+    method: 'DELETE'
 })
-  .then((response) => response.json())
-  .then((data) => location.reload())
+  .then((response) => {
+    if (response.ok) {
+      alert('data-dihapus')
+      getData();
+    } else {
+      alert("gagal hapus")
+    }
+  })
 }
 
 function pcategoryManage() {
@@ -679,38 +785,43 @@ form.addEventListener("submit", (event) => {
   const pld = document.getElementById('prolabeldisc').value;
   const disp = document.getElementById('displaying').value;
  
-  fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+  fetch('https://michstore-all-default-rtdb.firebaseio.com/product.json')
   .then(response => response.json())
   .then(data => {
-   const lastID = data.content[data.content.length - 1][10];
-   const nextID = lastID + 1;
+    let dataLength = 0;
+    for (let key in data) {
+      dataLength++;
+    }
+    var nextID = dataLength + 1;
 
+  var datas = {
+  img_src: pi,
+  produk_name: pn,
+  description_produk: pd,
+  category_game: pgc,
+  price: pp + ",00",
+  estimasi: pe,
+  category_produk: pc,
+  label_discount: pld + "%",
+  price_discount: ppd + ",00",
+  display: disp,
+  id: nextID
+  }
 
-  // Buat objek FormData
-  const formData = new FormData();
-
-  // Tambahkan data ke objek FormData dengan nama kolom yang diinginkan
-  formData.append('img_src', pi);
-  formData.append('produk_name', pn);
-  formData.append('description_produk', pd);
-  formData.append('category_game', pgc);
-  formData.append('price', pp + ",00");
-  formData.append('estimasi', pe);
-  formData.append('category_produk', pc);
-  formData.append('label_discount', pld + "%");
-  formData.append('price_discount', ppd + ",00");
-  formData.append('display', disp);
-  formData.append('id', nextID);
-
-  fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec', {
+  fetch('https://michstore-all-default-rtdb.firebaseio.com/product.json', {
     method: 'POST',
-    body: formData // Mengirimkan FormData yang telah dibuat
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(datas)
   })
-  .then((response) => response.json())
-  .then((data) => {
+  .then((response) => {
+    if (response.ok) {
     localStorage.setItem('createSuccessProduct', 'Product Created!');
     location.reload();
-    // Lakukan tindakan setelah data berhasil dikirim
+    } else {
+      alert('gagal buat data')
+    }
   })
   .catch((error) => {
     console.error('Error:', error);

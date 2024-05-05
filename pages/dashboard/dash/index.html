@@ -280,8 +280,7 @@
       <h2 class="mt-3">Welcome Admin!</h2>
       <p class="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, nobis.</p>
       <p class="pb-lg-5">
-        Jika column tidak tampil antara internet anda lemot atau tidak ada data pengguna. Dan jika semua option "Delete" ataupun "√" untuk mengupdate status orderan tidak berfungsi silakan update manual di spreadsheets nya, ini link nya.
-        <a href="https://docs.google.com/spreadsheets/d/1oax4hPgz6Dzha4cgK6yQB8gFGJRNJy5HeXul1lcMFu4/edit#gid=0">Link to spreadsheets list order</a>
+        Jika column tidak tampil antara internet anda lemot atau tidak ada data pengguna. Database sudah migrasi dari API Spreadsheets ke API baru dengan database dari Firebase.
       </p>
       <hr class="my-4">
       
@@ -290,6 +289,7 @@
              <svg class="bi"><use xlink:href="#people"/></svg>
             <label>Account</label>
         </div>
+        <button class="border-0 rounded-2 bg-primary m-2 px-2 py-1 text-light" onclick='openAkunC()'>Create Akun</button>
         <div style="overflow: auto;">
       <table class="custom-table">
         <thead>
@@ -299,6 +299,7 @@
             <th class="text-center">Name</th>
             <th class="text-center">Email</th>
             <th class="text-center">Password</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody id="table-body">
@@ -348,6 +349,7 @@
             <th class="text-center">Message</th>
             <th class="text-center">Date</th>
             <th class="text-center">Display</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody id="notif-tba">
@@ -359,7 +361,7 @@
   
     </main>
     
-      <div class="d-none w-100 py-1 px-3 bg-light m-0 flex-column text-dark position-fixed" style="top: 0; left: 0; z-index: 9999; height: 100vh; " id="divCreateNotif">
+ <div class="d-none w-100 py-1 px-3 bg-light m-0 flex-column text-dark position-fixed" style="top: 0; left: 0; z-index: 9999; height: 100vh; " id="divCreateNotif">
     <div class="w-100 d-flex flex-column overflow-y-scroll" style="height:100%;">
       
     <h1>Lorem</h1>
@@ -374,6 +376,25 @@
   </form>
    </div>
   </div>
+ <div class="d-none w-100 py-1 px-3 bg-light m-0 flex-column text-dark position-fixed" style="top: 0; left: 0; z-index: 9999; height: 100vh; " id="divCreateAcc">
+    <div class="w-100 d-flex flex-column overflow-y-scroll" style="height:100%;">
+      
+    <h1>Lorem</h1>
+  
+    <form class="pb-5 d-flex gap-2 flex-column" id="form-create-acc">
+      <label for="">Username</label>
+      <input type="text" id="usn-acc" required value="for test usn" />
+      <label for="">Name</label>
+      <input type="text" id="name-acc" required value="for test name" />
+      <label for="">Email</label>
+      <input type="text" id="email-acc" required value="for test email" />
+      <label for="">Password</label>
+      <input type="text" id="pw-acc" required value="for test pw" />
+      <button type="button" onclick="closeDivAcc()" class="btn btn-danger">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+   </div>
+  </div>
   </div>
 </div>
 
@@ -382,19 +403,30 @@
 </div>
 
 
-
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-storage-compat.js"></script>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script>
-    <script>
+    <script type="text/javascript">
+// initialize fb via chat realtime
+const firebaseConfig = {
+    databaseURL: "https://michstore-all-default-rtdb.firebaseio.com/"
+}
+firebase.initializeApp(firebaseConfig)
+
+const database = firebase.database();
+//const storage = firebase.storage();
+    
      const formNotif = document.getElementById('form-create-notif');
      formNotif.addEventListener('submit', (e) => {
       event.preventDefault(); 
     const titleN = document.getElementById("judul").value;
       const mess = document.getElementById("m-notif").value;
       
-        fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
+        fetch('https://michstore-all-default-rtdb.firebaseio.com/notification.json')
         .then(res => res.json())
         .then(data => {
   
@@ -404,95 +436,140 @@
   var bulan = sekarang.getMonth() + 1;
   var tahun = sekarang.getFullYear();
   const dates = tanggal + '-' + bulan + '-' + tahun;
-   const lastID = data.content[data.content.length - 1][0];
+  let lastID = 0;
+  for (let key in data) {
+     lastID++;
+  }
    const nextID = lastID + 1;
-  // Buat objek FormData
-  const formData = new FormData();
+  var formData = {
+      id: nextID,
+      judul: titleN,
+      message: mess,
+      date: dates,
+      display: "y"
+  }
   
-  formData.append('id', nextID);
-  formData.append('judul', titleN);
-  formData.append('message', mess);
-  formData.append('date', dates);
-  formData.append('display', "y");
-  
-        fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec', {
+        fetch('https://michstore-all-default-rtdb.firebaseio.com/notification.json', {
           method: "POST",
-          body: formData 
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
         })
-        .then(res => res.json())
-        .then(data => {
-          alert("berhasil menambah notif")
-          //location.reload();
+        .then(res => {
+          if (res.ok) {
+            alert('berhasil menambahkan notifikasi')
+            location.reload()
+          }
         })
         .catch(e => console.error(err.message))
         })
         .catch(e => console.error(err.message))
      })
       
-        fetch('https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec')
+        fetch('https://michstore-all-default-rtdb.firebaseio.com/order.json')
         .then(res => res.json())
         .then(data => {
-          const tables = data.content.slice(1);
           const tableOrderan = document.getElementById('orderan-tba');
           const poText = document.getElementById('proses-orderan');
-          tables.forEach(tab => {
+         database.ref('order').on('value', snapshot => {
+          snapshot.forEach(childSnapshot => {
+      const val = childSnapshot.val();
+      for (let key in data) {
           const appenTd = document.createElement("tr");
           appenTd.innerHTML = `
-                  <td>${tab[0]}</td>
-                  <td>#${tab[1]}</td>
-                  <td>${tab[3]}</td>
-                  <td>${tab[2]}</td>
-                  <td>${tab[4]}</td>
-                  <td>${tab[5]}</td>
-                  <td>${tab[6]}</td>
-                  <td id="proses-orderan">${tab[8]}</td>
-                  <td id=""><button class="bg-success text-light border-0 rounded-2 px-4 py-1" onclick="orderanDone('${tab[1]}')">√</button></td>
+                  <td>${val.no}</td>
+                  <td>${val.id_pesanan}</td>
+                  <td>${val.product}</td>
+                  <td>${val.username}</td>
+                  <td>${val.price_total}</td>
+                  <td>${val.method_payment}</td>
+                  <td>${val.estimasi}</td>
+                  <td>${val.status}</td>
+                  <td id=""><button class="bg-success text-light border-0 rounded-2 px-4 py-1" onclick="orderanDone('${key}')">√</button><button class="bg-danger text-light border-0 rounded-2 px-4 py-1" onclick="deleteOrder('${key}')">DELETE</button></td>
                 `;
             tableOrderan.appendChild(appenTd);
+          }
+          })
           })
         })
         .catch(e => console.error(error.message))
+        function deleteOrder(id) {
+          fetch(`https://michstore-all-default-rtdb.firebaseio.com/order/${id}.json`, {
+            method: "DELETE"
+          })
+          .then(res=> {
+            if (res.ok) {
+              alert("data dihapus")
+              location.reload()
+            } else {
+              alert('gagal mengahapus data')
+              console.log('gagal mengahapus data')
+            }
+          })
+          .catch(e=> console.error(error.message))
+        }
         
-      function orderanDone(idPesanan) {
+ function orderanDone(idPesanan) {
     const updateData = { status: "sukses" }; // Data yang ingin Anda perbarui
-    fetch(`https://sheetdb.io/api/v1/pnufdp38gitzu/id_pesanan/${idPesanan}`, {
-        method: 'PUT',
+    fetch(`https://michstore-all-default-rtdb.firebaseio.com/order/${idPesanan}.json`, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(updateData)
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log("Data berhasil diperbarui:", data);
-        // Lakukan tindakan lanjutan jika diperlukan setelah pembaruan berhasil
-    })
+    .then(response => {
+          if (response.ok) {
+           alert('Berhasil update status');
+       //     location.reload();
+          } else {
+             throw new Error('Gagal menyimpan data.');
+          }
+   })
     .catch(error => console.error("Gagal memperbarui data:", error));
 }
 
 
 
 // notif
-fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
+fetch('https://michstore-all-default-rtdb.firebaseio.com/notification.json')
 .then(res => res.json())
 .then(data => {
-     const notifs = data.content.slice(1);
      const getBodyNotif = document.getElementById("notif-tba");
      
-     notifs.forEach(notif => {
-       
+       for (let key in data) {
+         var val = data[key]
        const appenNotif = document.createElement('tr');
        appenNotif.innerHTML = `
-             <td>${notif[0]}</td>
-             <td>${notif[1]}</td>
-             <td>${notif[2]}</td>
-             <td>${notif[3]}</td>
-             <td>${notif[4]}</td>
+             <td>${val.id}</td>
+             <td>${val.judul}</td>
+             <td>${val.message}</td>
+             <td>${val.date}</td>
+             <td>${val.display}</td>
+        <td><button onclick="editNotif('${key}', this)">EDIT</button><button onclick="deleteNotif('${key}')">DELETE</button></td>
            `;
           getBodyNotif.appendChild(appenNotif)
-     })
+     }
 })
 .catch(e => console.error(error.message))
+
+function deleteNotif(uniq) {
+  fetch(`https://michstore-all-default-rtdb.firebaseio.com/notification/${uniq}.json`, {
+    method: "DELETE"
+  })
+  .then(res => {
+    if (res.ok) {
+      alert("berhasil mengahapus notif")
+      location.reload();
+    } else {
+      alert("gagal mengahapus notif")
+    }
+  })
+  .catch(e => console.error(error.message))
+    //  database.ref('notification/' + uniq).remove()
+}
+
 
 function openNotifC() {
   const div = document.getElementById('divCreateNotif');

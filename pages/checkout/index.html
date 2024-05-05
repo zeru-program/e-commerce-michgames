@@ -481,6 +481,14 @@
         }
         return token;
       }
+        /*fetch('https://michstore-all-default-rtdb.firebaseio.com/' + 'order.json')
+  .then((response) => response.json())
+  .then((data) => {
+  for (let key in data) {
+     var v = data[key]
+     console.log(v)
+  }
+  })*/
 function buyNow() {
     document.querySelector('.btn-beli').textContent = 'Loading..'
   const inputEmail = document.getElementById('email-ipt');
@@ -563,36 +571,41 @@ function buyNow() {
     const dataPembelian = JSON.stringify(dataP);
     
     //
-    const listSheet = 'https://script.google.com/macros/s/AKfycbw_R1cTfsM1bGNmzMt0B7irEUia5Azz8PHAwDIWe3HGQbjYABHGrI-oBQJha3KlJYaHKA/exec';
- fetch(listSheet)
+    const listSheet = 'https://michstore-all-default-rtdb.firebaseio.com/';
+ fetch(listSheet + "order.json")
   .then(response => response.json())
   .then(data => {
-   const lastID = data.content[data.content.length - 1][0];
-   const nextID = lastID + 1;
-
-
-  // Buat objek FormData
-  const formData = new FormData();
-
-  // Tambahkan data ke objek FormData dengan nama kolom yang diinginkan
-  formData.append('no', nextID);
-  formData.append('id_pesanan', idPesanan);
-  formData.append('username', usn);
-  formData.append('product', productName + ' - ' + productBrand);
-  formData.append('price_total', 'Rp. ' + totalNumber);
-  formData.append('method_payment', payMethod);
-  formData.append('estimasi', productEstFix);
-  formData.append('tgl_pesanan', date);
-  formData.append('status', 'proses');
-
-  fetch(listSheet, {
+  let lengthDt = 0;
+  for (let key in data) {
+     lengthDt++;
+  }
+   var nextID = lengthDt + 1;
+   const valData = {
+  no: nextID,
+  id_pesanan: idPesanan,
+  username: usn,
+  product: productName + ' - ' + productBrand,
+  price_total: 'Rp. ' + totalNumber,
+  method_payment: payMethod,
+  estimasi: productEstFix,
+  tgl_pesanan: date,
+  status: 'proses'
+   }
+  fetch(listSheet + 'order.json', {
     method: 'POST',
-    body: formData // Mengirimkan FormData yang telah dibuat
+    headers: {
+         "Content-Type": "application/json"
+    },
+    body: JSON.stringify(valData) 
   })
-  .then((response) => response.json())
-  .then((data) => {
+  .then(response => response.json())
+  .then(data => {
+  for (let key in data) {
+     var v = data[key]
+     console.log(v)
+  }
     // Mengarahkan ke halaman PHP dengan pesan dan token
-    window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + "&id=" + idPesanan + '&payment=' + payMethod;
+ //   window.location.href = phpPageURL + "?message=" + encodeURIComponent(message) + "&token=" + encodeURIComponent(token) + "&id=" + idPesanan + '&payment=' + payMethod;
     // Lakukan tindakan setelah data berhasil dikirim
   })
   .catch((error) => {

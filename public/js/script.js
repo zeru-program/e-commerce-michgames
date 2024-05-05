@@ -47,28 +47,31 @@ const conSpiner = document.querySelector('.con-spiner');
 }
 
 
+urlFb = "https://michstore-all-default-rtdb.firebaseio.com/";
+
 // notif
-fetch('https://script.google.com/macros/s/AKfycby7mnuBV4wX6w4NKr2QkpAjkI-kIbJsqzGrAkLMWk7tUzgEyoDRyj9gvqgtYgLm_9Wqlg/exec')
+fetch(urlFb + 'notification.json')
 .then(res => res.json())
 .then(data => {
-     const notifs = data.content.slice(1);
+  for (let key in data) {
+    var val = data[key];
+   // console.log(val)
+  
      const getBodyNotif = document.getElementById("notif-body");
      
-     notifs.forEach(notif => {
-       
        const appenNotif = document.createElement('div');
        appenNotif.innerHTML = `
            <div class="w-100 py-2 text-light d-flex flex-column rounded-2" style="padding-inline:10px; background:#3B4856;">
-             <h4 class="m-0">${notif[1]}</h4>
-             <p class="m-0">${notif[2]}</p>
-             <p>${notif[3]}</p>
+             <h4 class="m-0">${val.judul}</h4>
+             <p class="m-0">${val.message}</p>
+             <p>${val.date}</p>
            </div>
            `;
-           if (notif[4] === 'y') {
+           if (val.display === 'y') {
           getBodyNotif.appendChild(appenNotif);
            }
-          
-     })
+  }
+       
 })
 .catch(e => console.error(error.message))
 
@@ -220,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const productShow = urlParams.get('showlist');
   
 // do get read the datas and print it
-fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw69ERWCq03ixdhwlETnRdeQmYwjhQTDbpV5jsA/exec')
+fetch(urlFb + 'product.json')
   .then(res => res.json())
   .then(data => {
     spinerPageCheckout();
@@ -234,15 +237,27 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
       const productLoadPay = document.querySelectorAll(".product-load-pay");
       const labelProduct1 = document.getElementById('label-product1');
       const labelProduct2 = document.getElementById('label-product2');
-       data.content.slice(1).forEach(row => {
+      for (let key in data) {
+        var val = data[key];
+        const pImg = val.img_src;
+        const pName = val.produk_name;
+        const pDesk = val.description_produk;
+        const pCgame = val.category_game;
+        const pPrice = val.price;
+        const pEstimasi = val.estimasi;
+        const pCproduk = val.category_produk;
+        const pLdiskon = val.label_discount;
+        const pPdiskon = val.price_discount;
+        const pDisp = val.display;
+        const pId = val.id;
         const divProduct = document.createElement('div');
         divProduct.innerHTML = `
-          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);height:65px!important;" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);height:65px!important;" data-nama-game="${pName}" data-nama-item="" data-harga-item="${pPrice}" data-estimasi-ch="${pEstimasi}" >
                       <div class="d-flex flex-column w-75">
                        <label class="fw-bold title-product-checkout text-light" style="font-size:.69em!important;">
-                         ${row[1]}
+                         ${pName}
                        </label>
-                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${formatNumber(row[4])}</label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${formatNumber(pPrice)}</label>
                       </div>
                       <div class="w-25 d-flex justify-content-center align-items-center">
                         <i class="bi bi-bag" style="color:#319de2;"></i>
@@ -253,12 +268,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
 
         const divProduct1 = document.createElement('div');
         divProduct1.innerHTML = `
-          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${row[1]}" data-nama-item="" data-harga-item="${row[4]}" data-estimasi-ch="${row[5]}" >
+          <div class="p-2 d-flex justify-content-center text-light rounded-2 product-checkout" style="background:rgba(118, 176, 236, 0.25);" data-nama-game="${pName}" data-nama-item="" data-harga-item="${pPrice}" data-estimasi-ch="${pEstimasi}" >
                       <div class="d-flex flex-column w-75">
                        <label class="fw-bold title-product-checkout text-light" style="">
-                         ${row[1]}
+                         ${pName}
                        </label>
-                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${formatNumber(row[4])}</label>
+                        <label class="" style="color:#a6a6a6;font-size:.7em;">Rp ${formatNumber(pPrice)}</label>
                       </div>
                       <div class="w-25 d-flex justify-content-center align-items-center">
                         <i class="bi bi-gem" style="color:#319de2;"></i>
@@ -267,7 +282,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
         `;
 
         const dmDiv = document.getElementById('diamond-div');
-        if (productShow === 'ff' && row[3] === 'FREE FIRE') {
+        if (productShow === 'ff' && val.category_game === 'FREE FIRE') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -277,12 +292,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductFf();
-          if (row[9] === 'diamond') {
+          if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'ml' && row[3] === 'ML') {
+        } else if (productShow === 'ml' && val.category_game === 'ML') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -293,12 +308,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductMl();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'coc' && row[3] === 'COC') {
+        } else if (productShow === 'coc' && val.category_game === 'COC') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -309,12 +324,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductCoc();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'cod' && row[3] === 'COD') {
+        } else if (productShow === 'cod' && val.category_game === 'COD') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -325,12 +340,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductCod();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'fifa' && row[3] === 'FIFA') {
+        } else if (productShow === 'fifa' && val.category_game === 'FIFA') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -341,12 +356,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductFifa();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'pubg' && row[3] === 'PUBG') {
+        } else if (productShow === 'pubg' && val.category_game === 'PUBG') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -357,12 +372,12 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductPubg();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
-        } else if (productShow === 'roblox' && row[3] === 'ROBLOX') {
+        } else if (productShow === 'roblox' && val.category_game === 'ROBLOX') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -373,13 +388,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductRoblox();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'hayday' && row[3] === 'HAYDAY') {
+        else if (productShow === 'hayday' && val.category_game === 'HAYDAY') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -390,13 +405,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductHayday();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'sg' && row[3] === 'STUMBLE GUYS') {
+        else if (productShow === 'sg' && val.category_game === 'STUMBLE GUYS') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -407,13 +422,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductSg();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'honkai' && row[3] === 'HONKAI STAR RAIL') {
+        else if (productShow === 'honkai' && val.category_game === 'HONKAI STAR RAIL') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -424,13 +439,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductHonkai();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'brawlstar' && row[3] === 'BRAWL STAR') {
+        else if (productShow === 'brawlstar' && val.category_game === 'BRAWL STAR') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -441,13 +456,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductBrawlStar();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'valo' && row[3] === 'VALORANT') {
+        else if (productShow === 'valo' && val.category_game === 'VALORANT') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -458,13 +473,13 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductValo();
-            if (row[9] === 'diamond') {
+            if (val.display === 'diamond') {
            diamondBody.appendChild(divProduct1);
-          } else if (row[9] === 'special-item') {
+          } else if (val.display === 'special-item') {
            specialBody.appendChild(divProduct).cloneNode(true);
           } 
         } 
-        else if (productShow === 'xl' && row[3] === 'XL') {
+        else if (productShow === 'xl' && val.category_game === 'XL') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -475,7 +490,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductXl();
-            if (row[9] === 'pulsa') {
+            if (val.display === 'pulsa') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Pulsa';
            labelProduct2.textContent = '';
@@ -483,7 +498,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'three' && row[3] === 'THREE') {
+        else if (productShow === 'three' && val.category_game === 'THREE') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -494,7 +509,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductThree();
-            if (row[9] === 'pulsa') {
+            if (val.display === 'pulsa') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Pulsa';
            labelProduct2.textContent = '';
@@ -502,7 +517,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'axis' && row[3] === 'AXIS') {
+        else if (productShow === 'axis' && val.category_game === 'AXIS') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -513,7 +528,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductAxis();
-            if (row[9] === 'pulsa') {
+            if (val.display === 'pulsa') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Pulsa';
            labelProduct2.textContent = '';
@@ -521,7 +536,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'dana' && row[3] === 'DANA') {
+        else if (productShow === 'dana' && val.category_game === 'DANA') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -532,7 +547,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductDana();
-            if (row[9] === 'wallet') {
+            if (val.display === 'wallet') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Saldo';
            labelProduct2.textContent = '';
@@ -540,7 +555,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'gopay' && row[3] === 'GOPAY') {
+        else if (productShow === 'gopay' && val.category_game === 'GOPAY') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -551,7 +566,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductGopay();
-            if (row[9] === 'wallet') {
+            if (val.display === 'wallet') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Saldo';
            labelProduct2.textContent = '';
@@ -559,7 +574,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'shopeepay' && row[3] === 'SHOPEEPAY') {
+        else if (productShow === 'shopeepay' && val.category_game === 'SHOPEEPAY') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -570,7 +585,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductSpay();
-            if (row[9] === 'pulsa') {
+            if (val.display === 'pulsa') {
            specialBody.appendChild(divProduct);
            labelProduct1.textContent = 'Saldo';
            labelProduct2.textContent = '';
@@ -578,7 +593,7 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
            dmDiv.classList.add('d-none')
           } 
         } 
-        else if (productShow === 'tt' && row[3] === 'TIKTOK') {
+        else if (productShow === 'tt' && val.category_game === 'TIKTOK') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -589,15 +604,15 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductTt();
-            if (row[9] === 'folowers') {
+            if (val.display === 'folowers') {
            diamondBody.appendChild(divProduct);
            labelProduct1.textContent = 'Folowers';
-          } else if (row[9] === 'liker') {
+          } else if (val.display === 'liker') {
            specialBody.appendChild(divProduct).cloneNode(true);
            labelProduct2.textContent = 'Likers';
           } 
         } 
-        else if (productShow === 'ig' && row[3] === 'INSTAGRAM') {
+        else if (productShow === 'ig' && val.category_game === 'INSTAGRAM') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -608,14 +623,14 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductIg();
-            if (row[9] === 'folowers') {
+            if (val.display === 'folowers') {
            diamondBody.appendChild(divProduct);
            labelProduct1.textContent = 'Folowers';
-          } else if (row[9] === 'liker') {
+          } else if (val.display === 'liker') {
            specialBody.appendChild(divProduct).cloneNode(true);
            labelProduct2.textContent = 'Likers';
           } 
-        } else if (productShow === 'yt' && row[3] === 'YOUTUBE') {
+        } else if (productShow === 'yt' && val.category_game === 'YOUTUBE') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -626,14 +641,14 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductYt();
-            if (row[9] === 'folowers') {
+            if (val.display === 'folowers') {
            diamondBody.appendChild(divProduct);
            labelProduct1.textContent = 'Folowers';
-          } else if (row[9] === 'liker') {
+          } else if (val.display === 'liker') {
            specialBody.appendChild(divProduct).cloneNode(true);
            labelProduct2.textContent = 'Likers';
           } 
-        } else if (productShow === 'fb' && row[3] === 'FACEBOOK') {
+        } else if (productShow === 'fb' && val.category_game === 'FACEBOOK') {
            productLoad.forEach(pl => {
           pl.classList.remove("d-flex");
           pl.classList.add("d-none");
@@ -644,10 +659,10 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
           plp.classList.add('d-none');
           })
           showProductFb();
-            if (row[9] === 'folowers') {
+            if (val.display === 'folowers') {
            diamondBody.appendChild(divProduct);
            labelProduct1.textContent = 'Folowers';
-          } else if (row[9] === 'liker') {
+          } else if (val.display === 'liker') {
            specialBody.appendChild(divProduct).cloneNode(true);
            labelProduct2.textContent = 'Likers';
           } 
@@ -657,8 +672,8 @@ fetch('https://script.google.com/macros/s/AKfycbzPDM7G1rRHN7B9tp8ZfiTKUYRUveJiw6
        // localStorage.removeItem('checkout');
       //   window.location.href = "/pages/home/";
         }
-    })
     
+      }
         
 const inputShow = document.querySelector('.input-to-show');
 const inputProductToShow = inputShow.getAttribute('data-inputProduct');

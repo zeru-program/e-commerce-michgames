@@ -55,7 +55,7 @@ p {
     top:0;
     left:0;
   /*  display: none;*/
-    display: flex;
+    display: none;
     opacity: 1;
     justify-content: center;
     align-items: center;
